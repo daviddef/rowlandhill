@@ -1,0 +1,1352 @@
+[
+ {
+  "predecessor": "Manchukuo",
+  "successor": "North Eastern Provinces",
+  "succession_type": "annexation",
+  "succession_date": "1945-08-15",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Manchukuo dissolved with the Japanese surrender; the territory was reincorporated into China and served by the ROC's North Eastern Provinces issues from 1946. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Manchuria",
+  "successor": "Manchukuo",
+  "succession_type": "annexation",
+  "succession_date": "1932-03-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Chinese Manchurian provincial issues superseded by the Manchukuo postal administration. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Two Sicilies",
+  "successor": "Neapolitan Provinces",
+  "succession_type": "regime_change",
+  "succession_date": "1861-02-14",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The Two Sicilies listing largely overlaps the Naples listing; its postal administration was likewise replaced by the Neapolitan Provinces issues. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Neapolitan Provinces",
+  "successor": "Sardinia",
+  "succession_type": "annexation",
+  "succession_date": "1862-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The transitional Neapolitan Provinces series gave way to the Sardinian (soon Italian) issues used kingdom-wide. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Tripoli (Italian Post Office)",
+  "successor": "Tripolitania",
+  "succession_type": "annexation",
+  "succession_date": "1912-10-18",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The Italian PO in Ottoman Tripoli closed when Italy annexed Libya in 1912. Postally the interval 1912-1923 was covered by 'Libia', which is absent from this file, so the link to Tripolitania skips an intermediate entity. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Benghazi (Italian Post Office)",
+  "successor": "Cyrenaica",
+  "succession_type": "annexation",
+  "succession_date": "1912-10-18",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Same reasoning as Tripoli: the Ottoman-era Italian PO ended with the 1912 annexation, but 'Libia' (1912-1923) is the true intermediate and is not listed here. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Middle East Forces (MEF)",
+  "successor": "Somalia (British Military Administration)",
+  "succession_type": "occupation",
+  "succession_date": "1948-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "M.E.F. overprints circulated in ex-Italian territories; Somalia's use is better attributed to East Africa Forces issues, so this link is weak. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Vietnam (French Colony)",
+  "successor": "South Vietnam",
+  "succession_type": "partition",
+  "succession_date": "1955-10-26",
+  "confidence": "low",
+  "contested": false,
+  "notes": "State of Vietnam becomes Republic of Vietnam; postal continuity south of the 17th parallel. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Vietnam (French Colony)",
+  "successor": "North Vietnam",
+  "succession_type": "partition",
+  "succession_date": "1954-07-21",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Geneva partition. DRV postal administration predates 1954 (from 1946) and regarded itself as the sole legal successor, not a partition product; the French-era entity did not hand over to it. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "French Zone (General Issues)",
+  "successor": "Saar (French Zone)",
+  "succession_type": "partition",
+  "succession_date": "1947-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The Saar, part of the French Zone, received its own overprinted issues from January 1947, splitting off from the French Zone general issue. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "St Christopher",
+  "successor": "Leeward Islands",
+  "succession_type": "merger",
+  "succession_date": "1890-10-31",
+  "confidence": "low",
+  "contested": false,
+  "notes": "St Christopher's separate issues ceased in 1890 when the presidency adopted Leeward Islands general issues. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Nevis (British Colonial Issues)",
+  "successor": "Leeward Islands",
+  "succession_type": "merger",
+  "succession_date": "1890-10-31",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Nevis colonial issues ceased in 1890, replaced by Leeward Islands general issues. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "St Christopher",
+  "successor": "St Kitts–Nevis",
+  "succession_type": "merger",
+  "succession_date": "1903-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "St Christopher and Nevis presidencies combined; stamps inscribed St Kitts-Nevis from 1903. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Nevis (British Colonial Issues)",
+  "successor": "St Kitts–Nevis",
+  "succession_type": "merger",
+  "succession_date": "1903-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Nevis merged with St Christopher into the St Kitts-Nevis issuing authority in 1903. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "St Kitts–Nevis",
+  "successor": "St Christopher Nevis and Anguilla",
+  "succession_type": "renamed",
+  "succession_date": "1952-06-14",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Same colony/postal authority; inscription changed to SAINT CHRISTOPHER NEVIS ANGUILLA with the pictorials of 14 June 1952. The file's 1903-1980 range for St Kitts–Nevis overlaps this rename. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "St Christopher Nevis and Anguilla",
+  "successor": "St Kitts",
+  "succession_type": "partition",
+  "succession_date": "1980-06-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "In June 1980 the issuing authority split; separate stamps for St Kitts and for Nevis. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "St Christopher Nevis and Anguilla",
+  "successor": "Nevis",
+  "succession_type": "partition",
+  "succession_date": "1980-06-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Nevis resumed its own issues when the joint authority split in June 1980. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "St Christopher Nevis and Anguilla",
+  "successor": "Anguilla",
+  "succession_type": "partition",
+  "succession_date": "1967-09-27",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Anguilla seceded in 1967 and began its own issues; St Christopher-Nevis-Anguilla stamps continued to name Anguilla until 1980 but were not valid there after 1969. Secession was contested by St Kitts. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Leeward Islands",
+  "successor": "Antigua",
+  "succession_type": "dissolution",
+  "succession_date": "1956-07-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Leeward Islands general issues withdrawn 1956; presidency issues alone thereafter. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Leeward Islands",
+  "successor": "Montserrat",
+  "succession_type": "dissolution",
+  "succession_date": "1956-07-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Leeward Islands federal colony dissolved 1956; Montserrat continued its own issues. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Leeward Islands",
+  "successor": "Virgin Islands",
+  "succession_type": "dissolution",
+  "succession_date": "1956-07-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Leeward Islands general issues withdrawn 1956; Virgin Islands issues alone thereafter. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Leeward Islands",
+  "successor": "St Christopher Nevis and Anguilla",
+  "succession_type": "dissolution",
+  "succession_date": "1956-07-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "One of the presidencies whose own issues survived the 1956 dissolution of the Leeward Islands general issue. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Virgin Islands",
+  "successor": "British Virgin Islands",
+  "succession_type": "renamed",
+  "succession_date": "1968-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Same territory and postal authority; inscription changed to British Virgin Islands in 1968. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Antigua",
+  "successor": "Antigua and Barbuda",
+  "succession_type": "independence",
+  "succession_date": "1981-11-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Colony of Antigua became the independent state of Antigua and Barbuda; inscription changed accordingly. Antigua-inscribed issues continued alongside. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Tobago",
+  "successor": "Trinidad",
+  "succession_type": "annexation",
+  "succession_date": "1896-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Tobago united with Trinidad in 1889; Tobago's last issue appeared 1896, after which Trinidad stamps were used in Tobago. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Trinidad",
+  "successor": "Trinidad and Tobago",
+  "succession_type": "merger",
+  "succession_date": "1913-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The separate Trinidad and Tobago postal administrations were integrated in 1913; first stamps inscribed Trinidad & Tobago issued that year. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Tobago",
+  "successor": "Trinidad and Tobago",
+  "succession_type": "merger",
+  "succession_date": "1913-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Tobago's postal administration was merged into the unified Trinidad and Tobago administration in 1913, though its own stamps had ceased in 1896. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "India",
+  "successor": "Aden (Colony, State of)",
+  "succession_type": "partition",
+  "succession_date": "1937-04-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Aden was administered as part of British India and used Indian stamps until it became a separate Crown Colony with its own postal administration on 1 April 1937. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Aden (Colony, State of)",
+  "successor": "Federation of South Arabia",
+  "succession_type": "merger",
+  "succession_date": "1963-01-18",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Aden Colony became the State of Aden within the Federation of South Arabia in January 1963; Federation stamps replaced Aden issues. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Qu'Aiti State of Shihr and Mukalla",
+  "successor": "Qu'Aiti State in Hadhramaut",
+  "succession_type": "renamed",
+  "succession_date": "1955-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Same sultanate, inscription changed on stamps from 1955. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Federation of South Arabia",
+  "successor": "Southern Yemen",
+  "succession_type": "independence",
+  "succession_date": "1967-11-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "British withdrawal; People's Republic of Southern Yemen proclaimed 30 Nov 1967. First Southern Yemen issues 1968. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Kathiri State of Seiyun",
+  "successor": "Southern Yemen",
+  "succession_type": "merger",
+  "succession_date": "1967-11-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Hadhramaut protectorate state absorbed into the People's Republic of Southern Yemen at independence; sultan deposed. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Qu'Aiti State in Hadhramaut",
+  "successor": "Southern Yemen",
+  "succession_type": "merger",
+  "succession_date": "1967-11-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Absorbed into the People's Republic of Southern Yemen at independence; sultanate abolished. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Mahra Sultanate of Qishn and Socotra",
+  "successor": "Southern Yemen",
+  "succession_type": "merger",
+  "succession_date": "1967-11-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Mahra sultanate abolished and territory incorporated into Southern Yemen; its 1967 stamps were an extremely short-lived issue. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Upper Yafa",
+  "successor": "Southern Yemen",
+  "succession_type": "merger",
+  "succession_date": "1967-11-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Upper Yafa sultanate abolished at independence and incorporated into Southern Yemen. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Southern Yemen",
+  "successor": "Yemen PDR",
+  "succession_type": "renamed",
+  "succession_date": "1970-11-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "People's Republic of Southern Yemen renamed People's Democratic Republic of Yemen; stamp inscriptions changed from 1971. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Yemen (Mutawakelite Kingdom)",
+  "successor": "Yemen Arab Republic",
+  "succession_type": "regime_change",
+  "succession_date": "1962-09-26",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Republican coup overthrew the Imamate. Royalist Mutawakelite issues continued in parallel (largely for collectors) until 1970, so the two overlap; the republic's control was contested during the 1962-70 civil war. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Yemen Arab Republic",
+  "successor": "Yemen Arab Republic (Unified)",
+  "succession_type": "merger",
+  "succession_date": "1990-05-22",
+  "confidence": "low",
+  "contested": false,
+  "notes": "North Yemen merged with the PDRY to form the Republic of Yemen on 22 May 1990. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Yemen PDR",
+  "successor": "Yemen Arab Republic (Unified)",
+  "succession_type": "merger",
+  "succession_date": "1990-05-22",
+  "confidence": "low",
+  "contested": false,
+  "notes": "South Yemen merged with the YAR to form the Republic of Yemen on 22 May 1990. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "British postal agencies in Eastern Arabia",
+  "successor": "Trucial States",
+  "succession_type": "renamed",
+  "succession_date": "1961-01-07",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The British-run agency at Dubai switched from BPA-in-Eastern-Arabia surcharges to stamps inscribed 'Trucial States' on 7 Jan 1961. Same British postal administration, new inscription. Note the BPA also served Qatar/Muscat, which are not in this file. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Trucial States",
+  "successor": "Dubai",
+  "succession_type": "independence",
+  "succession_date": "1963-06-15",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Dubai took over its own postal administration from the British agency and issued its first stamps in 1963; Trucial States stamps were withdrawn from Dubai. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Trucial States",
+  "successor": "United Arab Emirates (UAE)",
+  "succession_type": "merger",
+  "succession_date": "1972-08-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The Trucial States federated as the UAE (2 Dec 1971); a unified UAE postal administration took effect 1 Aug 1972 with UAE stamps from 1 Jan 1973. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Abu Dhabi",
+  "successor": "United Arab Emirates (UAE)",
+  "succession_type": "merger",
+  "succession_date": "1972-08-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Abu Dhabi's postal administration was absorbed into the UAE Post; Abu Dhabi stamps remained valid until 31 Dec 1972. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Dubai",
+  "successor": "United Arab Emirates (UAE)",
+  "succession_type": "merger",
+  "succession_date": "1972-08-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Dubai's separate postal administration merged into the UAE Post in Aug 1972. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Sharjah",
+  "successor": "United Arab Emirates (UAE)",
+  "succession_type": "merger",
+  "succession_date": "1972-08-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Sharjah (and Dependencies) postal administration absorbed into the UAE. Its later 'issues' were largely agency material not on genuine postal sale. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ajman",
+  "successor": "United Arab Emirates (UAE)",
+  "succession_type": "merger",
+  "succession_date": "1972-08-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Ajman (and Manama dependency) absorbed into UAE Post. Much of Ajman's philatelic output was agency material. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Umm Al Qiwain",
+  "successor": "United Arab Emirates (UAE)",
+  "succession_type": "merger",
+  "succession_date": "1972-08-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Umm Al Qaiwain's postal administration absorbed into UAE Post. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Fujeira",
+  "successor": "United Arab Emirates (UAE)",
+  "succession_type": "merger",
+  "succession_date": "1972-08-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Fujairah's postal administration absorbed into UAE Post. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ras Al Khaima",
+  "successor": "United Arab Emirates (UAE)",
+  "succession_type": "merger",
+  "succession_date": "1972-08-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Ras al Khaimah joined the UAE on 10 Feb 1972 and its postal administration was absorbed into UAE Post. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ataman Semyonov Regime",
+  "successor": "Far Eastern Republic",
+  "succession_type": "regime_change",
+  "succession_date": "1920-10-22",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Semyonov fled Chita by air and the FER People's Revolutionary Army occupied the city on 22 Oct 1920; the FER then moved its capital from Verkhneudinsk to Chita, taking over the postal administration of the 'Chita plug'. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Transbaikal Province",
+  "successor": "Far Eastern Republic",
+  "succession_type": "merger",
+  "succession_date": "1920-10-22",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Transbaikalia (the Semyonov-held Chita region) was absorbed into the FER when the NRA took Chita in Oct 1920; FER territory thereafter included the former Transbaikal oblast. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Kolchak Government",
+  "successor": "Denikin Government",
+  "succession_type": "regime_change",
+  "succession_date": "1920-01-04",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Kolchak's 4 Jan 1920 decree transferred the title of Supreme Ruler of Russia to Denikin, making Denikin the nominal successor White authority. This is a succession of claimed all-Russian authority, not of a contiguous postal territory (Siberia fell to the Bolsheviks, not to Denikin), so the philatelic link is weak and disputed. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Cuba and Puerto Rico",
+  "successor": "Puerto Rico",
+  "succession_type": "partition",
+  "succession_date": "1873-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Joint Cuba/Puerto Rico issues ended in 1872; from 1873 Puerto Rico had its own stamps (Cuba likewise, but Cuba is not in this file). [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Elobey, Annobón, and Corisco",
+  "successor": "Spanish Guinea",
+  "succession_type": "merger",
+  "succession_date": "1909-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "In 1909 the colony was absorbed into the Spanish Territories of the Gulf of Guinea; Spanish Guinea stamps replaced its issues. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Fernando Poo",
+  "successor": "Spanish Guinea",
+  "succession_type": "merger",
+  "succession_date": "1909-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Fernando Poo's own issues ceased in 1909 (apart from a 1929 issue) when Spanish Guinea / Spanish Territories of the Gulf of Guinea stamps took over. Fernando Poo issues resumed 1960, so the file's 1868-1968 span conceals this interruption. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Spanish Guinea",
+  "successor": "Fernando Poo",
+  "succession_type": "partition",
+  "succession_date": "1960-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "In 1960 Spanish Guinea was reorganised into the two Spanish provinces of Fernando Poo and Río Muni, each issuing separately. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Spanish Guinea",
+  "successor": "Río Muni",
+  "succession_type": "partition",
+  "succession_date": "1960-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Mainland half of Spanish Guinea; became a separate stamp-issuing province in 1960. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Río de Oro",
+  "successor": "Spanish Sahara",
+  "succession_type": "merger",
+  "succession_date": "1924-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Río de Oro and La Agüera were consolidated into the Spanish Sahara colony, whose issues began in 1924. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "La Agüera",
+  "successor": "Spanish Sahara",
+  "succession_type": "merger",
+  "succession_date": "1924-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Absorbed with Río de Oro into Spanish Sahara in 1924. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Cape Juby",
+  "successor": "Spanish Sahara",
+  "succession_type": "annexation",
+  "succession_date": "1950-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "From 1950 Cape Juby was postally integrated with Spanish Sahara and used its stamps until the 1958 transfer to Morocco; the transfer to Morocco itself has no successor entity in this file. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Spanish West Africa",
+  "successor": "Spanish Sahara",
+  "succession_type": "dissolution",
+  "succession_date": "1951-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Spanish West Africa issues (1949-51) were used concurrently in Spanish Sahara and Ifni; after 1951 the separate territorial issues alone continued. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Spanish West Africa",
+  "successor": "Ifni",
+  "succession_type": "dissolution",
+  "succession_date": "1951-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Same 1951 reversion to separate territorial issues; Ifni's own stamps had continued in parallel since 1941. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Morocco (Spanish Post Offices)",
+  "successor": "Spanish Morocco",
+  "succession_type": "renamed",
+  "succession_date": "1914-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Spanish post offices in Morocco became the postal administration of the Spanish Protectorate (established 1912), issuing as Spanish Morocco from 1914. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Tetuan (Spanish Post Office)",
+  "successor": "Morocco (Spanish Post Offices)",
+  "succession_type": "merger",
+  "succession_date": "1909-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The short-lived Tetuan local overprints were subsumed back into the general Spanish office issues for Morocco. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ottoman Empire issues",
+  "successor": "Republic issues",
+  "succession_type": "regime_change",
+  "succession_date": "1923-10-29",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Abolition of the sultanate/proclamation of the Republic; same postal administration continues under new state. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Angora",
+  "successor": "Republic issues",
+  "succession_type": "regime_change",
+  "succession_date": "1923-10-29",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Ankara nationalist government issues become the Republic's regular issues; ran in parallel with Constantinople 1920-22. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ottoman Empire postal administration",
+  "successor": "Italian Occupation: postal administration",
+  "succession_type": "annexation",
+  "succession_date": "1912-10-18",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Treaty of Ouchy; Italy takes Tripolitania and Cyrenaica. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Italian Occupation: postal administration",
+  "successor": "British Administration: postal administration in Tripolitania and Cyrenaica",
+  "succession_type": "occupation",
+  "succession_date": "1943-01-23",
+  "confidence": "low",
+  "contested": false,
+  "notes": "BMA; Cyrenaica from late 1942, Tripoli Jan 1943. Wartime military administration, not legal succession. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Italian Occupation: postal administration",
+  "successor": "French Administration: postal administration in Fezzan",
+  "succession_type": "occupation",
+  "succession_date": "1943-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Free French forces occupy Fezzan; military administration. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "British Administration: postal administration in Tripolitania and Cyrenaica",
+  "successor": "Cyrenaica Independent Kingdom: postal administration",
+  "succession_type": "independence",
+  "succession_date": "1949-06-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Emirate of Cyrenaica granted self-government under Idris; own issues from 1950. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Cyrenaica Independent Kingdom: postal administration",
+  "successor": "Kingdom of Libya: postal administration",
+  "succession_type": "merger",
+  "succession_date": "1951-12-24",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Cyrenaica federates with Tripolitania and Fezzan into the United Kingdom of Libya. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "British Administration: postal administration in Tripolitania and Cyrenaica",
+  "successor": "Kingdom of Libya: postal administration",
+  "succession_type": "independence",
+  "succession_date": "1951-12-24",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Tripolitania passes from BMA to the independent Kingdom. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "French Administration: postal administration in Fezzan",
+  "successor": "Kingdom of Libya: postal administration",
+  "succession_type": "independence",
+  "succession_date": "1951-12-24",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Fezzan passes from French administration to the independent Kingdom. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Kingdom of Libya: postal administration",
+  "successor": "L.A.R. Libyan Arab Republic",
+  "succession_type": "regime_change",
+  "succession_date": "1969-09-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Gaddafi coup deposes Idris I. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Kingdom of Libya: postal administration",
+  "successor": "General Posts and Telecommunications Company (GPTC)",
+  "succession_type": "regime_change",
+  "succession_date": "1969-09-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Royal postal administration replaced by the republican-era operator that issues under the successive state names. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "L.A.R. Libyan Arab Republic",
+  "successor": "S.P.L.A.J. Socialist People's Libyan Arab Jamahiriya",
+  "succession_type": "renamed",
+  "succession_date": "1977-03-02",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Declaration of the Jamahiriya at Sebha; same polity, new inscription. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "S.P.L.A.J. Socialist People's Libyan Arab Jamahiriya",
+  "successor": "G.S.P.L.A.J. The Great Socialist People's Libyan Arab Jamahiriya",
+  "succession_type": "renamed",
+  "succession_date": "1986-04-15",
+  "confidence": "low",
+  "contested": false,
+  "notes": "'Great' added to the state name after the 1986 US air raid; philatelic inscriptions change from 1988. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Alaouites",
+  "successor": "Latakia",
+  "succession_type": "renamed",
+  "succession_date": "1930-09-22",
+  "confidence": "low",
+  "contested": false,
+  "notes": "French-mandate State of the Alaouites renamed Sandjak of Latakia; same territory and administration. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Latakia",
+  "successor": "Syria",
+  "succession_type": "merger",
+  "succession_date": "1936-12-05",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Latakia incorporated into the Syrian Republic; separate issues cease 1937. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Alexandretta",
+  "successor": "Hatay",
+  "succession_type": "renamed",
+  "succession_date": "1938-09-02",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Sanjak of Alexandretta proclaimed the autonomous Republic of Hatay. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Hatay",
+  "successor": "Turkey",
+  "succession_type": "annexation",
+  "succession_date": "1939-06-29",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Hatay votes to join Turkey; Syria has never recognised the annexation and still claims the territory. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ottoman Post Offices",
+  "successor": "Palestine (British Mandate)",
+  "succession_type": "occupation",
+  "succession_date": "1918-02-10",
+  "confidence": "low",
+  "contested": false,
+  "notes": "EEF military occupation issues replace Ottoman posts; British administration continues under the Mandate from 1920. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Thrace (Allied Occupation)",
+  "successor": "Western Thrace (Greek Occupation)",
+  "succession_type": "occupation",
+  "succession_date": "1920-05-14",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Inter-Allied (French) administration of Western Thrace handed to Greece; confirmed at Sevres. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Thrace (Allied Occupation)",
+  "successor": "Eastern Thrace",
+  "succession_type": "occupation",
+  "succession_date": "1920-07-25",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Greek forces take Eastern Thrace from the Allied/Ottoman administration. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Eastern Thrace",
+  "successor": "Turkey",
+  "succession_type": "restored",
+  "succession_date": "1922-10-11",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Armistice of Mudanya returns Eastern Thrace to Turkish administration; confirmed at Lausanne 1923. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Adrianople (Edirne)",
+  "successor": "Turkey",
+  "succession_type": "restored",
+  "succession_date": "1922-10-11",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Greek occupation of Edirne ends with Mudanya; city returns to Turkey. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Cretan Revolutionary Assembly",
+  "successor": "Crete",
+  "succession_type": "restored",
+  "succession_date": "1905-11-02",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Therisos revolt issues; the Cretan State administration is restored after the revolt is settled. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Granadine Confederation",
+  "successor": "New Granada",
+  "succession_type": "renamed",
+  "succession_date": "1861-09-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Constitutional change of 1861 renamed the Granadine Confederation the United States of New Granada; the September 1861 issue is inscribed 'Estados Unidos de Nueva Granada'. Same polity, same postal authority, new name. Successor state (United States of Colombia, from 1862) is not present in this file, so the chain terminates at New Granada. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "LANSA",
+  "successor": "AVIANCA",
+  "succession_type": "merger",
+  "succession_date": "",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Between 1950-51 Colombian domestic airmail was split between two carriers, each identified by overprint ('L' for LANSA, 'A' for AVIANCA). LANSA became an Avianca subsidiary by end of 1951 and the dual-overprint system ended; unoverprinted Colombian airmail stamps resumed. Full corporate integration was not completed until 1954, so no precise postal transition date is asserted. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ethiopia",
+  "successor": "Etiopia (Italian occupation)",
+  "succession_type": "occupation",
+  "succession_date": "1936-05-09",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Italian forces entered Addis Ababa 5 May 1936; annexation proclaimed 9 May 1936 and Ethiopia absorbed into Italian East Africa. The 1936 'Etiopia' overprints on Italian stamps were a military/colonial postal administration, not a legal successor — the annexation was never recognised by most of the international community and Haile Selassie's government continued in exile. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Etiopia (Italian occupation)",
+  "successor": "Ethiopia",
+  "succession_type": "restored",
+  "succession_date": "1941-05-05",
+  "confidence": "low",
+  "contested": false,
+  "notes": "British and Ethiopian forces liberated Addis Ababa; Haile Selassie restored 5 May 1941. Ethiopian postal administration resumed (initially alongside British military administration issues, which are not entities in this file). [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Congo Free State",
+  "successor": "Belgian Congo",
+  "succession_type": "annexation",
+  "succession_date": "1908-11-15",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Leopold II's personal state annexed by Belgium 15 Nov 1908; first Belgian Congo stamps 1909. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Belgian Congo",
+  "successor": "Zaire",
+  "succession_type": "independence",
+  "succession_date": "1960-06-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Belgian Congo became the independent Republic of the Congo (Leopoldville/Kinshasa) on 30 June 1960 — the entity listed as \"Zaire\" [1960-1971] in this file. Note the file contains two entities both named exactly \"Zaire\"; this edge targets the 1960-1971 one. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Belgian Congo",
+  "successor": "Katanga",
+  "succession_type": "partition",
+  "succession_date": "1960-07-11",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Katanga seceded 11 July 1960, days after Congolese independence, and ran its own postal administration. Secession was never internationally recognised; Congo (Leopoldville) regarded the territory as its own throughout. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Belgian Congo",
+  "successor": "South Kasai",
+  "succession_type": "partition",
+  "succession_date": "1960-08-08",
+  "confidence": "low",
+  "contested": true,
+  "notes": "South Kasai (Bakwanga) declared autonomy Aug 1960; its own stamps appeared 1961. Unrecognised; claimed by the central Congolese state. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Katanga",
+  "successor": "Zaire",
+  "succession_type": "annexation",
+  "succession_date": "1963-01-15",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Katangan secession collapsed Jan 1963; territory and postal service reintegrated into the Congo (Leopoldville) — the \"Zaire\" [1960-1971] entity. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "South Kasai",
+  "successor": "Zaire",
+  "succession_type": "annexation",
+  "succession_date": "1962-10-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "South Kasai crushed and reabsorbed by the central Congolese government in late 1962; successor is the \"Zaire\" [1960-1971] entity. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Zaire",
+  "successor": "Zaire",
+  "succession_type": "renamed",
+  "succession_date": "1971-10-27",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Congo (Kinshasa) renamed Republic of Zaire on 27 Oct 1971 — same polity and postal administration, new name. NOTE: the group file lists both periods under the identical string \"Zaire\" ([1960-1971] and [1971-present]), so predecessor and successor names are textually identical; they are distinct entities in the file. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ruanda – Urundi",
+  "successor": "Rwanda",
+  "succession_type": "independence",
+  "succession_date": "1962-07-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Belgian trust territory partitioned at independence 1 July 1962; Rwanda is one of two successors. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ruanda – Urundi",
+  "successor": "Burundi",
+  "succession_type": "independence",
+  "succession_date": "1962-07-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Belgian trust territory partitioned at independence 1 July 1962; Burundi is the other successor. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Srpska Krajina (Croatia)",
+  "successor": "Croatia",
+  "succession_type": "annexation",
+  "succession_date": "1995-08-07",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Self-proclaimed Republic of Serbian Krajina overrun by Operation Storm, Aug 1995; Croatian post resumed. Never internationally recognised; Serb authorities disputed Croatian sovereignty throughout. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Srpska Krajina (Croatia)",
+  "successor": "Sremsko Baranjska Oblast (Croatia)",
+  "succession_type": "partition",
+  "succession_date": "1995-08-07",
+  "confidence": "low",
+  "contested": true,
+  "notes": "After Storm, only the eastern sector (Eastern Slavonia/Baranja/Western Syrmia) remained under Serb administration and continued issuing separately under UNTAES. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Sremsko Baranjska Oblast (Croatia)",
+  "successor": "Croatia",
+  "succession_type": "annexation",
+  "succession_date": "1998-01-15",
+  "confidence": "low",
+  "contested": false,
+  "notes": "UNTAES-administered Eastern Slavonia peacefully reintegrated into Croatia 15 Jan 1998; local issues ceased 1997 and Croatian Post took over. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Cyprus",
+  "successor": "Northern Cyprus",
+  "succession_type": "partition",
+  "succession_date": "1974-07-20",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Turkish intervention July 1974 split the island; separate Turkish Cypriot postal issues from 1974/75, TRNC declared 1983. Recognised only by Turkey; the Republic of Cyprus claims the whole island and treats northern issues as invalid. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Guanacaste",
+  "successor": "Costa Rica",
+  "succession_type": "dissolution",
+  "succession_date": "1889-12-31",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Guanacaste was a Costa Rican province using overprinted issues 1885-89; the separate provincial issuing arrangement ended and ordinary Costa Rica stamps resumed. Administrative, not a change of sovereignty. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Galapagos Islands",
+  "successor": "Ecuador",
+  "succession_type": "dissolution",
+  "succession_date": "1959-12-31",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Short-lived separate Galapagos (Archipielago de Colon) issues 1957-59 ceased; the islands reverted to ordinary Ecuadorian stamps. Always Ecuadorian territory — no sovereignty change. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Gilbert and Ellice Islands",
+  "successor": "Gilbert Islands",
+  "succession_type": "partition",
+  "succession_date": "1976-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Colony separated 1 Oct 1975; separate Gilbert Islands stamps from 1976. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Gilbert and Ellice Islands",
+  "successor": "Tuvalu",
+  "succession_type": "partition",
+  "succession_date": "1976-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Ellice Islands separated as Tuvalu 1 Oct 1975; own postal administration from Jan 1976. Independent 1978. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Gilbert Islands",
+  "successor": "Kiribati",
+  "succession_type": "independence",
+  "succession_date": "1979-07-12",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Independence as Kiribati; effectively also a rename of the same postal authority. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Samos",
+  "successor": "Greece",
+  "succession_type": "annexation",
+  "succession_date": "1915-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Autonomous principality; union with Greece 1913, Samos issues ceased 1915 when Greek stamps took over. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Ikaria",
+  "successor": "Greece",
+  "succession_type": "annexation",
+  "succession_date": "1913-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Short-lived Free State of Ikaria 1912; formally annexed to Greece, Greek stamps thereafter. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Lemnos",
+  "successor": "Greece",
+  "succession_type": "annexation",
+  "succession_date": "1913-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Greek Balkan-War occupation overprints; island ceded to Greece by Treaty of London/Lausanne and Greek stamps followed. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Lesbos",
+  "successor": "Greece",
+  "succession_type": "annexation",
+  "succession_date": "1913-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Greek occupation overprints 1912–13, then permanent Greek sovereignty and Greek stamps. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Khios",
+  "successor": "Greece",
+  "succession_type": "annexation",
+  "succession_date": "1913-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Greek occupation overprints 1913; Chios remained Greek, Greek stamps thereafter. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Kavalla (Greek Occupation)",
+  "successor": "Greece",
+  "succession_type": "annexation",
+  "succession_date": "1913-08-10",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Kavala awarded to Greece by Treaty of Bucharest 1913; occupation overprints replaced by ordinary Greek stamps. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Dodecanese Islands (Greek Occupation)",
+  "successor": "Greece",
+  "succession_type": "annexation",
+  "succession_date": "1947-03-31",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Greek military administration 1947 issues; formal union with Greece 1947–48, Greek stamps thereafter. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Epirus",
+  "successor": "Greece",
+  "succession_type": "annexation",
+  "succession_date": "1916-01-01",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Autonomous Republic of Northern Epirus issues ended with Greek occupation 1916, but the territory was ultimately assigned to Albania (not an entity in this file). Succession genuinely disputed. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Hong Kong (British colony)",
+  "successor": "Hong Kong, China",
+  "succession_type": "renamed",
+  "succession_date": "1997-07-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Transfer of sovereignty to the PRC; the postal administration continued unbroken as Hongkong Post under the new name. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Chamba",
+  "successor": "Postage stamps and postal history of India",
+  "succession_type": "merger",
+  "succession_date": "1948-08-15",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Convention state merged into India; convention overprints withdrawn, Indian stamps valid (final validity 1 Jan 1951). [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Gwalior",
+  "successor": "Postage stamps and postal history of India",
+  "succession_type": "merger",
+  "succession_date": "1948-05-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Acceded to India and absorbed into Madhya Bharat; convention overprints discontinued 1948-50. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Nabha",
+  "successor": "Postage stamps and postal history of India",
+  "succession_type": "merger",
+  "succession_date": "1948-04-20",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Merged into PEPSU 1948; convention state issues ceased. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Patiala",
+  "successor": "Postage stamps and postal history of India",
+  "succession_type": "merger",
+  "succession_date": "1948-04-20",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Merged into PEPSU 1948; convention state issues ceased. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "West Irian",
+  "successor": "Indonesia",
+  "succession_type": "annexation",
+  "succession_date": "1969-11-19",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Indonesian administration from 1963; Act of Free Choice 1969, separate West Irian issues ceased 1970 in favour of Indonesian stamps. Legitimacy of the 1969 act is disputed. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Riau–Lingga Archipelago",
+  "successor": "Indonesia",
+  "succession_type": "merger",
+  "succession_date": "1965-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Separate Riau-currency overprints for the archipelago ended when the special currency zone was abolished and ordinary Indonesian stamps came into use. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Great Britain (Regional Issues)",
+  "successor": "Isle of Man",
+  "succession_type": "independence",
+  "succession_date": "1973-07-05",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The Isle of Man Post Office Authority took over the postal assets and functions of the British Post Office on 5 July 1973; from that day only Manx stamps were valid on the island. Prior to that the island was served by GB regional issues (from 18 Aug 1958). GB (Regional Issues) continues for Scotland/Wales/N. Ireland, so this is a partial, territorial succession. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Great Britain (Regional Issues)",
+  "successor": "Guernsey",
+  "succession_type": "independence",
+  "succession_date": "1969-10-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The States of Guernsey Post Office Board took over postal administration of the Bailiwick from the GB Post Office on 1 Oct 1969, ending the GB regional issues used there from 1958. Note the 'Guernsey' entity as listed begins in 1941 with the German occupation issues, so it overlaps its own predecessor; this edge models the 1969 transfer of postal authority only. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Great Britain (Regional Issues)",
+  "successor": "Jersey",
+  "succession_type": "independence",
+  "succession_date": "1969-10-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Jersey's postal administration passed from the GB Post Office to the States of Jersey on 1 Oct 1969, ending the GB regional issues used there from 1958. As with Guernsey, the listed entity period (from 1941) overlaps the regional period; the edge models the 1969 transfer only. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "League of Nations (Geneva)",
+  "successor": "United Nations (UN)",
+  "succession_type": "dissolution",
+  "succession_date": "1946-04-18",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The League dissolved itself on 18 April 1946, transferring its assets and the Palais des Nations to the UN. Philatelically the Swiss PTT's 'Societe des Nations' official issues gave way to United Nations (Geneva) officials. Not a clean 1:1 legal succession - several League organs passed to different bodies - but the postal establishment at Geneva passed directly to the UN. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Postage of the International Education Office",
+  "successor": "UNESCO",
+  "succession_type": "merger",
+  "succession_date": "1969-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The International Bureau of Education (Geneva), founded 1926, became an institute of UNESCO in 1969, and its Swiss official stamp series ended with the merger. The listed date ranges (IEO ending 1960, UNESCO beginning 1961) reflect catalogue listing periods rather than the institutional merger date; I used the merger date and flag the discrepancy. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "King Edward VII Land",
+  "successor": "Ross Dependency",
+  "succession_type": "annexation",
+  "succession_date": "1923-07-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The 1908 King Edward VII Land overprints were a one-off expedition post office (Shackleton's Nimrod) using New Zealand stamps. The territory was incorporated into the Ross Dependency by the Order in Council of 30 July 1923; NZ-administered Ross Dependency stamps followed in 1957. Low confidence: territorial/administrative continuity under the same NZ postal authority rather than a true succession - the expedition office simply closed, with a 45-year gap. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Victoria Land",
+  "successor": "Ross Dependency",
+  "succession_type": "annexation",
+  "succession_date": "1923-07-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "As with King Edward VII Land: the 1911-12 Victoria Land overprints were an expedition post office (Scott's Terra Nova) using New Zealand stamps, in territory later constituted as the Ross Dependency (1923). Same low-confidence caveat - geographic and authority continuity, not a postal succession per se. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Oil Rivers Protectorate",
+  "successor": "Niger Coast Protectorate",
+  "succession_type": "renamed",
+  "succession_date": "1893-05-12",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Same protectorate administration renamed Niger Coast Protectorate in May 1893; stamps continue directly. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Niger Coast Protectorate",
+  "successor": "Southern Nigeria",
+  "succession_type": "renamed",
+  "succession_date": "1900-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Niger Coast Protectorate became the Protectorate of Southern Nigeria on 1 Jan 1900 (absorbing Royal Niger Company southern territories). NCP stamps remained in use/issue until 1902, overlapping the first Southern Nigeria issues of 1901. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Lagos",
+  "successor": "Southern Nigeria",
+  "succession_type": "merger",
+  "succession_date": "1906-02-16",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Colony of Lagos amalgamated with the Protectorate of Southern Nigeria to form the Colony and Protectorate of Southern Nigeria; Lagos postal administration absorbed. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Muscat",
+  "successor": "Muscat and Oman",
+  "succession_type": "renamed",
+  "succession_date": "1966-04-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Not a direct hand-over: the 1944-48 'Muscat' issues were Indian-administration overprints; the British Postal Agency ran the service 1 Apr 1948 - 29 Apr 1966 (that intervening entity is not in this file). The Sultanate assumed postal control on 30 Apr 1966. Same territory, but an 18-year gap under a third administration. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Muscat and Oman",
+  "successor": "Oman",
+  "succession_type": "renamed",
+  "succession_date": "1971-01-16",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Sultanate renamed Oman after the 1970 accession of Qaboos; first stamps inscribed Sultanate of Oman issued 16 Jan 1971. Same postal authority. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Orange Free State",
+  "successor": "Orange River Colony",
+  "succession_type": "annexation",
+  "succession_date": "1900-05-24",
+  "confidence": "low",
+  "contested": false,
+  "notes": "British annexation during the Second Boer War; OFS stamps overprinted V.R.I. Boer government contested the annexation and fought on until 1902. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Bahawalpur",
+  "successor": "Pakistan",
+  "succession_type": "merger",
+  "succession_date": "1949-10-10",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Princely state acceded to Pakistan 7 Oct 1947; own issues ended with the Oct 1949 UPU commemoratives, after which Pakistani stamps were required on all outgoing mail. Bahawalpur stamps stayed valid internally to 1953; state merged into West Pakistan 1955. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "US post in the Trust Territory of the Pacific Islands",
+  "successor": "Palau",
+  "succession_type": "independence",
+  "succession_date": "1983-03-10",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Palau Postal Service took over from the US postal operation in the Trust Territory and began its own issues 10 Mar 1983; full independence came 1994. The Marshall Islands and Micronesia are co-successors of the same TTPI postal operation but are not in this file. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "British New Guinea",
+  "successor": "Papua",
+  "succession_type": "renamed",
+  "succession_date": "1906-09-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Papua Act 1905 transferred the territory to Australia as the Territory of Papua; BNG stamps overprinted PAPUA in 1906. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "New Britain",
+  "successor": "North West Pacific Islands",
+  "succession_type": "renamed",
+  "succession_date": "1915-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Both are the Australian military occupation postal administration of former German New Guinea; the New Britain G.R.I. overprints were superseded by the broader North West Pacific Islands issues. German New Guinea (the occupied predecessor) is not in this file. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "North West Pacific Islands",
+  "successor": "New Guinea (Australian Administration)",
+  "succession_type": "renamed",
+  "succession_date": "1925-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Australian military occupation administration gave way to the civil administration of the League of Nations mandated Territory of New Guinea, which began its own issues in 1925. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Papua",
+  "successor": "Papua New Guinea",
+  "succession_type": "merger",
+  "succession_date": "1952-10-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Papuan issues ceased with the 1942 Japanese invasion; postally reunited with New Guinea under the joint Territory of Papua and New Guinea, first joint stamps 30 Oct 1952. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "New Guinea (Australian Administration)",
+  "successor": "Papua New Guinea",
+  "succession_type": "merger",
+  "succession_date": "1952-10-30",
+  "confidence": "low",
+  "contested": false,
+  "notes": "New Guinea issues ceased in 1942; territory merged with Papua into the joint administration whose first stamps appeared 30 Oct 1952. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Shensi–Kansu–Ninghsia",
+  "successor": "North West China (People's Post)",
+  "succession_type": "merger",
+  "succession_date": "1949-01-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "The Shaan-Gan-Ning border region post was the core of the communist administration that was reorganised into the Northwest China Liberation Area People's Post covering Shaanxi, Gansu, Ningxia, Qinghai and Xinjiang. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Poland (Russian Province)",
+  "successor": "Russia (pre-Soviet)",
+  "succession_type": "annexation",
+  "succession_date": "1865-04-01",
+  "confidence": "low",
+  "contested": false,
+  "notes": "Congress Poland's own stamp (issued 1 Jan 1860) was withdrawn from use on 1 April 1865 following the January Uprising of 1863; Russian imperial stamps were mandatory from that day, absorbing the Kingdom into the Russian postal system. The file's period [1860-1863] understates actual usage, which ran to April 1865. No direct edge to 'Poland' [1918-] is asserted: 53 years of Russian imperial administration intervene. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Central Lithuania (Polish Occupation)",
+  "successor": "Poland",
+  "succession_type": "annexation",
+  "succession_date": "1922-03-24",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Republic of Central Lithuania (Zeligowski's mutiny) parliament voted for union with Poland 20 Feb 1922; Poland accepted the annexation 24 Mar 1922 and Polish stamps replaced the Srodkowa Litwa issues. Contested: the elections were boycotted by most Lithuanian and Jewish voters and never recognised internationally; Lithuania regarded the Vilnius seizure as illegal and the two states remained in an undeclared state of war until 1938. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Upper Silesia",
+  "successor": "Poland",
+  "succession_type": "partition",
+  "succession_date": "1922-06-20",
+  "confidence": "low",
+  "contested": true,
+  "notes": "The March 1921 plebiscite led to the League of Nations partition of Upper Silesia; the eastern industrial zone passed to Poland with the Polish takeover beginning 20 June 1922, ending the plebiscite postal administration. Many-to-many: the larger western portion went to Germany, but no German entity appears in this file so that half of the partition is not emitted. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "East Silesia",
+  "successor": "Poland",
+  "succession_type": "partition",
+  "succession_date": "1920-07-28",
+  "confidence": "low",
+  "contested": true,
+  "notes": "Cieszyn/Teschen Silesia: the plebiscite was never actually held; the Conference of Ambassadors divided the territory 28 July 1920. Many-to-many: the larger share went to Czechoslovakia, which is not in this file, so only the Polish half is emitted. Poland disputed the award (Zaolzie) through 1938. [UNVERIFIED: authored, skeptic did not run]"
+ },
+ {
+  "predecessor": "Polish Government in Exile",
+  "successor": "Poland",
+  "succession_type": "regime_change",
+  "succession_date": "1945-07-05",
+  "confidence": "low",
+  "contested": true,
+  "notes": "The exile government's stamps (used chiefly by the Polish merchant marine and forces abroad) ceased when the Western Allies withdrew recognition on 5 July 1945 in favour of the Provisional Government of National Unity in Warsaw. Contested: the exile government continued to exist in London until 1990 and disputed the Warsaw government's legitimacy, regarding itself as the continuator of the Second Republic. [UNVERIFIED: authored, skeptic did not run]"
+ }
+]

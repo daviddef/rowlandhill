@@ -358,27 +358,50 @@ $$ LANGUAGE sql STABLE;
 -- `countries` + `country_succession` graph; the seeded data in 005 is issuer-level
 -- (issuers rarely map 1:1 to a modern country — the whole point of the succession
 -- problem), so this is the one the API actually calls.
+--
+-- DIRECTION-CONSISTENT walk. This is not a naïve bidirectional flood, and the reason
+-- matters: general colonial issues ("French Colonies") are modelled as a predecessor of
+-- every colony that later printed its own stamps. That makes "French Colonies" a HUB. A
+-- walk that steps up to the hub and then back down would return every French colony as a
+-- "relative" of every other — searching Cochin-China would surface Gabon, Chad and the
+-- Congo, which is wrong. Verified against the seeded data: the bidirectional form returned
+-- 31 mostly-unrelated entities for Cochin-China.
+--
+-- Instead: walk ancestors by only ever stepping to predecessors, and descendants by only
+-- ever stepping to successors. You never switch direction, so you never fan out to siblings
+-- through a shared parent. Ancestors get negative depth, descendants positive.
 CREATE OR REPLACE FUNCTION get_issuer_lineage_by_issuer(p_issuer_id INT)
 RETURNS TABLE(issuer_id INT, name TEXT, depth INT) AS $$
-WITH RECURSIVE lineage AS (
-  SELECT i.id AS issuer_id, 0 AS depth, ARRAY[i.id] AS visited
-  FROM issuers i
-  WHERE i.id = p_issuer_id
-
+WITH RECURSIVE
+ancestors AS (
+  SELECT p_issuer_id AS issuer_id, 0 AS depth, ARRAY[p_issuer_id] AS visited
   UNION ALL
-
-  SELECT nxt.iid, l.depth + nxt.step, l.visited || nxt.iid
-  FROM lineage l
-  JOIN (
-    SELECT successor_id   AS from_iid, predecessor_id AS iid, -1 AS step FROM issuer_succession
-    UNION ALL
-    SELECT predecessor_id AS from_iid, successor_id   AS iid,  1 AS step FROM issuer_succession
-  ) nxt ON nxt.from_iid = l.issuer_id
-  WHERE NOT nxt.iid = ANY(l.visited)
-    AND abs(l.depth) < 20
+  SELECT s.predecessor_id, a.depth - 1, a.visited || s.predecessor_id
+  FROM ancestors a
+  JOIN issuer_succession s ON s.successor_id = a.issuer_id
+  WHERE NOT s.predecessor_id = ANY(a.visited) AND a.depth > -20
+),
+descendants AS (
+  SELECT p_issuer_id AS issuer_id, 0 AS depth, ARRAY[p_issuer_id] AS visited
+  UNION ALL
+  SELECT s.successor_id, d.depth + 1, d.visited || s.successor_id
+  FROM descendants d
+  JOIN issuer_succession s ON s.predecessor_id = d.issuer_id
+  WHERE NOT s.successor_id = ANY(d.visited) AND d.depth < 20
+),
+merged AS (
+  SELECT issuer_id, depth FROM ancestors
+  UNION ALL
+  SELECT issuer_id, depth FROM descendants
 )
-SELECT DISTINCT l.issuer_id, i.name, l.depth
-FROM lineage l JOIN issuers i ON i.id = l.issuer_id;
+-- One row per issuer, at the depth closest to the origin (an entity reachable by several
+-- paths — a merger of two predecessors, say — should report its shortest hop).
+SELECT m.issuer_id, i.name, m.depth
+FROM (
+  SELECT issuer_id, (array_agg(depth ORDER BY abs(depth)))[1] AS depth
+  FROM merged GROUP BY issuer_id
+) m
+JOIN issuers i ON i.id = m.issuer_id;
 $$ LANGUAGE sql STABLE;
 
 -- =============================================================================
