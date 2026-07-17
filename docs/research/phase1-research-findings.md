@@ -74,7 +74,12 @@ Building a world-class iOS stamp identification and catalogue app is **technical
 ### Open Datasets
 
 - **Wikimedia Commons** — Large organized public domain stamp image collection, categorized by country. Wikimedia's stamp public domain policy well-documented.
-- **Wikidata SPARQL** — Structured philatelic metadata (country, year, topic, catalogue numbers) accessible via free SPARQL API. Can retrieve catalogue cross-references programmatically.
+- ~~**Wikidata SPARQL**~~ — 🚨 **REFUTED by direct measurement, July 2026.** The live endpoint
+  returns **12,753** postage-stamp items, of which **12,550** are a single Chinese museum
+  import; only **78** carry an image and **35** an issue date, and **no catalogue
+  cross-reference property is in use at all**. The claim below — "structured philatelic
+  metadata … can retrieve catalogue cross-references programmatically" — is false in every
+  particular. See `CLAUDE.md` for the reproducing query.
 - **Kaggle Postage Stamp Dataset** — Open-access ML training dataset with labelled stamp images; useful for bootstrapping CoreML model training.
 - **ResearchGate: "Deep learning for philately understanding"** — Academic paper covering stamp type classification and feature extraction from images.
 

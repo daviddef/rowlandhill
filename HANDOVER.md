@@ -97,7 +97,7 @@ rowland-ios/
 13. Deploy PostgreSQL, run schema migrations
 14. Deploy Elasticsearch, apply mappings
 15. Deploy Node.js/Fastify API (base URL: `https://api.rowlandhill.app/v1`)
-16. Seed database with Wikidata SPARQL (free, immediate, ~100K stamps)
+16. ~~Seed database with Wikidata SPARQL (free, immediate, ~100K stamps)~~ — ❌ **refuted July 2026.** Wikidata holds ~12.7K stamp items with 78 images and 35 issue dates: a Chinese museum import, not a catalogue. See CLAUDE.md.
 17. Deploy Qdrant for vector embeddings
 
 ---

@@ -248,7 +248,11 @@ These are locked. Research is done. Implement these.
 15. **PostgreSQL schema** — run `docs/schema/001_core_schema.sql` and `004_succession_schema.sql`
 16. **Elasticsearch** — apply `docs/schema/002_elasticsearch_mappings.json`
 17. **Crawler** — Python/Node.js workers per `docs/crawler/architecture.md`
-18. **Seed database** — start with Wikidata SPARQL + Wikimedia Commons (free, immediate)
+18. **Seed database** — 🚨 **the planned seed does not exist.** Wikidata was measured at
+   12.7K items / 78 images (see the Data Sources warning above), not the documented ~100K.
+   Getting past 1M records is a **licensing and acquisition problem, not a scraping script** —
+   which is another reason the Scott/catalogue-rights question gates this work. Sourcing
+   research is underway; see `docs/research/corpus-sourcing.md` when it lands.
 
 ---
 
@@ -373,10 +377,38 @@ is what ships, so decide which is right rather than assuming this doc is.
 
 ## Data Sources & Legal (summary)
 
+> 🚨 **The Wikidata row below is false. Measured directly against the live SPARQL endpoint,
+> July 2026:**
+>
+> | Query | Result |
+> |---|---|
+> | items where `P31/P279* = Q37930` (postage stamp) | **12,753** — not "100K+" |
+> | of those, carrying `China movable cultural relic ID` | **12,550** |
+> | carrying an image (`P18`) | **78** |
+> | carrying an issue date (`P571`) | **35** |
+> | carrying a face value | **21** |
+> | carrying any catalogue cross-reference | **none — no such property in use** |
+>
+> Wikidata is **not a stamp catalogue**. It is one Chinese museum's artefact inventory,
+> bulk-imported, plus a long tail. It cannot seed anything: 78 images and 35 dates is not a
+> corpus. **The "free, immediate, ~100K stamps" seeding plan does not exist.**
+>
+> Reproduce with:
+> ```bash
+> curl -sG https://query.wikidata.org/sparql \
+>   --data-urlencode 'query=SELECT (COUNT(DISTINCT ?i) AS ?n) WHERE { ?i wdt:P31/wdt:P279* wd:Q37930 }' \
+>   -H 'Accept: application/sparql-results+json' -H 'User-Agent: Rowland/0.1 (contact)'
+> ```
+>
+> **Treat every number in the Phase 1 docs as unverified until checked.** Three have now
+> failed: the competitor landscape missed an entire category, `stampscan.app` was invented as
+> "our" domain while belonging to a live competitor, and this. The 5–15M target and Colnect's
+> 1.6M are from the same source and are **not yet independently confirmed**.
+
 | Source | Status | What it gives |
 |--------|--------|---------------|
-| Wikidata SPARQL | ✅ Free, use now | 100K+ stamp records, catalogue cross-refs |
-| Wikimedia Commons | ✅ Free, use now | Public domain stamp images |
+| ~~Wikidata SPARQL~~ | ❌ **Refuted** | 12.7K items, 78 images, 35 dates — a museum inventory, not a catalogue |
+| Wikimedia Commons | ⚠️ Unverified | Public domain stamp images — count and metadata structure never checked |
 | Colnect CAPI | 🔑 Needs licence | 1.6M stamps, all fields |
 | Stamp-Store API | 🔑 Needs contact | 37 catalogue systems cross-referenced |
 | UPU WNS | 🤝 Partner approach | 120K official stamps |
