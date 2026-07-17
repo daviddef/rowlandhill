@@ -30,6 +30,8 @@ struct CatalogueView: View {
                     Spacer()
                     ProgressView().tint(.stampGold)
                     Spacer()
+                } else if let errorMessage = viewModel.errorMessage, viewModel.stamps.isEmpty {
+                    SearchErrorView(message: errorMessage) { viewModel.retry() }
                 } else if viewModel.stamps.isEmpty && !viewModel.query.isEmpty {
                     EmptyResultsView(query: viewModel.query)
                 } else {
@@ -177,6 +179,28 @@ private struct ActiveFilterChips: View {
     }
 }
 
+private struct SearchErrorView: View {
+    let message: String
+    let onRetry: () -> Void
+
+    var body: some View {
+        VStack(spacing: 16) {
+            Spacer()
+            Image(systemName: "wifi.exclamationmark")
+                .font(.system(size: 44)).foregroundColor(.orange)
+            Text("Couldn't load the catalogue")
+                .font(.headline).foregroundColor(.text)
+            Text(message)
+                .font(.subheadline).foregroundColor(.stampMuted)
+                .multilineTextAlignment(.center)
+            Button("Try Again", action: onRetry)
+                .font(.headline).foregroundColor(.stampGold)
+            Spacer()
+        }
+        .padding(32)
+    }
+}
+
 private struct EmptyResultsView: View {
     let query: String
 
@@ -267,6 +291,7 @@ final class CatalogueViewModel: ObservableObject {
     @Published var query: String = ""
     @Published var isLoading = false
     @Published var hasMore = false
+    @Published var errorMessage: String? = nil
     @Published var showFilters = false
 
     // Filter state
@@ -324,6 +349,11 @@ final class CatalogueViewModel: ObservableObject {
         searchTask = Task { await performSearch(page: currentPage) }
     }
 
+    func retry() {
+        errorMessage = nil
+        searchTask = Task { await performSearch(page: currentPage) }
+    }
+
     func loadFeatured() {
         // Load featured/trending stamps for empty state
         searchTask = Task { await performSearch(page: 1) }
@@ -331,30 +361,41 @@ final class CatalogueViewModel: ObservableObject {
 
     private func performSearch(page: Int) async {
         isLoading = true
+        errorMessage = nil
         defer { isLoading = false }
 
-        // If catalogue number is specified, do a direct catalogue lookup
-        if !filterCatalogueNumber.isEmpty {
-            if let stamp = try? await api.fetchStampByCatalogue(catalogue: filterCatalogue, number: filterCatalogueNumber) {
+        do {
+            // If catalogue number is specified, do a direct catalogue lookup
+            if !filterCatalogueNumber.isEmpty {
+                let stamp = try await api.fetchStampByCatalogue(
+                    catalogue: filterCatalogue,
+                    number: filterCatalogueNumber
+                )
                 stamps = [stamp]
                 hasMore = false
+                return
             }
-            return
-        }
 
-        let q = [query, filterCountry, filterTopic].filter { !$0.isEmpty }.joined(separator: " ")
+            let q = [query, filterCountry, filterTopic].filter { !$0.isEmpty }.joined(separator: " ")
 
-        if let response = try? await api.search(
-            query: q.isEmpty ? "*" : q,
-            country: filterCountry.isEmpty ? nil : filterCountry,
-            yearFrom: filterYearFrom,
-            yearTo: filterYearTo,
-            topic: filterTopic.isEmpty ? nil : filterTopic,
-            page: page
-        ) {
+            let response = try await api.search(
+                query: q.isEmpty ? "*" : q,
+                country: filterCountry.isEmpty ? nil : filterCountry,
+                yearFrom: filterYearFrom,
+                yearTo: filterYearTo,
+                topic: filterTopic.isEmpty ? nil : filterTopic,
+                page: page
+            )
             if page == 1 { stamps = response.stamps }
             else { stamps.append(contentsOf: response.stamps) }
             hasMore = page < response.totalPages
+        } catch is CancellationError {
+            // Superseded by a newer query — not a failure worth showing.
+        } catch {
+            // A swallowed error is indistinguishable from "no results", which is how a
+            // failed request used to render as an empty grid forever. Say what happened.
+            errorMessage = error.localizedDescription
+            hasMore = false
         }
     }
 }

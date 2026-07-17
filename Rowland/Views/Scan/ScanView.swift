@@ -253,11 +253,14 @@ private struct DataScannerRepresentable: UIViewControllerRepresentable {
     @ObservedObject var viewModel: ScanViewModel
 
     func makeUIViewController(context: Context) -> DataScannerViewController {
+        // `.text()` rather than an empty set: DataScannerViewController requires at least one
+        // recognised data type to start, and we only want the camera and capturePhoto().
+        // Highlighting and guidance are off so the recognition is invisible to the user.
         let scanner = DataScannerViewController(
-            recognizedDataTypes: [],   // No text/barcode recognition — image only
+            recognizedDataTypes: [.text()],
             qualityLevel: .balanced,
             recognizesMultipleItems: false,
-            isGuidanceEnabled: true,
+            isGuidanceEnabled: false,
             isHighlightingEnabled: false
         )
         scanner.delegate = context.coordinator
@@ -265,16 +268,32 @@ private struct DataScannerRepresentable: UIViewControllerRepresentable {
         return scanner
     }
 
-    func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {
+        // startScanning() only works once the controller is in the hierarchy, which is why
+        // this lives here rather than in the view model: at the moment the state flips to
+        // .scanning, this controller does not exist yet.
+        guard !context.coordinator.hasStarted else { return }
+        context.coordinator.hasStarted = true
+        do {
+            try uiViewController.startScanning()
+        } catch {
+            let viewModel = self.viewModel
+            Task { @MainActor in viewModel.reportScannerFailure(error) }
+        }
+    }
 
     func makeCoordinator() -> Coordinator { Coordinator(viewModel: viewModel) }
 
     class Coordinator: NSObject, DataScannerViewControllerDelegate {
         let viewModel: ScanViewModel
+        var hasStarted = false
         init(viewModel: ScanViewModel) { self.viewModel = viewModel }
 
-        func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
-            // TODO: Handle tapped items if using text recognition for catalogue lookup
+        func dataScanner(
+            _ dataScanner: DataScannerViewController,
+            becameUnavailableWithError error: DataScannerViewController.ScanningUnavailable
+        ) {
+            Task { @MainActor in viewModel.reportScannerFailure(error) }
         }
     }
 }
@@ -383,20 +402,35 @@ final class ScanViewModel: ObservableObject {
     }
 
     func startScanning() {
-        state = .scanning
-        Task {
-            try? scannerController?.startScanning()
+        // DataScannerViewController needs a real camera and a supported device; it is
+        // unavailable on the simulator. Failing loudly beats a viewfinder that never fills.
+        guard DataScannerViewController.isSupported else {
+            state = .error("This device doesn't support live scanning. Use Choose Photos to scan from your library instead.")
+            return
         }
+        guard DataScannerViewController.isAvailable else {
+            state = .error("The camera isn't available. Check that Rowland has camera access in Settings, or use Choose Photos instead.")
+            return
+        }
+        state = .scanning
     }
 
+    /// Grab the current camera frame and identify everything on it.
     func captureCurrentFrame() {
-        guard case .scanning = state else { return }
-        scannerController?.stopScanning()
+        guard case .scanning = state, let scanner = scannerController else { return }
 
-        // Capture the current camera frame
-        // TODO: Add UIImagePickerController or AVCaptureSession frame grab
-        // For now, transition to processing state
-        state = .processing
+        Task {
+            do {
+                let photo = try await scanner.capturePhoto()
+                scanner.stopScanning()
+                // Routed through page mode so the camera can photograph a whole album
+                // page, not just one stamp. A close-up simply resolves to one detection.
+                identifyPages([photo])
+            } catch {
+                scanner.stopScanning()
+                state = .error("Couldn't capture the photo: \(error.localizedDescription)")
+            }
+        }
     }
 
     func identifyImage(_ image: UIImage) async {
@@ -466,6 +500,10 @@ final class ScanViewModel: ObservableObject {
                 state = .pageResults(pages)
             }
         }
+    }
+
+    func reportScannerFailure(_ error: Error) {
+        state = .error("The scanner couldn't start: \(error.localizedDescription)\n\nYou can still scan from your photo library.")
     }
 
     func cancelBatch() {
