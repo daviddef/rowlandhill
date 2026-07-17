@@ -408,7 +408,7 @@ is what ships, so decide which is right rather than assuming this doc is.
 | Source | Status | What it gives |
 |--------|--------|---------------|
 | ~~Wikidata SPARQL~~ | ❌ **Refuted** | 12.7K items, 78 images, 35 dates — a museum inventory, not a catalogue |
-| Wikimedia Commons | ⚠️ Unverified | Public domain stamp images — count and metadata structure never checked |
+| Wikimedia Commons | ⚠️ Images only | ~50K+ stamp images (lower bound, measured). **No structured records** — but 5× the planned training set. See `docs/research/corpus-measurements.md` |
 | Colnect CAPI | 🔑 Needs licence | 1.6M stamps, all fields |
 | Stamp-Store API | 🔑 Needs contact | 37 catalogue systems cross-referenced |
 | UPU WNS | 🤝 Partner approach | 120K official stamps |
