@@ -8,6 +8,14 @@
 
 **StampScan** is an iOS app that identifies postage stamps from a phone photo using AI, then shows details, valuations, and lets users manage their collection. The ambition is to build the world's largest proprietary philatelic database — larger and more accurate than Colnect (currently 1.6M items).
 
+> ⚠️ **Read `docs/research/competitors-2026.md` before acting on any competitive or
+> monetisation claim in this file.** The Phase 1 research missed the AI stamp identifier
+> category. **PhilSnap** (September 2025, 4.7★, $39.99/year) already ships photo ID +
+> valuations + collection management. AI photo identification is **table stakes, not a moat**.
+> Our actual differentiation is the database, StampID cross-referencing, and trustworthy
+> condition-aware valuations — none of which exist yet. The pricing, hard-paywall, and
+> product name decisions below all predate this and need revisiting.
+
 **Owner:** David (david.defranceski@gmail.com)  
 **Research phase:** Complete. All architectural decisions are made. Implementation starts now.
 

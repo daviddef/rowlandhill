@@ -124,6 +124,12 @@ Building a world-class iOS stamp identification and catalogue app is **technical
 
 ## 4. Competitive Landscape
 
+> ⚠️ **SUPERSEDED — see `competitors-2026.md`.** This section misses the entire category of
+> AI stamp identifier apps launched 2024–2026, including the current category leader
+> **PhilSnap** (Next Vision Limited, September 2025, 4.7★ / ~1,900 ratings, $39.99/year —
+> the same annual price we planned). The "fragmented / feels like 2005" framing below is
+> **false as of July 2026** and should not be used to justify product decisions.
+
 ### Existing Apps & Their Gaps
 
 | Product | Platform | AI ID | Collection Mgmt | Valuations | Gaps |
