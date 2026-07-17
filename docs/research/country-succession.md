@@ -14,8 +14,11 @@
 | …of which dead (have a last-issue date) | **879** |
 | Philatelic clusters (Wikipedia groupings) | 321 |
 | **Cluster aliases** (search: "Rhodesia" → lineage) | **1,021** |
-| **Vernacular aliases** (CCCP, Helvetia, Nippon…) | **46** |
-| **Succession edges** (hand-authored) | **44** |
+| **Vernacular aliases** (CCCP, Helvetia, Nippon…) | **42** |
+| **Succession edges** | **262** (44 curated + 218 researched & verified) |
+
+The 218 researched edges came from a fan-out of 29 historian agents (one per empire/region),
+each followed by an adversarial skeptic. See "The colonial-empire fan-out" below.
 
 Regenerate end-to-end:
 
@@ -158,14 +161,45 @@ Recorded because each would have silently poisoned the dataset, and because they
 
 ---
 
+## The colonial-empire fan-out (how the graph got from 44 → 262)
+
+The 148 clusters with no edges — 1,053 uncovered entities — were split into 29 thematic groups
+(French empire, British Asia, Indian states, the German/Italian states, Japan-China, the Gulf,
+etc.) and each handed to a **historian agent** that authored succession edges, followed by a
+**skeptic** whose default is to distrust. Two filters, then a third:
+
+1. **Author** — proposes edges, using exact entity names from the group's file.
+2. **Verify** — the skeptic keeps / fixes / drops each edge. It dropped 7 with substantive
+   reasons: occupations mislabelled as succession (Tripoli→Tripolitania), wrong direction
+   (Vietnam French Colony→North Vietnam), a hand-over that skips the real intermediate
+   (Manchuria→Manchukuo).
+3. **Mechanical name-check** (`merge_edges.py`) — every endpoint re-validated character-for-
+   character against the inventory. **0 of 218 rejected** — the exact-names instruction held.
+
+**218 edges survived, 42 of them flagged `contested`** (many-to-many or genuinely disputed),
+which is the model working: Chinese Republic → both PRC (regime_change) and Nationalist China
+(partition); the Baltic states as occupation-not-succession.
+
+### The hub over-connection bug (found by testing, not review)
+
+General colonial issues ("French Colonies") are modelled as a predecessor of every colony that
+later printed its own stamps — so that node is a HUB with dozens of children. The first
+lineage query walked *up* to the hub and back *down*, returning **31 entities for Cochin-China
+including Gabon, Chad and the Congo** — every French colony as a false sibling of every other.
+Fixed by walking direction-consistently (ancestors-only up, descendants-only down, never
+switching). Cochin-China now returns a clean 10-entity Vietnam/Indochina line. See the header
+comment on `get_issuer_lineage_by_issuer` in `004`.
+
 ## Gaps — read before trusting this
 
-- 🚨 **The succession graph is ~5% complete.** 44 edges against **879 dead entities**. The
-  authored lineages are USSR (15 successors), Rhodesia, Germany, Yugoslavia, Czechoslovakia,
-  Ceylon→Sri Lanka, Serbia. **Everything else — the French, British, Portuguese, Spanish, Dutch,
-  Belgian and Italian colonial transitions, the Indian Native States, the German and Italian
-  states, the Gulf states — has no edges yet.** The *inventory* covers them; the *graph* does
-  not.
+- **150 more edges are authored but unverified** — the 19 groups whose skeptic hit the session
+  limit (Spain/Portugal, Caribbean, the Gulf, the Levant, and most of the misc-* groups). They
+  are held in `docs/data/unverified_edges.json`, **not loaded**, pending a verification pass.
+  A re-verification is running.
+- **Coverage is now partial-good, not ~5%.** 262 edges span the USSR, the German/Yugoslav/
+  Czech/Rhodesian lineages, and the French, British-Asia, Indian-states, Italian, Japan-China
+  and German-states/colonies transitions. Still thin: the Portuguese, Spanish, Dutch and
+  Belgian empires, and the Gulf states, are in the unverified batch or untouched.
 - **Cluster aliases partially cover the gap.** Search works for anything Wikipedia grouped
   together even without an edge. It fails wherever Wikipedia split a lineage across clusters,
   as with USSR/Russia — and we do not yet know how many other such splits exist.

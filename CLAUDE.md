@@ -279,12 +279,20 @@ foreign key** — every query MUST filter `entity_type`, or country ids silently
 issuer ids.
 
 **Seeded and verified (17 July 2026):** 1,181 issuing entities (879 dead), 1,063 aliases,
-44 succession edges — `docs/schema/005_succession_seed.sql`, built from Wikipedia's
-"List of entities that have issued postage stamps". Searching "Rhodesia" returns the full
-1890–present lineage; USSR walks to all 15 successors. **The graph is only ~5% complete** —
-44 edges against 879 dead entities; the colonial empires have none yet. See
+**262 succession edges** (44 curated + 218 authored by a 29-agent fan-out and passed through an
+adversarial skeptic) — `docs/schema/005_succession_seed.sql`. Searching "Rhodesia" returns the
+full 1890–present lineage; USSR walks to all 15 successors; Cochin-China walks the
+Indochina→Vietnam line. **Coverage is partial:** the USSR, German, Yugoslav, Czech, Rhodesian,
+French, British-Asia, Indian-states, Italian and Japan-China lineages are wired; the
+Portuguese, Spanish, Dutch, Belgian empires and the Gulf states are in a held, unverified batch
+(`docs/data/unverified_edges.json`, not loaded). See `docs/research/country-succession.md`.
+
+⚠️ **Use `get_issuer_lineage_by_issuer(id)`, not the old bidirectional flood.** It walks
+ancestors-up and descendants-down separately so it does not fan out to siblings through a shared
+colonial hub (see that function's header comment in `004`).
+⚠️ The Elasticsearch `synonym_filter` in `002_elasticsearch_mappings.json` **contradicts** this
+graph (six hardcoded lines, one making USSR==Russia). Do not rely on it for succession; see
 `docs/research/country-succession.md`.
-The Elasticsearch `synonym_filter` in `002_elasticsearch_mappings.json` handles real-time search.
 
 **On iOS:** When the user types "Rhodesia" in the search bar, the API handles the translation. No iOS-side special casing needed.
 
