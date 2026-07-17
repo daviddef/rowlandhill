@@ -2,7 +2,8 @@
 **Date:** 17 July 2026
 **Artefacts:** `docs/schema/005_succession_seed.sql` · `docs/data/philatelic-entities.json`
 · `scripts/parse_entities.py` · `scripts/gen_seed.py`
-**Status:** inventory substantially complete; **succession graph ~5% complete** (see Gaps).
+**Status:** inventory complete (1,181 entities); **succession graph 406 edges, all verified**,
+covering 448 issuers — good on the major empires, thin on the grab-bag remainder (see Gaps).
 
 ---
 
