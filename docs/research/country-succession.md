@@ -183,12 +183,33 @@ Recorded because each would have silently poisoned the dataset, and because they
   the corpus hangs on — see `corpus-sourcing.md` for why the corpus itself is an acquisition
   problem.
 
+## ⚠️ The Elasticsearch synonym filter contradicts the succession graph
+
+`002_elasticsearch_mappings.json` carries **six hardcoded synonym lines** — against the 1,063
+aliases now in `search_aliases`. It is a second, unsynchronised mechanism doing the same job,
+and one line is philatelically wrong:
+
+```
+ussr,soviet union,russia,cccp        <-- makes USSR and Russia the same issuer
+```
+
+`CLAUDE.md` says this filter "handles real-time search" for succession. It cannot. A synonym is
+a symmetric, undated, unqualified equality: it asserts a 1995 Russian issue and a 1970 Soviet
+issue are the same thing, and gives a collector no way to ask for one and not the other. The
+succession graph exists precisely to express what a synonym cannot — **direction, dates, type,
+and contested-ness**.
+
+**Recommendation:** resolve aliases at query time against `search_aliases` / the succession
+graph and filter by `issuer_id`; keep ES synonyms for genuine spelling variants only
+(`Espana`/`España`, `Osterreich`/`Österreich`). Do not regenerate the synonym list from the
+alias table — that would encode 1,063 false equalities instead of six.
+
+---
+
 ## Next
 
-1. Author the colonial-empire edges (French, British, Portuguese, Spanish, Dutch, Belgian,
-   Italian, German) — the largest clusters and the biggest remaining gap.
+1. ~~Author the colonial-empire edges~~ — in progress; see the research fan-out results.
 2. Cross-check against StampWorldHistory, which publishes an explicit "line of succession"
    field per entity.
-3. Add a `issuer_periods` table so multi-period entities stop lying about their gaps.
-4. Wire `search_aliases` into the Elasticsearch synonym filter in
-   `002_elasticsearch_mappings.json`.
+3. Add an `issuer_periods` table so multi-period entities stop lying about their gaps.
+4. Fix the ES synonym filter per the recommendation above.

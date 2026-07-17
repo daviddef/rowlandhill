@@ -157,6 +157,31 @@ VERNACULAR = [
     ("Rhodesia", "Zimbabwe", "former_name"),
 ]
 
+def load_researched_edges(path="researched_edges.json"):
+    """Merge in succession edges produced by the research workflow.
+
+    Each was proposed by a historian agent and then survived a skeptical fact-checker.
+    The hand-curated EDGES above remain the trusted core and win on conflict.
+    """
+    import os
+    if not os.path.exists(path):
+        return []
+    data = json.load(open(path))
+    out = []
+    for e in data:
+        note = (e.get("notes") or "").strip()
+        tags = []
+        if e.get("contested"):
+            tags.append("CONTESTED")
+        if e.get("confidence") and e["confidence"] != "high":
+            tags.append(f"confidence={e['confidence']}")
+        if tags:
+            note = (note + " " if note else "") + "[" + "; ".join(tags) + "]"
+        out.append((e["predecessor"], e["successor"], e["succession_type"],
+                    e.get("succession_date") or None, note or None))
+    return out
+
+
 def main():
     groups = json.load(open("entities.json"))
 
@@ -259,7 +284,17 @@ def main():
     w("INSERT INTO issuer_succession (predecessor_id, successor_id, succession_type, succession_date, notes)")
     er = []
     missing_edge = []
-    for pred, succ, stype, date, note in EDGES:
+    seen_edges = set()
+    all_edges = list(EDGES)
+    researched = load_researched_edges()
+    for edge in researched:
+        key = (edge[0], edge[1], edge[2])
+        if key not in {(e[0], e[1], e[2]) for e in EDGES}:
+            all_edges.append(edge)
+    for pred, succ, stype, date, note in all_edges:
+        if (pred, succ, stype) in seen_edges:
+            continue
+        seen_edges.add((pred, succ, stype))
         if pred not in issuers or succ not in issuers:
             missing_edge.append((pred, succ, pred not in issuers, succ not in issuers))
             continue
@@ -277,7 +312,7 @@ def main():
     print(f"issuers:            {len(issuers)}")
     print(f"cluster aliases:    {len(alias_rows)}")
     print(f"vernacular aliases: {len(vr)}  (skipped {len(missing_alias)} missing, {dupes} already covered by a cluster alias)")
-    print(f"succession edges:   {len(er)}  (skipped {len(missing_edge)})")
+    print(f"succession edges:   {len(er)}  (curated {len(EDGES)}, researched {len(researched)}, skipped {len(missing_edge)})")
     if missing_alias:
         print("\n  aliases skipped — no matching issuer:")
         for a, t in missing_alias:
