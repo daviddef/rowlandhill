@@ -3,7 +3,7 @@ import SwiftUI
 // MARK: - Stamp Detail View
 //
 // Full detail screen for a single stamp.
-// Accessible from: ScanResultView, CatalogueView, CollectionView, deep links (stampscan.app/s/SID-...)
+// Accessible from: ScanResultView, CatalogueView, CollectionView, deep links (rowlandhill.app/s/SID-...)
 
 struct StampDetailView: View {
     let stamp: Stamp
@@ -76,7 +76,7 @@ struct StampDetailView: View {
         }
         .sheet(isPresented: $showShareSheet) {
             ShareSheet(items: [
-                "Check out this stamp on StampScan: https://stampscan.app/s/\(stamp.stampID)"
+                "Check out this stamp on Rowland: https://rowlandhill.app/s/\(stamp.stampID)"
             ])
         }
     }
@@ -241,7 +241,7 @@ private struct ValuationSection: View {
                 HStack(spacing: 12) {
                     Image(systemName: "lock.fill").foregroundColor(.stampGold)
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Unlock with StampScan Pro")
+                        Text("Unlock with Rowland Pro")
                             .font(.subheadline).fontWeight(.medium)
                         Text("$4.99/month · Cancel anytime")
                             .font(.caption).foregroundColor(.stampMuted)

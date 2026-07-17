@@ -1,4 +1,4 @@
-# StampScan Crawler Architecture
+# Rowland Crawler Architecture
 **Version:** 1.0.0  
 **Stack:** Node.js + Python | AWS Fargate + SQS | Playwright + Scrapy
 
@@ -6,7 +6,7 @@
 
 ## Overview
 
-The StampScan crawler is a distributed multi-stage pipeline that discovers, extracts, deduplicates, and enriches stamp data from public web sources. It runs continuously as a background service, feeding the PostgreSQL + Elasticsearch database that powers the iOS app.
+The Rowland crawler is a distributed multi-stage pipeline that discovers, extracts, deduplicates, and enriches stamp data from public web sources. It runs continuously as a background service, feeding the PostgreSQL + Elasticsearch database that powers the iOS app.
 
 ```
                     ┌─────────────────────────────────────────────────┐
@@ -146,7 +146,7 @@ priority: 2
 ```hcl
 # terraform/crawler_worker.tf (conceptual)
 resource "aws_ecs_task_definition" "static_crawler" {
-  family                   = "stampscan-static-crawler"
+  family                   = "rowland-static-crawler"
   cpu                      = "512"   # 0.5 vCPU
   memory                   = "1024"  # 1 GB
   network_mode             = "awsvpc"
@@ -154,7 +154,7 @@ resource "aws_ecs_task_definition" "static_crawler" {
   
   container_definitions = jsonencode([{
     name  = "crawler"
-    image = "stampscan/static-crawler:latest"
+    image = "rowland/static-crawler:latest"
     environment = [
       { name = "SQS_QUEUE_URL",   value = aws_sqs_queue.crawl_queue.url },
       { name = "S3_BUCKET",       value = aws_s3_bucket.raw_crawl.id },
@@ -165,7 +165,7 @@ resource "aws_ecs_task_definition" "static_crawler" {
 }
 
 resource "aws_ecs_task_definition" "js_crawler" {
-  family  = "stampscan-js-crawler"
+  family  = "rowland-js-crawler"
   cpu     = "1024"   # 1 vCPU — Playwright needs more resources
   memory  = "2048"   # 2 GB
   # ... same pattern, different image
@@ -601,7 +601,7 @@ class SourceRateLimiter:
 
 # Crawl headers — identify ourselves honestly
 DEFAULT_HEADERS = {
-    "User-Agent": "StampScan-Bot/1.0 (https://stampscan.app/bot; bot@stampscan.app)",
+    "User-Agent": "Rowland-Bot/1.0 (https://rowlandhill.app/bot; bot@rowlandhill.app)",
     "Accept": "text/html,application/xhtml+xml",
     "Accept-Language": "en-US,en;q=0.9",
 }
@@ -625,7 +625,7 @@ DEFAULT_HEADERS = {
 ### Daily crawl report format (email/Slack)
 
 ```
-📮 StampScan Crawl Report — 2025-11-01
+📮 Rowland Crawl Report — 2025-11-01
 
 Crawled today:    12,847 pages
 New stamps added:  3,421

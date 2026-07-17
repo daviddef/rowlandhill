@@ -224,7 +224,7 @@ private struct ProUpgradeTeaser: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text("Unlock Valuations")
                     .font(.subheadline).fontWeight(.semibold)
-                Text("See auction prices with StampScan Pro")
+                Text("See auction prices with Rowland Pro")
                     .font(.caption).foregroundColor(.stampMuted)
             }
             Spacer()

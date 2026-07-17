@@ -1,4 +1,4 @@
-# StampScan iOS — Project Context for Claude Code
+# Rowland iOS — Project Context for Claude Code
 
 > **Read this first.** This file gives you complete context on what this project is, what's been built, what decisions have been made, and exactly what to do next. All key decisions are already made — your job is to implement, not re-research.
 
@@ -6,15 +6,41 @@
 
 ## What Is This?
 
-**StampScan** is an iOS app that identifies postage stamps from a phone photo using AI, then shows details, valuations, and lets users manage their collection. The ambition is to build the world's largest proprietary philatelic database — larger and more accurate than Colnect (currently 1.6M items).
+**Rowland** is an iOS app that identifies postage stamps from a phone photo using AI, then shows details, valuations, and lets users manage their collection. The ambition is to build the world's largest proprietary philatelic database — larger and more accurate than Colnect (currently 1.6M items).
 
 > ⚠️ **Read `docs/research/competitors-2026.md` before acting on any competitive or
 > monetisation claim in this file.** The Phase 1 research missed the AI stamp identifier
 > category. **PhilSnap** (September 2025, 4.7★, $39.99/year) already ships photo ID +
 > valuations + collection management. AI photo identification is **table stakes, not a moat**.
 > Our actual differentiation is the database, StampID cross-referencing, and trustworthy
-> condition-aware valuations — none of which exist yet. The pricing, hard-paywall, and
-> product name decisions below all predate this and need revisiting.
+> condition-aware valuations — none of which exist yet. The pricing and hard-paywall
+> decisions below all predate this and need revisiting.
+
+### The name: why "Rowland" (decided July 2026 — do not revisit)
+
+The project was called **StampScan** until we checked. **That name was already taken**:
+`stampscan.app` is owned and actively operated by **FETCH TECHNOLOGY PTE. LTD.**, who ship
+"StampScan – Stamp Identifier" on Google Play (3.9★, 142 reviews, 5K+ downloads, updated
+July 2026) with the same pitch we had. Their site claims "50,000+ collectors" and "4.7 on
+Google Play"; Play itself reports 5K+ and 3.9★, and reviews report vanishing subscriptions
+and bouncing support email. The Phase 1 docs invented `stampscan.app` as our domain without
+checking that it belonged to a competitor — the old API base URL and `applinks:` entitlement
+both pointed at their domain.
+
+**Rowland** — after **Sir Rowland Hill**, who invented the postage stamp and Penny Postage in
+1840. Chosen because it is distinctive (therefore trademarkable, unlike the descriptive
+"Stamp + verb" names saturating the category), carries no negative baggage, and signals
+credibility to the experienced collectors who currently reject these apps. The brand story
+fits the strategy: Hill made postage accessible; we make philatelic knowledge accessible.
+
+- **Domain: `rowlandhill.app`** — free at time of writing. `rowland.app` is parked for sale;
+  **David has not yet purchased either.** All code currently assumes `rowlandhill.app`.
+  Switching to `rowland.app` later is cheap: `StampAPIClient.baseURL`, the `applinks:` entry
+  in `project.yml`, and `AppState.handleDeepLink`'s host check.
+- **Bundle ID: `app.rowlandhill`**. Product IDs follow (`app.rowlandhill.pro.monthly`, etc.).
+- ⚠️ **Trademark clearance is still outstanding.** The App Store search was clear, but that
+  is a conflict *signal*, not legal clearance — and "Rowland" is a surname, which carries its
+  own considerations. **Ask the IP lawyer this at the same time as the Scott question.**
 
 **Owner:** David (david.defranceski@gmail.com)  
 **Research phase:** Complete. All architectural decisions are made. Implementation starts now.
@@ -28,8 +54,8 @@ after adding/removing any Swift file:
 
 ```bash
 brew install xcodegen   # once
-xcodegen generate       # writes StampScan.xcodeproj from project.yml
-open StampScan.xcodeproj
+xcodegen generate       # writes Rowland.xcodeproj from project.yml
+open Rowland.xcodeproj
 ```
 
 Target config (bundle ID, deployment target, capabilities) lives in
@@ -39,7 +65,7 @@ overwritten on the next generate.
 Command-line build:
 
 ```bash
-xcodebuild -project StampScan.xcodeproj -scheme StampScan \
+xcodebuild -project Rowland.xcodeproj -scheme Rowland \
   -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build
 ```
 
@@ -52,13 +78,13 @@ device builds do not.
 ## Project Structure
 
 ```
-stampscan-ios/
+rowland-ios/
 ├── CLAUDE.md                          ← YOU ARE HERE
 ├── HANDOVER.md                        ← Human-readable summary for David
 ├── project.yml                        ← XcodeGen spec — source of truth for target config
-├── StampScan/
+├── Rowland/
 │   ├── App/
-│   │   ├── StampScanApp.swift         ← @main entry, TabView
+│   │   ├── RowlandApp.swift         ← @main entry, TabView
 │   │   └── AppState.swift             ← Global state, auth, subscription tiers, Color tokens
 │   ├── Models/
 │   │   └── Stamp.swift                ← All model types: Stamp, CollectionItem, ScanResult, enums
@@ -120,7 +146,7 @@ These are locked. Research is done. Implement these.
 - See `docs/ml-pipeline.md` (to be written) for training instructions.
 
 ### API
-- Base URL: `https://api.stampscan.app/v1` (not yet deployed)
+- Base URL: `https://api.rowlandhill.app/v1` (not yet deployed)
 - Auth: Bearer JWT obtained via POST `/auth/apple`
 - Full client is in `StampAPIClient.swift` — all endpoints are stubbed
 - Response models match `Stamp.swift` exactly
@@ -133,7 +159,7 @@ These are locked. Research is done. Implement these.
 
 ### Monetisation — HARD PAYWALL MODEL
 - **Free:** 10 scans/day, no valuations, no iCloud sync
-- **StampScan Pro:** $4.99/month or $39.99/year — unlimited scans, valuations, iCloud sync
+- **Rowland Pro:** $4.99/month or $39.99/year — unlimited scans, valuations, iCloud sync
 - **Dealer Pro:** $29.99/month — bulk tools, CSV export, marketplace listing
 - 17-day free trial (converts at 42.5% vs 25.5% for shorter trials — see research)
 - NO freemium creep. The paywall is the product's business model.
@@ -152,7 +178,7 @@ These are locked. Research is done. Implement these.
 
 | File | Status | Notes |
 |------|--------|-------|
-| `StampScanApp.swift` | ✅ Shell | Tab structure done |
+| `RowlandApp.swift` | ✅ Shell | Tab structure done |
 | `AppState.swift` | ✅ Shell | Auth + subscription types done |
 | `Stamp.swift` | ✅ Complete | All model types, CodingKeys, enums |
 | `StampAPIClient.swift` | ✅ Shell | All endpoints stubbed, needs real base URL |
@@ -184,14 +210,14 @@ These are locked. Research is done. Implement these.
    - Implement `EmbeddingDatabase.load()` to read from it
 
 4. ~~**Set up Xcode project**~~ — ✅ done. Generated via XcodeGen (`project.yml`);
-   bundle ID `app.stampscan`, Info.plist privacy strings, and entitlements for
+   bundle ID `app.rowlandhill`, Info.plist privacy strings, and entitlements for
    Sign in with Apple / iCloud / associated domains are in place. **Signing still
    needs a `DEVELOPMENT_TEAM`** once the Apple Developer account exists.
 
 #### Priority 2 — Subscription + Auth
 5. **Implement Sign in with Apple** in `AppState.signIn()`
 6. **StoreKit 2 paywall** — wire up the "Upgrade" buttons in `StampDetailView` and `ProUpgradeTeaser`
-   - Products: `app.stampscan.pro.monthly`, `app.stampscan.pro.annual`, `app.stampscan.dealerpro.monthly`
+   - Products: `app.rowlandhill.pro.monthly`, `app.rowlandhill.pro.annual`, `app.rowlandhill.dealerpro.monthly`
 7. **iCloud sync** for Pro users — swap `CollectionStore` from UserDefaults to `NSPersistentCloudKitContainer`
 
 #### Priority 3 — Polish
@@ -199,7 +225,7 @@ These are locked. Research is done. Implement these.
 8a. **Deep link does not actually navigate.** `AppState.handleDeepLink` sets
    `appState.selectedTab = 1`, but `ContentView` binds its `TabView` to a *local*
    `@State selectedTab: Tab`, so nothing observes it. The two need to be one
-   source of truth before `stampscan.app/s/SID-...` can work (see item 13).
+   source of truth before `rowlandhill.app/s/SID-...` can work (see item 13).
 8b. **Views truncate at large Dynamic Type** — headline and body text on the Scan
    tab clip to a single line at accessibility text sizes. Needs `lineLimit`/layout
    review before App Store submission.
@@ -215,7 +241,7 @@ These are locked. Research is done. Implement these.
    client no longer hangs indefinitely (resource timeout added), so the errors now
    actually surface as thrown errors; the view layer still needs to catch and show
    them instead of using `try?`.
-13. **Deep link handling** — `stampscan.app/s/SID-GB-1840-0001` → `StampDetailView`
+13. **Deep link handling** — `rowlandhill.app/s/SID-GB-1840-0001` → `StampDetailView`
 
 #### Priority 4 — Backend (separate repo/team)
 14. **Deploy API** — Node.js/Fastify on AWS
@@ -271,7 +297,7 @@ ScanView switches to .result(scanResult) → ScanResultView appears
 > `docs/research/competitors-2026.md`. Note also that Scott's publisher changed: it is
 > **Scott Stamp, LLC** as of Q4 2025, not Amos Media.
 
-The `catalogue_refs` array on a `Stamp` is the gold — it's what makes StampScan uniquely valuable.
+The `catalogue_refs` array on a `Stamp` is the gold — it's what makes Rowland uniquely valuable.
 Scott 1 = SG 1 = Michel 1 = SID-GB-1840-0001 (for the Penny Black).
 Always display catalogue refs in `StampDetailView`. They're the key differentiator vs competitors.
 

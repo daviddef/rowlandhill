@@ -76,7 +76,7 @@ private struct CameraIdleView: View {
             VStack(spacing: 12) {
                 Text("Point camera at a stamp")
                     .font(.title2).fontWeight(.semibold)
-                Text("StampScan identifies stamps from any country\nin any condition using AI.")
+                Text("Rowland identifies stamps from any country\nin any condition using AI.")
                     .font(.subheadline).foregroundColor(.stampMuted)
                     .multilineTextAlignment(.center)
             }

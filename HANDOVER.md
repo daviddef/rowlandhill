@@ -1,4 +1,4 @@
-# StampScan iOS — Project Handover
+# Rowland iOS — Project Handover
 **Date:** July 2026  
 **From:** Research & Architecture phase (Claude, Cowork)  
 **To:** Implementation phase (Claude Code or developer)  
@@ -23,7 +23,7 @@ A fully researched, fully architected iOS stamp identification app with:
 
 ## The Product
 
-StampScan is a three-part product:
+Rowland is a three-part product:
 
 **1. The iOS App** — Photo → AI identification → stamp details + valuations + collection management  
 **2. The Database** — Proprietary catalogue of 5–15M stamps (larger than any competitor)  
@@ -36,10 +36,10 @@ The market gap is explicit: no app combines AI identification + millions of stam
 ## Project Structure
 
 ```
-stampscan-ios/
+rowland-ios/
 ├── CLAUDE.md           ← READ THIS IN CLAUDE CODE — full technical context
 ├── HANDOVER.md         ← This document
-├── StampScan/          ← iOS app source (Swift/SwiftUI)
+├── Rowland/          ← iOS app source (Swift/SwiftUI)
 │   ├── App/            ← Entry point, AppState, design tokens
 │   ├── Models/         ← Stamp, CollectionItem, ScanResult, enums
 │   ├── Views/          ← ScanView, StampDetailView, CatalogueView, CollectionView
@@ -65,7 +65,7 @@ stampscan-ios/
 - Search + filter catalogue browse
 - Collection management with swipe-to-delete
 - Design system (dark theme, color tokens)
-- Deep link handling scaffold (`stampscan.app/s/SID-GB-1840-0001`)
+- Deep link handling scaffold (`rowlandhill.app/s/SID-GB-1840-0001`)
 - PostgreSQL schema (17 tables, all indexes)
 - Elasticsearch mappings
 - StampID universal identifier spec + generation algorithm
@@ -76,7 +76,7 @@ stampscan-ios/
 ### Next Steps (in order) 🔲
 
 **Week 1 — Make it compile and run**
-1. Create `StampScan.xcodeproj` and add all Swift files
+1. Create `Rowland.xcodeproj` and add all Swift files
 2. Add missing `Color.text` to `AppState.swift` (add `.white` or `Color(uiColor: .label)`)
 3. Add `Info.plist` privacy strings (Camera, Photo Library)
 4. Add capabilities: Camera, Sign in with Apple, iCloud
@@ -90,13 +90,13 @@ stampscan-ios/
 
 **Week 3 — Auth + subscriptions**
 10. Implement Sign in with Apple in `AppState.signIn()`
-11. StoreKit 2 products: `app.stampscan.pro.monthly`, `app.stampscan.pro.annual`, `app.stampscan.dealerpro.monthly`
+11. StoreKit 2 products: `app.rowlandhill.pro.monthly`, `app.rowlandhill.pro.annual`, `app.rowlandhill.dealerpro.monthly`
 12. Wire paywall buttons in `StampDetailView` and `ProUpgradeTeaser`
 
 **Week 4 — Backend**
 13. Deploy PostgreSQL, run schema migrations
 14. Deploy Elasticsearch, apply mappings
-15. Deploy Node.js/Fastify API (base URL: `https://api.stampscan.app/v1`)
+15. Deploy Node.js/Fastify API (base URL: `https://api.rowlandhill.app/v1`)
 16. Seed database with Wikidata SPARQL (free, immediate, ~100K stamps)
 17. Deploy Qdrant for vector embeddings
 

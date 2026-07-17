@@ -26,8 +26,8 @@ final class AppState: ObservableObject {
     }
 
     func handleDeepLink(_ url: URL) {
-        // Handle stampscan.app/s/SID-GB-1840-0001
-        guard url.host == "stampscan.app",
+        // Handle rowlandhill.app/s/SID-GB-1840-0001
+        guard url.host == "rowlandhill.app",
               url.pathComponents.count >= 3,
               url.pathComponents[1] == "s" else { return }
         let stampID = url.pathComponents[2]

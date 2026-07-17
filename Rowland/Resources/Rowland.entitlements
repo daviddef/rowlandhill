@@ -8,11 +8,11 @@
 	</array>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:stampscan.app</string>
+		<string>applinks:rowlandhill.app</string>
 	</array>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
-		<string>iCloud.app.stampscan</string>
+		<string>iCloud.app.rowlandhill</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>

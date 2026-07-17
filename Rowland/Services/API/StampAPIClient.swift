@@ -1,13 +1,13 @@
 import Foundation
 
-// MARK: - StampScan API Client
+// MARK: - Rowland API Client
 //
-// Base URL: https://api.stampscan.app/v1
+// Base URL: https://api.rowlandhill.app/v1
 // Auth: Bearer JWT (obtained via /auth/apple)
 // All endpoints return JSON matching the Stamp model in Models/Stamp.swift
 
 final class StampAPIClient {
-    private let baseURL = URL(string: "https://api.stampscan.app/v1")!
+    private let baseURL = URL(string: "https://api.rowlandhill.app/v1")!
     private let session: URLSession
     private var authToken: String? = nil
 
@@ -150,7 +150,7 @@ final class StampAPIClient {
 
     // MARK: - Auth
 
-    /// POST /v1/auth/apple — exchange Apple ID token for StampScan JWT
+    /// POST /v1/auth/apple — exchange Apple ID token for Rowland JWT
     func authenticateWithApple(identityToken: String) async throws -> AuthResponse {
         struct Body: Encodable { let identity_token: String }
         return try await post("/auth/apple", body: Body(identity_token: identityToken))
@@ -274,7 +274,7 @@ final class StampAPIClient {
             switch self {
             case .invalidResponse:       return "Invalid server response"
             case .unauthorized:          return "Please sign in to continue"
-            case .subscriptionRequired:  return "This feature requires StampScan Pro"
+            case .subscriptionRequired:  return "This feature requires Rowland Pro"
             case .notFound:              return "Stamp not found"
             case .rateLimited:           return "Too many requests — please wait a moment"
             case .serverError(let code): return "Server error (\(code))"

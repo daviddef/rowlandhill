@@ -1,5 +1,5 @@
 {
-  "_comment": "StampScan Elasticsearch 8.x index mappings",
+  "_comment": "Rowland Elasticsearch 8.x index mappings",
 
   "stamps": {
     "settings": {

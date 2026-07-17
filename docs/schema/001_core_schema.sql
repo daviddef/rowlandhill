@@ -1,5 +1,5 @@
 -- =============================================================================
--- StampScan Database — Core Schema v1.0
+-- Rowland Database — Core Schema v1.0
 -- PostgreSQL 15+
 -- =============================================================================
 
@@ -298,7 +298,7 @@ CREATE INDEX idx_catref_number_trgm ON catalogue_references USING gin(cat_number
 CREATE TABLE stamp_images (
   id              BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   stamp_id        BIGINT NOT NULL REFERENCES stamps(id) ON DELETE CASCADE,
-  s3_key          TEXT NOT NULL UNIQUE,     -- s3://stampscan-images/<s3_key>
+  s3_key          TEXT NOT NULL UNIQUE,     -- s3://rowland-images/<s3_key>
   cdn_url         TEXT NOT NULL,
   image_type      TEXT NOT NULL,            -- 'front', 'back', 'used', 'mint', 'detail'
   width_px        INT,

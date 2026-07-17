@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct StampScanApp: App {
+struct RowlandApp: App {
     @StateObject private var appState = AppState()
 
     var body: some Scene {
@@ -46,7 +46,7 @@ struct ContentView: View {
         }
         .tint(.stampGold)
         .onOpenURL { url in
-            // Universal Links: stampscan.app/s/SID-GB-1840-0001
+            // Universal Links: rowlandhill.app/s/SID-GB-1840-0001
             appState.handleDeepLink(url)
         }
     }

@@ -40,7 +40,7 @@ suggestions (Fine → Superb) with cues on centering, perforations, gum, creases
 cancellations, variant/error detection, postmark insights, a collection album with notes
 and purchase data plus total collection value, and an AI chat feature.
 
-Read that list against `CLAUDE.md`. It is close to StampScan's v1 feature set, shipped, ten
+Read that list against `CLAUDE.md`. It is close to Rowland's v1 feature set, shipped, ten
 months ago. **Their annual price ($39.99) is identical to our planned annual price**, and
 their monthly is $1 cheaper. We cannot present $4.99/$39.99 as competitive positioning
 against a free-to-download incumbent — it is price parity with a more established product.
@@ -58,7 +58,7 @@ PhilSnap is the coin/rock template pointed at stamps.
 - They have a proven ASO and distribution machine. On marketing reach, we lose.
 - They will not out-research us on philately. Stamps are one of ~23 bets for them.
 - They can enter — and leave — fast. Their commitment to the niche is shallow.
-- If StampScan validates the category, expect a fast follow, not a considered one.
+- If Rowland validates the category, expect a fast follow, not a considered one.
 
 ---
 
@@ -77,17 +77,48 @@ Antique/Coin identifiers.
 | **Stamp Value Stamp Identifier** | — | Reviewer: correct **~75% of the time**; valuations ranged **$4–$1,500 for one stamp**. |
 | **Stamp Identifier (Colnect)** | Colnect | **3.46★ / ~1,600 ratings** on Android — the big database does not guarantee a good app. |
 
-⚠️ **Naming collision.** **StampSnap** (Vejo Apps) already exists, and the category is thick
-with *-Snap* branding (PhilSnap, CoinSnap, BuySnap, FlipSnap). **"StampScan" is one letter
-from "StampSnap"** and reads as a me-too entry. This needs a trademark search and a serious
-look at the name before any App Store submission or domain/IP spend.
+### 🚨 The name was not just confusable — it was taken. (Resolved: renamed to Rowland)
+
+The working name **StampScan** is an **active competitor**, verified July 2026:
+
+| | |
+|---|---|
+| **Operator** | FETCH TECHNOLOGY PTE. LTD. (Singapore) |
+| **Domain** | **`stampscan.app` — theirs**, live and actively marketed |
+| **Google Play** | "StampScan – Stamp Identifier" — **3.9★, 142 reviews, 5K+ downloads**, ads + IAP, updated 13 July 2026 |
+| **Pitch** | AI photo ID, Scott/Michel/SG catalogue numbers, eBay + auction values, CSV export — i.e. ours |
+| **Pricing** | $7.99/month or **$29.99/year** — undercuts our planned $39.99 |
+
+**Their marketing claims are false, and provably so.** The site advertises "50,000+
+collectors" and "4.7 on Google Play". Google Play reports **5K+ downloads and 3.9★**. It also
+claims to be "featured in" Stanley Gibbons, Scott Catalogue, the APS and Linn's — which is not
+a thing those organisations do. Reviews report subscriptions vanishing after payment, support
+mail bouncing, and one user stating the contact address is "fake too".
+
+That made the name **worse than unavailable**. A 3.9★ app with billing complaints and
+fabricated social proof owns the search results, the `.app` domain, and the Play listing.
+Trading as StampScan meant inheriting that reputation — for a product whose entire strategy
+is being the trustworthy one.
+
+It had also leaked into the code: `StampAPIClient.baseURL` pointed at
+`https://api.stampscan.app/v1` and the entitlements declared `applinks:stampscan.app` —
+**both aimed at a competitor's domain**. The Phase 1 docs invented that domain without
+checking. Same failure mode as missing the competitor category entirely.
+
+**Resolved → renamed to `Rowland`** (Sir Rowland Hill, inventor of the postage stamp).
+Rationale and the outstanding trademark-clearance action are recorded in `CLAUDE.md`.
+
+⚠️ Also note **StampSnap** (Vejo Apps) exists, and the category is thick with *-Snap*
+branding (PhilSnap, CoinSnap, BuySnap, FlipSnap). Descriptive "Stamp + verb" names are
+simultaneously crowded and weak as trademarks — which is why the replacement is deliberately
+not one.
 
 ---
 
 ## Where They Are Weak — The Real Opportunity
 
 The competitors are modern and well-marketed, but consistently **shallow**. Every documented
-weakness maps to something StampScan already plans:
+weakness maps to something Rowland already plans:
 
 | Their documented gap | Evidence | Our planned answer |
 |---|---|---|
@@ -104,7 +135,7 @@ moat was never AI photo ID — that is now table stakes. The moat is the databas
 cross-catalogue StampID, and valuations a serious collector can trust.
 
 The uncomfortable corollary: our differentiation lives **entirely** in the two things not yet
-built — the corpus and the trained model. Until those exist, StampScan is a worse PhilSnap.
+built — the corpus and the trained model. Until those exist, Rowland is a worse PhilSnap.
 
 ---
 
@@ -129,7 +160,7 @@ His technical objections — a photo **cannot** do these:
 - Check gum for **regumming, hinging, disturbance**
 
 **None of this is fixed by a bigger database.** It is a physics limit on photo identification,
-and it applies to StampScan's embedding model exactly as it applies to PhilSnap. These
+and it applies to Rowland's embedding model exactly as it applies to PhilSnap. These
 attributes are frequently the entire difference between a $5 stamp and a $5,000 stamp. Any
 claim we make about "accurate valuations from a photo" runs into this wall.
 
@@ -139,9 +170,9 @@ claim we make about "accurate valuations from a photo" runs into this wall.
 > with Scott the most widely recognized and accepted. I have not seen the app having a Scott
 > numbering license so **that is a deal breaker right there**.
 
-⚠️ **This is aimed at PhilSnap but it hits StampScan harder, because cross-catalogue
+⚠️ **This is aimed at PhilSnap but it hits Rowland harder, because cross-catalogue
 referencing *is* our stated core IP.** See "Catalogue Numbers (IMPORTANT)" in `CLAUDE.md`:
-"The `catalogue_refs` array is the gold — it's what makes StampScan uniquely valuable."
+"The `catalogue_refs` array is the gold — it's what makes Rowland uniquely valuable."
 
 **Verified, and the Phase 1 legal position does not survive it:**
 - Scott's publishers **claim copyright on the numbering system itself** and grant only
@@ -197,7 +228,7 @@ will tell everyone else not to install it.
 Note who he is: a beginner with 4 posts, versus critics with 12,585 / 7,081 / 819. The value
 is **triage speed for someone who cannot use a catalogue** — hours to 30 seconds.
 
-**This is the strategic contradiction at the centre of StampScan.** Sort the two audiences:
+**This is the strategic contradiction at the centre of Rowland.** Sort the two audiences:
 
 | | Serious collectors | Novices |
 |---|---|---|

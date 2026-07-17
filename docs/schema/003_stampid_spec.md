@@ -1,13 +1,13 @@
 # StampID — Universal Stamp Identifier Specification
 **Version:** 1.0.0  
 **Status:** Draft  
-**Owner:** StampScan  
+**Owner:** Rowland  
 
 ---
 
 ## 1. Purpose
 
-StampID is a stable, human-readable, machine-parseable identifier that uniquely and permanently identifies a philatelic item across all catalogue systems. It is the primary key of the StampScan proprietary database and the IP layer that binds cross-catalogue references together.
+StampID is a stable, human-readable, machine-parseable identifier that uniquely and permanently identifies a philatelic item across all catalogue systems. It is the primary key of the Rowland proprietary database and the IP layer that binds cross-catalogue references together.
 
 **Design goals:**
 - Globally unique — no two stamps ever share a StampID
@@ -30,7 +30,7 @@ SID-{ISSUER}-{YEAR}-{SEQ4}-{VAR}
 
 | Component  | Length   | Character Set         | Description |
 |------------|----------|-----------------------|-------------|
-| `SID`      | 3        | Literal               | StampScan ID prefix; distinguishes from catalogue numbers |
+| `SID`      | 3        | Literal               | Rowland ID prefix; distinguishes from catalogue numbers |
 | `{ISSUER}` | 2–6      | A-Z, 0-9              | Issuer code (see §3) |
 | `{YEAR}`   | 4        | 0-9                   | Year of issue (see §4) |
 | `{SEQ4}`   | 4        | 0-9                   | 4-digit sequence within issuer×year (0001–9999) |
@@ -44,7 +44,7 @@ SID-US-1869-0006-B
 │   │  │    └─────── Sequence 6 (6th distinct design/set in 1869 US issues)
 │   │  └──────────── Year 1869
 │   └─────────────── Issuer code "US" (United States Post Office)
-└─────────────────── StampScan ID prefix
+└─────────────────── Rowland ID prefix
 ```
 
 ---
@@ -304,8 +304,8 @@ GET /v1/stamps/by-catalogue/scott/1
     "used": { "usd_typical": 125,  "usd_range": [40, 800],     "source": "auction_realised", "as_of": "2025-11-01" }
   },
   "images": {
-    "primary": "https://cdn.stampscan.app/stamps/GB/1840/0001/front_800.jpg",
-    "thumbnail": "https://cdn.stampscan.app/stamps/GB/1840/0001/thumb_200.jpg"
+    "primary": "https://cdn.rowlandhill.app/stamps/GB/1840/0001/front_800.jpg",
+    "thumbnail": "https://cdn.rowlandhill.app/stamps/GB/1840/0001/thumb_200.jpg"
   },
   "source_tier": "official",
   "confidence": 0.99
@@ -424,8 +424,8 @@ This fingerprint is stored as `stamps.dedupe_hash` (add column to schema) and ha
 For printed catalogues, stock cards, or dealer inventory sheets:
 
 ```
-QR content: https://stampscan.app/s/SID-GB-1840-0001
-Short form:  stampscan.app/s/SID-US-1869-0006-B
+QR content: https://rowlandhill.app/s/SID-GB-1840-0001
+Short form:  rowlandhill.app/s/SID-US-1869-0006-B
 Barcode:     Code 128 of the full StampID string
 ```
 

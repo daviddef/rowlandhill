@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>StampScan</string>
+	<string>Rowland</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -34,10 +34,10 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>StampScan uses the camera to photograph your stamps and identify them.</string>
+	<string>Rowland uses the camera to photograph your stamps and identify them.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>StampScan reads photos from your library so you can identify stamps you have already photographed.</string>
+	<string>Rowland reads photos from your library so you can identify stamps you have already photographed.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>StampScan saves stamp photos to your library so you can keep them with your collection.</string>
+	<string>Rowland saves stamp photos to your library so you can keep them with your collection.</string>
 </dict>
 </plist>

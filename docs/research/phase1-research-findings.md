@@ -1,4 +1,4 @@
-# StampScan iOS App — Phase 1 Research Findings
+# Rowland iOS App — Phase 1 Research Findings
 **Date:** July 2026 | **Status:** Verified multi-source research
 
 ---

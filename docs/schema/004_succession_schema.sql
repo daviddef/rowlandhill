@@ -1,5 +1,5 @@
 -- =============================================================================
--- StampScan — Country Succession, Name History & Cross-Era Search
+-- Rowland — Country Succession, Name History & Cross-Era Search
 -- Schema patch 004 — extends 001_core_schema.sql
 --
 -- Design principle: A single "search" for "Rhodesia" or "Zimbabwe" must surface
@@ -128,7 +128,7 @@ CREATE INDEX idx_aliases_entity   ON search_aliases(entity_type, entity_id);
 
 -- =============================================================================
 -- SEED DATA — Major Country Successions
--- This is authoritative data for the StampScan IP layer
+-- This is authoritative data for the Rowland IP layer
 -- =============================================================================
 
 -- First, seed the countries we reference below (extend the main countries table)

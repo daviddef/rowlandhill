@@ -8,7 +8,7 @@ import Foundation
 
 final class CollectionStore {
     private let defaults = UserDefaults.standard
-    private let key = "stampscan.collection.items"
+    private let key = "rowland.collection.items"
 
     func loadAll() -> [CollectionItem] {
         guard let data = defaults.data(forKey: key),
