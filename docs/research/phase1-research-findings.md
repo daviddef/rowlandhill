@@ -159,6 +159,13 @@ This is the product opportunity.
 
 ### What's Clear
 
+> 🚨 **The Feist claim below is overstated and is contradicted by this document's own
+> catalogue table.** Feist protects *facts*. It does not obviously cover **catalogue
+> numbering systems**, which Scott's publisher claims as copyright, licenses (see "licensed
+> to EzStamp" above — you do not license what is free), and has litigated (Scott v.
+> Krause/Minkus). Since cross-catalogue referencing is the core IP thesis, this gap is
+> material and needs an IP lawyer. See `competitors-2026.md`.
+
 - **Raw factual data (prices, names, dates) cannot be copyrighted** under US law (Feist Publications v. Rural Telephone, 1991) — stamp metadata is legally extractable
 - **Scraping public websites doesn't violate CFAA** per hiQ Labs v. LinkedIn (2022) and Meta v. Bright Data (2024) — as long as no authentication is bypassed
 - **Clickwrap ToS agreements are enforceable** — if a catalogue site requires login+ToS acceptance before showing data, scraping behind that wall carries legal risk

@@ -259,6 +259,18 @@ ScanView switches to .result(scanResult) → ScanResultView appears
 ```
 
 ### Catalogue Numbers (IMPORTANT)
+
+> 🚨 **UNRESOLVED LEGAL RISK — do not treat the paragraph below as settled.** Scott's
+> publisher claims **copyright on the numbering system itself**, licenses it (Phase 1 notes
+> EzStamp is a licensee), and has sued over it (Scott v. Krause/Minkus, settled out of
+> court). Sites displaying Scott numbers carry "used under licensing agreement" notices.
+> Feist protects *facts* (dates, denominations); a numbering system is an original creation,
+> which is a different question that the legal section of this file does not address.
+> **This needs an IP lawyer before the crawler is built** — it is the one open question that
+> could invalidate the core IP thesis rather than just reshape it. See
+> `docs/research/competitors-2026.md`. Note also that Scott's publisher changed: it is
+> **Scott Stamp, LLC** as of Q4 2025, not Amos Media.
+
 The `catalogue_refs` array on a `Stamp` is the gold — it's what makes StampScan uniquely valuable.
 Scott 1 = SG 1 = Michel 1 = SID-GB-1840-0001 (for the Penny Black).
 Always display catalogue refs in `StampDetailView`. They're the key differentiator vs competitors.
