@@ -15,10 +15,11 @@
 | Philatelic clusters (Wikipedia groupings) | 321 |
 | **Cluster aliases** (search: "Rhodesia" → lineage) | **1,021** |
 | **Vernacular aliases** (CCCP, Helvetia, Nippon…) | **42** |
-| **Succession edges** | **262** (44 curated + 218 researched & verified) |
+| **Succession edges** | **406** (59 curated + 350 researched, all verified) |
 
-The 218 researched edges came from a fan-out of 29 historian agents (one per empire/region),
-each followed by an adversarial skeptic. See "The colonial-empire fan-out" below.
+The 350 researched edges came from a fan-out of 29 historian agents (one per empire/region),
+each followed by an adversarial skeptic. The 59 curated edges cover the canonical lineages
+(USSR, Germany, Yugoslavia, Rhodesia, South Africa, Korea, the German states). See below.
 
 Regenerate end-to-end:
 
@@ -192,14 +193,15 @@ comment on `get_issuer_lineage_by_issuer` in `004`.
 
 ## Gaps — read before trusting this
 
-- **150 more edges are authored but unverified** — the 19 groups whose skeptic hit the session
-  limit (Spain/Portugal, Caribbean, the Gulf, the Levant, and most of the misc-* groups). They
-  are held in `docs/data/unverified_edges.json`, **not loaded**, pending a verification pass.
-  A re-verification is running.
-- **Coverage is now partial-good, not ~5%.** 262 edges span the USSR, the German/Yugoslav/
-  Czech/Rhodesian lineages, and the French, British-Asia, Indian-states, Italian, Japan-China
-  and German-states/colonies transitions. Still thin: the Portuguese, Spanish, Dutch and
-  Belgian empires, and the Gulf states, are in the unverified batch or untouched.
+- **406 edges, 448 of 1,181 issuers in the graph, 47 contested.** All 350 researched edges
+  passed the adversarial skeptic (the re-verification completed; the 19 groups that had hit the
+  session limit are now done) AND a mechanical name-check. The 59 curated edges are canonical
+  lineages authored directly.
+- **Residual gaps are the grab-bag "misc-*" groups.** Those chunked unrelated clusters together,
+  so their historian sometimes found no within-group succession. Known survivors patched into the
+  curated set (Korea, South Africa, German states); others may remain (e.g. some Austro-Hungarian
+  and minor Pacific links). ~733 issuers still have no edge — but most are single post-offices-
+  abroad or one-off issuers that genuinely have no successor, so this is not 733 missing lineages.
 - **Cluster aliases partially cover the gap.** Search works for anything Wikipedia grouped
   together even without an edge. It fails wherever Wikipedia split a lineage across clusters,
   as with USSR/Russia — and we do not yet know how many other such splits exist.

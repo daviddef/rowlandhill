@@ -103,7 +103,32 @@ EDGES = [
     ("Ceylon", "Sri Lanka", "renamed", "1972-05-22", None),
     ("Czechoslovakia", "Czech Republic", "dissolution", "1993-01-01", "Velvet Divorce"),
     ("Czechoslovakia", "Slovakia", "dissolution", "1993-01-01", "Velvet Divorce"),
+
+    # South Africa — Union of 1910 merged four British colonies; the two Boer republics
+    # were annexed after the Second Boer War (1902), earlier polities absorbed into the colonies.
+    ("Cape of Good Hope", "South Africa", "merger", "1910-05-31", "Union of South Africa"),
+    ("Natal", "South Africa", "merger", "1910-05-31", "Union of South Africa"),
+    ("Transvaal", "South Africa", "merger", "1910-05-31", "Union of South Africa"),
+    ("Orange River Colony", "South Africa", "merger", "1910-05-31", "Union of South Africa"),
+    ("South African Republic", "Transvaal", "annexation", "1902-05-31", "ZAR annexed by Britain after the Second Boer War, became Transvaal Colony"),
+    ("Orange Free State", "Orange River Colony", "annexation", "1900-05-28", "Boer republic annexed by Britain"),
+    ("Griqualand West", "Cape of Good Hope", "annexation", "1880-01-01", None),
+    ("Zululand", "Natal", "annexation", "1897-12-30", None),
+    ("New Republic", "South African Republic", "annexation", "1888-01-01", None),
+
+    # Korea — the Empire was annexed by Japan in 1910; postal succession resumes only after
+    # 1945 partition into two occupation zones, so the link is contested (a colonial gap).
+    ("Korea (Empire)", "South Korea", "partition", "1948-08-15", "[CONTESTED] Japanese colonial period 1910-1945 intervenes; partition at 38th parallel"),
+    ("Korea (Empire)", "North Korea", "partition", "1948-09-09", "[CONTESTED] Japanese colonial period 1910-1945 intervenes; partition at 38th parallel"),
+
+    # German unification — the states merged into the North German Confederation (1868),
+    # which became Imperial Germany (1871). Imperial Germany is already linked onward.
+    ("Prussia", "North German Confederation", "merger", "1868-01-01", None),
+    ("Saxony", "North German Confederation", "merger", "1868-01-01", None),
+    ("North German Confederation", "Imperial Germany", "merger", "1871-01-01", "German Empire proclaimed"),
+    ("Bavaria", "Germany", "merger", "1920-04-01", "Bavaria ran its own post until 1920, then joined the Reichspost"),
 ]
+
 
 # --- Vernacular / inscription aliases ---------------------------------------
 # What a collector reads off the stamp itself. Sourced from the Wikibooks Stamp
@@ -157,6 +182,20 @@ VERNACULAR = [
     ("Rhodesia", "Zimbabwe", "former_name"),
 ]
 
+def _norm_date(d):
+    """Normalise agent-supplied dates to YYYY-MM-DD or None.
+
+    Agents sometimes give partial dates ('1920-10', '1920'). The column is DATE, so
+    pad partials to the first of the period rather than let the load abort."""
+    import re
+    if not d: return None
+    d = d.strip()
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d): return d
+    if re.fullmatch(r"\d{4}-\d{2}", d): return d + "-01"
+    if re.fullmatch(r"\d{4}", d): return d + "-01-01"
+    return None
+
+
 def load_researched_edges(path="researched_edges.json"):
     """Merge in succession edges produced by the research workflow.
 
@@ -178,7 +217,7 @@ def load_researched_edges(path="researched_edges.json"):
         if tags:
             note = (note + " " if note else "") + "[" + "; ".join(tags) + "]"
         out.append((e["predecessor"], e["successor"], e["succession_type"],
-                    e.get("succession_date") or None, note or None))
+                    _norm_date(e.get("succession_date")), note or None))
     return out
 
 

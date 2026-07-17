@@ -9,7 +9,7 @@
 --   Wikipedia's groupings are a naming convention, not a lineage graph: USSR and
 --   Russia sit in separate groups with no link between them.
 --
--- Issuers: 1181   Succession edges: 44   Vernacular aliases: 46
+-- Issuers: 1181   Succession edges: 59   Vernacular aliases: 46
 
 BEGIN;
 
@@ -4543,659 +4543,1091 @@ UNION ALL
 SELECT p.id, s.id, 'dissolution', '1993-01-01'::date, 'Velvet Divorce'
   FROM issuers p, issuers s WHERE p.name = 'Czechoslovakia' AND s.name = 'Slovakia'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1949-07-01'::date, 'Travancore and Cochin united as Travancore-Cochin on 1 July 1949; the new state''s Anchal issues succeeded both. Travancore was the larger partner.'
-  FROM issuers p, issuers s WHERE p.name = 'Travancore' AND s.name = 'Travancore – Cochin'
+SELECT p.id, s.id, 'merger', '1910-05-31'::date, 'Union of South Africa'
+  FROM issuers p, issuers s WHERE p.name = 'Cape of Good Hope' AND s.name = 'South Africa'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1949-07-01'::date, 'Cochin Anchal postal administration merged into the united Travancore-Cochin state; early T-C stamps are overprints on Cochin issues.'
-  FROM issuers p, issuers s WHERE p.name = 'Cochin' AND s.name = 'Travancore – Cochin'
+SELECT p.id, s.id, 'merger', '1910-05-31'::date, 'Union of South Africa'
+  FROM issuers p, issuers s WHERE p.name = 'Natal' AND s.name = 'South Africa'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1948-03-25'::date, 'Bundi joined the Rajasthan Union on 25 March 1948; Rajasthan overprints hand-stamped in native characters on Bundi''s 1947 issue confirm direct postal succession.'
-  FROM issuers p, issuers s WHERE p.name = 'Bundi' AND s.name = 'Rajasthan'
+SELECT p.id, s.id, 'merger', '1910-05-31'::date, 'Union of South Africa'
+  FROM issuers p, issuers s WHERE p.name = 'Transvaal' AND s.name = 'South Africa'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1948-03-25'::date, 'Kishangarh acceded to the Rajasthan Union on 25 March 1948; Rajasthan hand-stamped overprints in native characters (same type as Bundi''s) on almost all Kishangarh issues confirm a direct postal handover.'
-  FROM issuers p, issuers s WHERE p.name = 'Kishangarh' AND s.name = 'Rajasthan'
+SELECT p.id, s.id, 'merger', '1910-05-31'::date, 'Union of South Africa'
+  FROM issuers p, issuers s WHERE p.name = 'Orange River Colony' AND s.name = 'South Africa'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1949-03-30'::date, 'Jaipur merged into Greater Rajasthan on 30 March 1949; a set of eleven Jaipur stamps machine-overprinted in native and English characters confirms postal succession.'
-  FROM issuers p, issuers s WHERE p.name = 'Jaipur' AND s.name = 'Rajasthan'
+SELECT p.id, s.id, 'annexation', '1902-05-31'::date, 'ZAR annexed by Britain after the Second Boer War, became Transvaal Colony'
+  FROM issuers p, issuers s WHERE p.name = 'South African Republic' AND s.name = 'Transvaal'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1948-03-25'::date, 'Dungarpur was a founding member of the Rajasthan Union formed 25 March 1948 (not the 18 April 1948 United State of Rajasthan, which is when Udaipur joined). Issuing until 1948. Political succession certain; no known Rajasthan overprints on Dungarpur, so postal handover is inferred rather than attested. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Dungarpur' AND s.name = 'Rajasthan'
+SELECT p.id, s.id, 'annexation', '1900-05-28'::date, 'Boer republic annexed by Britain'
+  FROM issuers p, issuers s WHERE p.name = 'Orange Free State' AND s.name = 'Orange River Colony'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1948-02-15'::date, 'Morvi was a live Kathiawar postal administration absorbed into the United State of Kathiawar/Saurashtra on 15 February 1948; Soruth stamps, at first issued in Junagadh only, were later extended to the Saurashtra Union including Morvi. Contested: the ''Soruth (Saurashtra)'' node conflates the Junagadh state post with the United State of Saurashtra administration, and the postal extension follows Junagadh''s 20 January 1949 merger rather than the February 1948 political accession. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Morvi' AND s.name = 'Soruth (Saurashtra)'
+SELECT p.id, s.id, 'annexation', '1880-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Griqualand West' AND s.name = 'Cape of Good Hope'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1948-02-15'::date, 'Jasdan''s short-lived 1942 postal issue predates the union and was defunct by 1948. Jasdan joined the Saurashtra Union in 1948 and Soruth (Saurashtra) stamps were later extended to it, but this rests on thin single-source evidence. Contested: the ''Soruth (Saurashtra)'' node conflates the Junagadh state post with the United State of Saurashtra administration. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Jasdan' AND s.name = 'Soruth (Saurashtra)'
+SELECT p.id, s.id, 'annexation', '1897-12-30'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Zululand' AND s.name = 'Natal'
 UNION ALL
-SELECT p.id, s.id, 'renamed', '1905-01-01'::date, 'Benadir protectorate issues replaced by Somalia Italiana / Italian Somaliland; same administration, new name.'
-  FROM issuers p, issuers s WHERE p.name = 'Benadir' AND s.name = 'Italian Somaliland'
+SELECT p.id, s.id, 'annexation', '1888-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'New Republic' AND s.name = 'South African Republic'
 UNION ALL
-SELECT p.id, s.id, 'annexation', '1926-07-01'::date, 'Oltre Giuba, ceded by Britain 1924, issued its own overprints 1925-26 then was absorbed into Italian Somaliland.'
-  FROM issuers p, issuers s WHERE p.name = 'Jubaland' AND s.name = 'Italian Somaliland'
+SELECT p.id, s.id, 'partition', '1948-08-15'::date, '[CONTESTED] Japanese colonial period 1910-1945 intervenes; partition at 38th parallel'
+  FROM issuers p, issuers s WHERE p.name = 'Korea (Empire)' AND s.name = 'South Korea'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1938-01-01'::date, 'Africa Orientale Italiana general issues replaced the separate colonial issues. Political union dates to 1936; the philatelic replacement to 1938, which is what the file periods encode.'
-  FROM issuers p, issuers s WHERE p.name = 'Italian Somaliland' AND s.name = 'Italian East Africa'
+SELECT p.id, s.id, 'partition', '1948-09-09'::date, '[CONTESTED] Japanese colonial period 1910-1945 intervenes; partition at 38th parallel'
+  FROM issuers p, issuers s WHERE p.name = 'Korea (Empire)' AND s.name = 'North Korea'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1938-01-01'::date, 'Eritrea merged into A.O.I.; some Eritrea-inscribed stock remained in use, hence the later listed end date.'
-  FROM issuers p, issuers s WHERE p.name = 'Eritrea (Italian Colony)' AND s.name = 'Italian East Africa'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1938-01-01'::date, 'The 1936 Italian occupation issues for Ethiopia were folded into A.O.I. The annexation was never widely recognised, and Ethiopia regarded 1936-41 as occupation, not succession. Ethiopia''s sovereign postal identity resumed in 1941 and does not descend from A.O.I. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Ethiopia (Italian Occupation)' AND s.name = 'Italian East Africa'
-UNION ALL
-SELECT p.id, s.id, 'occupation', '1941-01-01'::date, 'Local 1941 occupation overprints superseded by the general Isole Jonie issues under the same Italian military postal administration. No legal succession is implied; Greek sovereignty was never transferred. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Cephalonia and Ithaca (Italian Occupation)' AND s.name = 'Ionian Islands (Italian Occupation)'
-UNION ALL
-SELECT p.id, s.id, 'occupation', '1941-01-01'::date, 'Local 1941 overprints superseded by the general Ionian Islands issues. Note the file also carries ''Corfu (Italian Occupation)'' [1923-1923] for the unrelated 1923 Corfu incident; that entity has no edge to the Ionian Islands. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Corfu and Paxos (Italian Occupation)' AND s.name = 'Ionian Islands (Italian Occupation)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name overprints (Stampalia) discontinued in favour of general Isole Italiane dell''Egeo issues. Predecessor and successor coexist 1912-1932 in the file; this edge marks the end of separate island issues, not the start of the successor. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Astypalaea' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kalimnos' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Karpathos' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kasos' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Castelrosso, French-held then Italian from 1921, issued its own overprints before the general Aegean issues took over. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kastellórizo' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Khalki' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kos' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Leros' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Lipsos' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Nisyros' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Patmos (Patmo)' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Syme' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'Island-name issues replaced by general Aegean issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Telos' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1935-01-01'::date, 'Rhodes, the administrative centre, continued its own issues slightly longer before the general Aegean series took over entirely. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Rhodes' AND s.name = 'Aegean Islands (Dodecanese)'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1861-02-14'::date, 'After Garibaldi''s conquest and annexation to Sardinia, the Bourbon Naples issues were replaced by the Neapolitan Provinces (Provincie Napoletane) series.'
-  FROM issuers p, issuers s WHERE p.name = 'Naples' AND s.name = 'Neapolitan Provinces'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1861-02-14'::date, 'The ''Two Sicilies'' listing overlaps both the Naples and Sicily listings in this file. Its mainland postal administration was replaced by the Neapolitan Provinces issues on 14 Feb 1861, but the Sicilian half is not covered by this edge. Contested and many-to-many; consider whether Two Sicilies should carry succession edges at all given Naples and Sicily are listed independently. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Two Sicilies' AND s.name = 'Neapolitan Provinces'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1862-09-15'::date, 'The transitional Neapolitan Provinces series gave way to the Sardinian (soon Italian) issues used kingdom-wide on 15 Sept 1862. Note the successor pre-dates the predecessor in the file (Sardinia 1851-1863), so this is a postal-administration absorption, not a chronological state succession; the political annexation had already occurred in 1860-61. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Neapolitan Provinces' AND s.name = 'Sardinia'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1860-12-17'::date, 'Sicilian Bourbon issues demonetised after annexation. Direct Sicily->Sardinia skips the Neapolitan Provinces intermediate, which is listed in this file; consider re-pointing this edge to ''Neapolitan Provinces'' instead. Contested and catalogued inconsistently. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Sicily' AND s.name = 'Sardinia'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1860-03-18'::date, 'Duchy annexed to Sardinia after the 1860 plebiscite; Sardinian stamps replaced the Provisional Government issues.'
-  FROM issuers p, issuers s WHERE p.name = 'Modena' AND s.name = 'Sardinia'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1860-03-18'::date, 'Duchy annexed to Sardinia after the 1860 plebiscite; Sardinian stamps introduced.'
-  FROM issuers p, issuers s WHERE p.name = 'Parma' AND s.name = 'Sardinia'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1860-03-22'::date, 'Grand Duchy annexed to Sardinia after the 1860 plebiscite; Sardinian stamps introduced.'
-  FROM issuers p, issuers s WHERE p.name = 'Tuscany' AND s.name = 'Sardinia'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1860-03-18'::date, 'The former Papal Legations issued Provisional Government stamps in 1859-60, then were annexed to Sardinia and used Sardinian issues.'
-  FROM issuers p, issuers s WHERE p.name = 'Romagna' AND s.name = 'Sardinia'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1859-09-01'::date, 'The Legations (Romagna) broke away from Papal postal administration in 1859. The Papacy never accepted the loss and continued issuing for the residual state until 1870. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Papal States' AND s.name = 'Romagna'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1912-01-01'::date, 'Xinhai Revolution; Imperial Chinese Post continued as the Chinese (Republic) Post with overprinted Imperial stamps.'
-  FROM issuers p, issuers s WHERE p.name = 'Chinese Empire' AND s.name = 'Chinese Republic'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1898-02-01'::date, 'Umbrella grouping, not a single issuer. Imperial edict closed the treaty-port local posts; mails taken over by the Imperial Chinese Post. Date approximate and the file''s [?-present] period is inconsistent with termination in 1898. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Treaty ports' AND s.name = 'Chinese Empire'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1898-02-01'::date, 'Shanghai Local Post (1865-1898), largest and oldest of the local posts, absorbed into the Imperial Chinese Post. Year 1898 solid; exact day not verified. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Shanghai' AND s.name = 'Chinese Empire'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, 'CPC victory on the mainland; PRC postal administration replaced the ROC''s on the mainland. Contested because the ROC never conceded and continues to issue. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'Chinese Republic' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1949-12-07'::date, 'ROC government and postal administration relocated to Taipei 7 Dec 1949; philatelically catalogued as a separate continuing issuer. Same polity in its own view, hence contested. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Chinese Republic' AND s.name = 'Chinese Nationalist Republic'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1945-10-25'::date, 'Japanese surrender of Formosa; ROC took over the island''s postal service and issued Taiwan provincial overprints.'
-  FROM issuers p, issuers s WHERE p.name = 'Japanese Taiwan (Formosa)' AND s.name = 'Taiwan'
-UNION ALL
-SELECT p.id, s.id, 'restored', '1945-08-18'::date, 'Manchukuo dissolved 18 Aug 1945 with the Japanese surrender; territory reincorporated into China and served by ROC North Eastern Provinces issues from 1946. Gap of over a year between the two issuing periods. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Manchukuo' AND s.name = 'North Eastern Provinces'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1932-03-01'::date, 'Provinces covered by the Kirin & Heilungkiang issues were incorporated into the Japanese-sponsored Manchukuo state, whose own post replaced them. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kirin and Heilungkiang' AND s.name = 'Manchukuo'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, 'NEP issues actually ended in 1948 when Manchuria fell to the PLA, almost a year before the PRC was founded; the intervening liberation-area issues are not represented in this file. Date is the PRC founding, not the actual transfer. [confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'North Eastern Provinces' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, 'Peaceful incorporation of Xinjiang; separate provincial issues ceased and PRC stamps came into use. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Sinkiang' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1942-01-01'::date, 'Same Japanese-sponsored Mengjiang regime under two catalogue headings, but the file''s periods overlap 1942-1943, which contradicts a clean rename. Transition date not established. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Inner Mongolia (Japanese Occupation)' AND s.name = 'Mengkiang (Japanese Occupation)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1942-01-01'::date, 'The 1941 single-province Japanese overprints were replaced by a unified North China occupation issue. Note: Supeh (Japanese Occupation) [1941-1941] fits the same pattern but was not proposed. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Honan (Japanese Occupation)' AND s.name = 'North China (Japanese Occupation)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1942-01-01'::date, '1941 provincial overprints superseded by the general North China occupation issue. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Hopei (Japanese Occupation)' AND s.name = 'North China (Japanese Occupation)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1942-01-01'::date, '1941 provincial overprints superseded by the general North China occupation issue. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Shansi (Japanese Occupation)' AND s.name = 'North China (Japanese Occupation)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1942-01-01'::date, '1941 provincial overprints superseded by the general North China occupation issue. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Shantung (Japanese Occupation)' AND s.name = 'North China (Japanese Occupation)'
-UNION ALL
-SELECT p.id, s.id, 'restored', '1945-09-09'::date, 'Japanese surrender in China; occupation postal administration wound up and ROC posts restored. Occupation was never a legal successor. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'North China (Japanese Occupation)' AND s.name = 'Chinese Republic'
-UNION ALL
-SELECT p.id, s.id, 'restored', '1945-09-09'::date, 'Occupation administration ended with the Japanese surrender 9 Sept 1945; ROC postal authority restored. File shows issues ceasing in 1944, before the administration itself ended. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Central China (Japanese Occupation)' AND s.name = 'Chinese Republic'
-UNION ALL
-SELECT p.id, s.id, 'restored', '1945-09-09'::date, 'Occupation issues ceased at the Japanese surrender; ROC posts resumed. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Nangking and Shanghai (Japanese Occupation)' AND s.name = 'Chinese Republic'
-UNION ALL
-SELECT p.id, s.id, 'restored', '1945-09-09'::date, 'Occupation administration in Kwangtung ended at the surrender; ROC posts restored. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kwangtung (Japanese Occupation)' AND s.name = 'Chinese Republic'
-UNION ALL
-SELECT p.id, s.id, 'restored', '1945-08-19'::date, 'Mengjiang collapsed with the Soviet/Mongolian advance and the Japanese surrender; nominally restored to the ROC, though much of the area passed rapidly to Soviet then Communist control, so effective ROC postal restoration is doubtful. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Mengkiang (Japanese Occupation)' AND s.name = 'Chinese Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '1949 ROC provincial silver-yuan issues ended as the PLA took the province; PRC posts followed. Date is the PRC founding; Fuzhou fell 17 Aug, Xiamen 17 Oct 1949. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Fukien' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '1949 ROC provincial issues superseded by PRC postal administration. Changsha fell 4 Aug 1949; date given is the PRC founding. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Hunan' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '1949 ROC provincial issues superseded by PRC postal administration. Wuhan fell 16 May 1949, months before the PRC existed; date given is the PRC founding. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Hupeh' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '1949 ROC provincial issues superseded by PRC postal administration. Lanzhou fell 26 Aug 1949; date given is the PRC founding. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kansu' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '1949 ROC provincial issues superseded by PRC postal administration. Nanchang fell 22 May 1949; date given is the PRC founding. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kiangsi' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-12-01'::date, '1949 ROC provincial issues superseded by PRC postal administration. Nanning fell 4 Dec 1949, consistent with the stated date. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kwangsi' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '1949 ROC provincial issues superseded by PRC postal administration. Xi''an fell 20 May 1949; date given is the PRC founding. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Shensi' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '1949 ROC local silver-yuan issue at Tsingtao ended when the city fell to the PLA on 2 June 1949; date corrected to the PRC founding since the PRC did not exist in June. City-level local issue, not a provincial one. [confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Tsingtau' AND s.name = 'Chinese People''s Republic'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1867-04-01'::date, 'Straits Settlements separated from British India as a Crown Colony in 1867; postal administration transferred from India to the new colony.'
-  FROM issuers p, issuers s WHERE p.name = 'India' AND s.name = 'Straits Settlements'
-UNION ALL
-SELECT p.id, s.id, 'occupation', '1945-09-12'::date, 'After the Japanese surrender, British Military Administration overprints replaced pre-war Straits Settlements issues. BMA was a military, not legal, successor.'
-  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Malaya (British Military Administration)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1948-04-01'::date, 'CORRECTED DATE to 1948-09-01. Straits Settlements dissolved 1 April 1946; Singapore became a separate Crown Colony and began its own issues 1 Sept 1948. Many-to-many: parallel BMA path exists. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Singapore, Malaya'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1948-02-21'::date, 'Penang left the dissolved Straits Settlements for the Malayan Union/Federation and resumed its own state issues 21 Feb 1948. Flagged contested: parallel BMA->Penang path with the same date. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Penang'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1948-02-21'::date, 'Malacca left the dissolved Straits Settlements for the Malayan Union/Federation and resumed its own state issues 21 Feb 1948. Flagged contested: parallel BMA->Malacca path. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Malacca'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1948-09-01'::date, 'BMA issues replaced by separate Singapore Colony issues, 1 Sept 1948. Contested: competes with the direct Straits Settlements lineage. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'Malaya (British Military Administration)' AND s.name = 'Singapore, Malaya'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1948-03-01'::date, 'Perlis began its own issues in 1948 as BMA-overprinted issues were withdrawn. Exact day uncertain; date should be treated as approximate. [confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Malaya (British Military Administration)' AND s.name = 'Perlis'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1948-02-21'::date, 'State issues resumed 21 Feb 1948 on the winding-up of the BMA. Contested: duplicates the Straits Settlements->Penang lineage. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Malaya (British Military Administration)' AND s.name = 'Penang'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1948-02-21'::date, 'State issues resumed 21 Feb 1948 on the winding-up of the BMA. Contested: duplicates the Straits Settlements->Malacca lineage. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Malaya (British Military Administration)' AND s.name = 'Malacca'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1959-06-03'::date, 'Colony of Singapore became the self-governing State of Singapore; same postal authority, new name.'
-  FROM issuers p, issuers s WHERE p.name = 'Singapore, Malaya' AND s.name = 'Singapore, State of'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1963-09-16'::date, 'Singapore merged into the new Federation of Malaysia.'
-  FROM issuers p, issuers s WHERE p.name = 'Singapore, State of' AND s.name = 'Malaysia'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1963-09-16'::date, 'Federation of Malaya merged with Singapore, Sarawak and North Borneo to form Malaysia.'
-  FROM issuers p, issuers s WHERE p.name = 'Malayan Federation' AND s.name = 'Malaysia'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1963-09-16'::date, 'Sarawak joined Malaysia but continued issuing distinct state stamps; predecessor did not cease, so the merger is only partial. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Sarawak' AND s.name = 'Malaysia'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1963-09-16'::date, 'North Borneo joined Malaysia as the state of Sabah. Contested: competes with the North Borneo (British Colony) -> Sabah rename edge at the same date. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'North Borneo (British Colony)' AND s.name = 'Malaysia'
-UNION ALL
-SELECT p.id, s.id, 'independence', '1965-08-09'::date, 'Singapore separated from Malaysia and became an independent state with its own postal administration.'
-  FROM issuers p, issuers s WHERE p.name = 'Malaysia' AND s.name = 'Singapore'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1900-01-01'::date, 'State issues replaced by common FMS issues from 1900.'
-  FROM issuers p, issuers s WHERE p.name = 'Negri Sembilan' AND s.name = 'Federated Malay States'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1900-01-01'::date, 'State issues replaced by common FMS issues from 1900.'
-  FROM issuers p, issuers s WHERE p.name = 'Pahang' AND s.name = 'Federated Malay States'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1900-01-01'::date, 'State issues replaced by common FMS issues from 1900.'
-  FROM issuers p, issuers s WHERE p.name = 'Perak' AND s.name = 'Federated Malay States'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1900-01-01'::date, 'State issues replaced by common FMS issues from 1900.'
-  FROM issuers p, issuers s WHERE p.name = 'Selangor' AND s.name = 'Federated Malay States'
-UNION ALL
-SELECT p.id, s.id, 'dissolution', '1935-01-01'::date, 'FMS common issues abandoned; Negri Sembilan resumed separate state issues 1935. Exact day approximate. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Federated Malay States' AND s.name = 'Negri Sembilan'
-UNION ALL
-SELECT p.id, s.id, 'dissolution', '1935-01-01'::date, 'FMS common issues abandoned; Pahang resumed separate state issues 1935. Exact day approximate. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Federated Malay States' AND s.name = 'Pahang'
-UNION ALL
-SELECT p.id, s.id, 'dissolution', '1935-01-01'::date, 'FMS common issues abandoned; Perak resumed separate state issues 1935. Exact day approximate. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Federated Malay States' AND s.name = 'Perak'
-UNION ALL
-SELECT p.id, s.id, 'dissolution', '1935-01-01'::date, 'FMS common issues abandoned; Selangor resumed separate state issues 1935. Exact day approximate. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Federated Malay States' AND s.name = 'Selangor'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1895-01-01'::date, 'Sungei Ujong absorbed into the confederated state of Negri Sembilan; its stamps were superseded.'
-  FROM issuers p, issuers s WHERE p.name = 'Sungei Ujong' AND s.name = 'Negri Sembilan'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1894-01-01'::date, 'CORRECTED TYPE annexation -> renamed. Labuan already under BNB Company administration from 1890; 1894 marks the switch to North Borneo stamps overprinted LABUAN, same territory and authority. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Labuan' AND s.name = 'North Borneo (Labuan overprint)'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1907-01-01'::date, 'Labuan was incorporated into the Straits Settlements in 1907 and thereafter used Straits Settlements stamps. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'North Borneo (Labuan overprint)' AND s.name = 'Straits Settlements'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1907-01-01'::date, 'Labuan cluster: separate Labuan issues ceased and Straits Settlements stamps came into use after incorporation on 1 Jan 1907. Contested: parallel to the Labuan -> North Borneo (Labuan overprint) -> Straits Settlements chain. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Labuan' AND s.name = 'Straits Settlements'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1894-01-01'::date, 'Same British North Borneo Company administration, restyled as the State of North Borneo.'
-  FROM issuers p, issuers s WHERE p.name = 'North Borneo (British North Borneo)' AND s.name = 'North Borneo (State of North Borneo)'
-UNION ALL
-SELECT p.id, s.id, 'occupation', '1945-12-17'::date, 'British Military Administration overprints following the Japanese surrender; a military administration, not a legal successor.'
-  FROM issuers p, issuers s WHERE p.name = 'North Borneo (State of North Borneo)' AND s.name = 'North Borneo (BMA)'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1946-07-15'::date, 'The Chartered Company ceded North Borneo to the Crown; BMA replaced by Crown Colony administration.'
-  FROM issuers p, issuers s WHERE p.name = 'North Borneo (BMA)' AND s.name = 'North Borneo (British Colony)'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1963-09-16'::date, 'North Borneo renamed Sabah on entry into Malaysia; Sabah-inscribed stamps from 1964.'
-  FROM issuers p, issuers s WHERE p.name = 'North Borneo (British Colony)' AND s.name = 'Sabah'
-UNION ALL
-SELECT p.id, s.id, 'occupation', '1945-09-11'::date, 'Brooke-era Sarawak stamps overprinted BMA by the British Military Administration after the Japanese surrender. Date reflects the 11 Sept 1945 surrender; overprints issued later in 1945. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Sarawak' AND s.name = 'Sarawak (BMA)'
-UNION ALL
-SELECT p.id, s.id, 'restored', '1946-07-01'::date, 'BMA ended when Sarawak was ceded to the Crown; civil Sarawak postal administration resumed.'
-  FROM issuers p, issuers s WHERE p.name = 'Sarawak (BMA)' AND s.name = 'Sarawak'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1979-02-01'::date, 'Kuala Lumpur ceded by Selangor to the Federation in 1974; Federal Territory stamps from 1979. Date is the philatelic start, not the constitutional cession. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Selangor' AND s.name = 'Federal Territory (Kuala Lumpur)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '2001-02-01'::date, 'Putrajaya excised from Selangor and constituted a Federal Territory in 2001. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Selangor' AND s.name = 'Federal Territory (Putrajaya)'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1958-10-01'::date, 'Christmas Island used Straits Settlements (later Singapore) stamps until sovereignty transferred to Australia on 1 Oct 1958. Contested: the immediate 1958 predecessor was Singapore, not the long-defunct Straits Settlements. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Christmas Island, Indian Ocean'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1993-03-02'::date, 'Christmas Island absorbed into the Australian postal system; stamps became Australian issues.'
-  FROM issuers p, issuers s WHERE p.name = 'Christmas Island, Indian Ocean' AND s.name = 'Christmas Island, Australia'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1918-09-01'::date, 'Baghdad occupation overprints superseded by general Iraq (British Occupation) issues as the occupation extended. Exact day approximate. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Baghdad (British Occupation)' AND s.name = 'Iraq (British Occupation)'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1950-02-06'::date, 'B.M.A. overprints replaced by B.A. overprints; same occupying administration, civil restyling.'
-  FROM issuers p, issuers s WHERE p.name = 'Eritrea (British Military Administration)' AND s.name = 'Eritrea (British Administration)'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1950-01-01'::date, 'B.M.A. SOMALIA overprints replaced by B.A. SOMALIA; same administration, civil restyling. Exact day approximate. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Somalia (British Military Administration)' AND s.name = 'Somalia (British Administration)'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1950-02-06'::date, 'B.M.A. TRIPOLITANIA overprints replaced by B.A. TRIPOLITANIA; same administration, civil restyling.'
-  FROM issuers p, issuers s WHERE p.name = 'Tripolitania (British Military Administration)' AND s.name = 'Tripolitania (British Administration)'
-UNION ALL
-SELECT p.id, s.id, 'occupation', '1948-01-01'::date, 'General M.E.F. overprints used in the occupied Italian territories were replaced by territory-specific B.M.A. overprints in 1948. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Middle East Forces (MEF)' AND s.name = 'Eritrea (British Military Administration)'
-UNION ALL
-SELECT p.id, s.id, 'occupation', '1948-01-01'::date, 'General M.E.F. overprints replaced by territory-specific B.M.A. TRIPOLITANIA overprints in 1948. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Middle East Forces (MEF)' AND s.name = 'Tripolitania (British Military Administration)'
-UNION ALL
-SELECT p.id, s.id, 'occupation', '1948-01-01'::date, 'E.A.F. overprints used in occupied Italian Somaliland were superseded by B.M.A. SOMALIA overprints in 1948. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'East Africa Forces' AND s.name = 'Somalia (British Military Administration)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1886-01-01'::date, 'General keytypes replaced by individual colony issues from 1886. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'French Colonies' AND s.name = 'French Guiana'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1886-01-01'::date, 'Gabon began its own overprinted issues as the general colonial series was discontinued. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'French Colonies' AND s.name = 'Gabon (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1886-01-01'::date, 'Cochin-China''s own issues replaced general French Colonies stamps. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'French Colonies' AND s.name = 'Cochin–China'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1889-01-01'::date, 'Cochin-China postal administration absorbed into the Indo-Chinese Union.'
-  FROM issuers p, issuers s WHERE p.name = 'Cochin–China' AND s.name = 'Indo–China'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1892-01-01'::date, 'Annam & Tongking issues superseded by unified Indo-China stamps.'
-  FROM issuers p, issuers s WHERE p.name = 'Annam and Tongking' AND s.name = 'Indo–China'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1949-06-14'::date, 'State of Vietnam within the French Union takes over its own postal administration on 1949-06-14, but the file''s entity span begins 1945 (Empire of Vietnam issues), so the date marks the political event, not the start of issuing. [CONTESTED; confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Indo–China' AND s.name = 'Vietnam (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1951-11-01'::date, 'Kingdom of Cambodia begins own issues as Indo-Chinese Union postal service ends.'
-  FROM issuers p, issuers s WHERE p.name = 'Indo–China' AND s.name = 'Cambodia'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1951-11-01'::date, 'Kingdom of Laos begins own issues at the same dissolution.'
-  FROM issuers p, issuers s WHERE p.name = 'Indo–China' AND s.name = 'Laos'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1955-10-26'::date, 'State of Vietnam becomes Republic of Vietnam after the October 1955 referendum; direct postal continuity south of the 17th parallel.'
-  FROM issuers p, issuers s WHERE p.name = 'Vietnam (French Colony)' AND s.name = 'South Vietnam'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1976-07-02'::date, 'Reunification into the Socialist Republic of Vietnam.'
-  FROM issuers p, issuers s WHERE p.name = 'North Vietnam' AND s.name = 'Vietnam'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1976-07-02'::date, 'Via the Provisional Revolutionary Government; RVN postal administration ended 1975.'
-  FROM issuers p, issuers s WHERE p.name = 'South Vietnam' AND s.name = 'Vietnam'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1976-07-02'::date, 'NLF/PRG issuing authority absorbed at reunification. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'NFLSV (VietCong)' AND s.name = 'Vietnam'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1970-10-09'::date, 'Monarchy overthrown; Khmer Republic proclaimed.'
-  FROM issuers p, issuers s WHERE p.name = 'Cambodia' AND s.name = 'Khmer Republic'
-UNION ALL
-SELECT p.id, s.id, 'regime_change', '1980-01-01'::date, 'Corrected to the PRK issuing start. Five-year gap (1975-1980) spans unlisted Democratic Kampuchea and the 1979 Vietnamese invasion; the link between these two listed entities is indirect. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Khmer Republic' AND s.name = 'Kampuchea'
-UNION ALL
-SELECT p.id, s.id, 'restored', '1989-04-30'::date, 'PRK renamed State of Cambodia; issuing authority reverts to the ''Cambodia'' name. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Kampuchea' AND s.name = 'Cambodia'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1894-01-01'::date, 'Two file entries describing the same Obock issuing authority under different catalogue labels; overlapping spans indicate duplication rather than a real rename event. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Obock' AND s.name = 'Obock (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1902-05-01'::date, 'Obock stamps superseded by Cote Francaise des Somalis.'
-  FROM issuers p, issuers s WHERE p.name = 'Obock (French Colony)' AND s.name = 'French Somali Coast'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1902-05-01'::date, 'Djibouti colony issues replaced by French Somali Coast.'
-  FROM issuers p, issuers s WHERE p.name = 'Djibouti (French Colony)' AND s.name = 'French Somali Coast'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1967-07-05'::date, 'Renamed after the 1967 referendum.'
-  FROM issuers p, issuers s WHERE p.name = 'French Somali Coast' AND s.name = 'French Territory of Afars and Issas'
-UNION ALL
-SELECT p.id, s.id, 'independence', '1977-06-27'::date, 'Independence of Djibouti.'
-  FROM issuers p, issuers s WHERE p.name = 'French Territory of Afars and Issas' AND s.name = 'Djibouti, Republic of'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1896-08-06'::date, 'French post offices in Madagascar become the postal service of the annexed colony. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Madagascar (French Post Offices)' AND s.name = 'Madagascar and Dependencies'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1896-01-01'::date, 'Separate Diego-Suarez colony absorbed into Madagascar.'
-  FROM issuers p, issuers s WHERE p.name = 'Diégo-Suarez' AND s.name = 'Madagascar and Dependencies'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1896-01-01'::date, 'Ste Marie absorbed into the Madagascar colony.'
-  FROM issuers p, issuers s WHERE p.name = 'Ste Marie de Madagascar' AND s.name = 'Madagascar and Dependencies'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1896-01-01'::date, 'Nossi-Be merged into Madagascar; its stamps remained in use for some years after the file''s listed issuing period closed. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Nossi-Bé' AND s.name = 'Madagascar and Dependencies'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1914-01-01'::date, 'Comoro sultanates made a province of Madagascar (1912); Madagascar stamps used from 1914.'
-  FROM issuers p, issuers s WHERE p.name = 'Anjouan' AND s.name = 'Madagascar and Dependencies'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1914-01-01'::date, 'Same 1912/1914 absorption of the Comoros into Madagascar.'
-  FROM issuers p, issuers s WHERE p.name = 'Great Comoro' AND s.name = 'Madagascar and Dependencies'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1914-01-01'::date, 'Same 1912/1914 absorption of the Comoros into Madagascar.'
-  FROM issuers p, issuers s WHERE p.name = 'Moheli' AND s.name = 'Madagascar and Dependencies'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1914-01-01'::date, 'Applies to the 1892-1914 Mayotte entity only. Duplicate exact name in the file makes the reference ambiguous; the file needs disambiguating qualifiers before this edge can be trusted. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Mayotte' AND s.name = 'Madagascar and Dependencies'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1906-10-18'::date, 'Same territory renamed and enlarged.'
-  FROM issuers p, issuers s WHERE p.name = 'Senegambia and Niger' AND s.name = 'Upper Senegal and Niger'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1921-01-01'::date, 'Upper Senegal & Niger broken up; core becomes French Sudan. The file''s French Soudan span is a catch-all that overlaps the predecessor, so span data cannot corroborate this edge. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Upper Senegal and Niger' AND s.name = 'French Soudan'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1920-03-01'::date, 'Upper Volta detached from Upper Senegal & Niger by the decree of 1 March 1919; own issues from 1920.'
-  FROM issuers p, issuers s WHERE p.name = 'Upper Senegal and Niger' AND s.name = 'Upper Volta (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1921-01-01'::date, 'Niger military territory becomes a separate colony.'
-  FROM issuers p, issuers s WHERE p.name = 'Upper Senegal and Niger' AND s.name = 'Niger (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1933-01-01'::date, 'Upper Volta suppressed 1932; largest share to Ivory Coast.'
-  FROM issuers p, issuers s WHERE p.name = 'Upper Volta (French Colony)' AND s.name = 'Ivory Coast (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1933-01-01'::date, 'Smaller share of dismembered Upper Volta. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Upper Volta (French Colony)' AND s.name = 'French Soudan'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1933-01-01'::date, 'Smaller share of dismembered Upper Volta. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Upper Volta (French Colony)' AND s.name = 'Niger (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1899-01-01'::date, 'Benin colony renamed Dahomey and Dependencies.'
-  FROM issuers p, issuers s WHERE p.name = 'Benin (French Colony)' AND s.name = 'Dahomey'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1944-01-01'::date, 'Individual AOF colony issues replaced by common French West Africa stamps.'
-  FROM issuers p, issuers s WHERE p.name = 'French Soudan' AND s.name = 'French West Africa'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1944-01-01'::date, 'Same 1944 unification of AOF postal issues.'
-  FROM issuers p, issuers s WHERE p.name = 'French Guinea' AND s.name = 'French West Africa'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1944-01-01'::date, 'Same 1944 unification of AOF postal issues.'
-  FROM issuers p, issuers s WHERE p.name = 'Ivory Coast (French Colony)' AND s.name = 'French West Africa'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1944-01-01'::date, 'Same 1944 unification of AOF postal issues.'
-  FROM issuers p, issuers s WHERE p.name = 'Mauritania (French Colony)' AND s.name = 'French West Africa'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1944-01-01'::date, 'Same 1944 unification of AOF postal issues.'
-  FROM issuers p, issuers s WHERE p.name = 'Niger (French Colony)' AND s.name = 'French West Africa'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1944-01-01'::date, 'Senegal ceased separate issues in 1944; the file''s ''1887-present'' span treats this as a catch-all Senegal entity and cannot corroborate the date. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Senegal (French Colony)' AND s.name = 'French West Africa'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1944-01-01'::date, 'Dahomey ceased separate issues 1944-1960; the file''s ''1899-1975'' span covers the later republic too. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Dahomey' AND s.name = 'French West Africa'
-UNION ALL
-SELECT p.id, s.id, 'dissolution', '1959-04-04'::date, 'AOF broken up; Senegal + Soudan formed the Mali Federation, which issued its own stamps. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'French West Africa' AND s.name = 'Mali Federation'
-UNION ALL
-SELECT p.id, s.id, 'dissolution', '1960-08-20'::date, 'Federation broke up; Senegal resumed its own issues. Low confidence only because the file''s entity name carries a ''(French Colony)'' qualifier that does not fit the post-1960 republic. [confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Mali Federation' AND s.name = 'Senegal (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1907-01-01'::date, 'French Congo split in 1906; Middle Congo issues from 1907.'
-  FROM issuers p, issuers s WHERE p.name = 'French Congo' AND s.name = 'Middle Congo'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1906-01-01'::date, 'Gabon detached at the 1906 split and resumed separate issues. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'French Congo' AND s.name = 'Gabon (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1906-01-01'::date, 'Third component of the 1906 split; its own stamps only appear from 1915, leaving a gap between the political event and the issuing period. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'French Congo' AND s.name = 'Oubangui – Chari – Tchad'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1922-01-01'::date, 'Chad separated from Ubangi-Shari-Chad in 1920; separate issues from 1922.'
-  FROM issuers p, issuers s WHERE p.name = 'Oubangui – Chari – Tchad' AND s.name = 'Oubangui – Chari'
-UNION ALL
-SELECT p.id, s.id, 'partition', '1922-01-01'::date, 'Chad becomes a distinct issuing colony.'
-  FROM issuers p, issuers s WHERE p.name = 'Oubangui – Chari – Tchad' AND s.name = 'Chad (French Colony)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1937-01-01'::date, 'AEF common issues replace the four constituent colonies'' stamps.'
-  FROM issuers p, issuers s WHERE p.name = 'Middle Congo' AND s.name = 'French Equatorial Africa (AEF)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1937-01-01'::date, 'Same 1936-37 AEF unification.'
-  FROM issuers p, issuers s WHERE p.name = 'Gabon (French Colony)' AND s.name = 'French Equatorial Africa (AEF)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1937-01-01'::date, 'Same 1936-37 AEF unification.'
-  FROM issuers p, issuers s WHERE p.name = 'Chad (French Colony)' AND s.name = 'French Equatorial Africa (AEF)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1937-01-01'::date, 'Same 1936-37 AEF unification.'
-  FROM issuers p, issuers s WHERE p.name = 'Oubangui – Chari' AND s.name = 'French Equatorial Africa (AEF)'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1946-01-01'::date, 'Inini inner territory reintegrated into French Guiana.'
-  FROM issuers p, issuers s WHERE p.name = 'Inini' AND s.name = 'French Guiana'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1914-01-01'::date, 'French offices in Morocco converted into the protectorate postal administration after the 1912 Treaty of Fez. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Morocco (French Post Offices)' AND s.name = 'French Protectorate, Morocco'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1915-01-01'::date, 'Same administration; catalogue naming change. The two file entries overlap in 1914-15. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'French Protectorate, Morocco' AND s.name = 'French Morocco'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1915-01-01'::date, 'Tahiti''s separate issues absorbed into Etablissements francais de l''Oceanie. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Tahiti' AND s.name = 'French Oceanic Settlements'
-UNION ALL
-SELECT p.id, s.id, 'renamed', '1958-07-22'::date, 'Renamed on becoming an overseas territory.'
-  FROM issuers p, issuers s WHERE p.name = 'French Oceanic Settlements' AND s.name = 'French Polynesia'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1923-01-15'::date, 'Lithuanian seizure of the Memel Territory ended the French administration; Klaipeda overprints follow.'
-  FROM issuers p, issuers s WHERE p.name = 'Memel (French Administration)' AND s.name = 'Klaipėda'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1866-10-01'::date, 'Kingdom of Hanover annexed by Prussia after the 1866 Austro-Prussian War; Hanoverian stamps replaced by Prussian issues from 1 Oct 1866.'
-  FROM issuers p, issuers s WHERE p.name = 'Hanover' AND s.name = 'Prussia'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1867-07-01'::date, 'Thurn und Taxis sold its postal rights to Prussia by contract ratified 28 Jan 1867; T&T stamps invalid after 30 June 1867, Prussian stamps used from 1 July 1867.'
-  FROM issuers p, issuers s WHERE p.name = 'Postage of Thurn and Taxis (Northern District)' AND s.name = 'Prussia'
-UNION ALL
-SELECT p.id, s.id, 'annexation', '1867-07-01'::date, 'Same 1867 transfer of the Thurn und Taxis postal monopoly to Prussia; Southern District stamps replaced by Prussian on 1 July 1867.'
-  FROM issuers p, issuers s WHERE p.name = 'Postage of Thurn and Taxis (Southern District)' AND s.name = 'Prussia'
-UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'The Prussian postal administration became the core of the North German Postal District from 1 Jan 1868; Prussian stamps withdrawn.'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Prussia' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Kingdom of Saxony''s post absorbed into the North German Postal District on 1 Jan 1868.'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Saxony' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Brunswick post merged into the North German Postal District, 1 Jan 1868.'
+SELECT p.id, s.id, 'merger', '1871-01-01'::date, 'German Empire proclaimed'
+  FROM issuers p, issuers s WHERE p.name = 'North German Confederation' AND s.name = 'Imperial Germany'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1920-04-01'::date, 'Bavaria ran its own post until 1920, then joined the Reichspost'
+  FROM issuers p, issuers s WHERE p.name = 'Bavaria' AND s.name = 'Germany'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1886-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'French Colonies' AND s.name = 'French Guiana'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1886-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'French Colonies' AND s.name = 'Gabon (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1886-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'French Colonies' AND s.name = 'Cochin–China'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1889-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Cochin–China' AND s.name = 'Indo–China'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1892-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Annam and Tongking' AND s.name = 'Indo–China'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1949-06-14'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Indo–China' AND s.name = 'Vietnam (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1951-11-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Indo–China' AND s.name = 'Cambodia'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1951-11-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Indo–China' AND s.name = 'Laos'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1955-10-26'::date, 'South Vietnam [1955-1976] is the direct continuation of the French-era southern entity.'
+  FROM issuers p, issuers s WHERE p.name = 'Vietnam (French Colony)' AND s.name = 'South Vietnam'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1976-07-02'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'North Vietnam' AND s.name = 'Vietnam'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1976-07-02'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'South Vietnam' AND s.name = 'Vietnam'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1976-07-02'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'NFLSV (VietCong)' AND s.name = 'Vietnam'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1970-10-09'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Cambodia' AND s.name = 'Khmer Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1979-01-07'::date, 'Philatelic gap: Khmer Republic issues end 1975, Democratic Kampuchea (1975-79) issued nearly nothing, PRK/Kampuchea issues begin 1980. Khmer Republic is the last actual issuer before this entity. [confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Khmer Republic' AND s.name = 'Kampuchea'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1989-04-30'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kampuchea' AND s.name = 'Cambodia'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1894-01-01'::date, '[confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Obock' AND s.name = 'Obock (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1902-05-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Obock (French Colony)' AND s.name = 'French Somali Coast'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1902-05-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Djibouti (French Colony)' AND s.name = 'French Somali Coast'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1967-07-05'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'French Somali Coast' AND s.name = 'French Territory of Afars and Issas'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1977-06-27'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'French Territory of Afars and Issas' AND s.name = 'Djibouti, Republic of'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1896-08-06'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Madagascar (French Post Offices)' AND s.name = 'Madagascar and Dependencies'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1896-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Diégo-Suarez' AND s.name = 'Madagascar and Dependencies'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1896-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Ste Marie de Madagascar' AND s.name = 'Madagascar and Dependencies'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1896-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Nossi-Bé' AND s.name = 'Madagascar and Dependencies'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1914-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Anjouan' AND s.name = 'Madagascar and Dependencies'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1914-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Great Comoro' AND s.name = 'Madagascar and Dependencies'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1914-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Moheli' AND s.name = 'Madagascar and Dependencies'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1914-01-01'::date, 'Name collision in the file; only fix here is raising the contested flag to surface the ambiguity. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Mayotte' AND s.name = 'Madagascar and Dependencies'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1906-10-18'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Senegambia and Niger' AND s.name = 'Upper Senegal and Niger'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1921-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Upper Senegal and Niger' AND s.name = 'French Soudan'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1920-03-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Upper Senegal and Niger' AND s.name = 'Upper Volta (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1921-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Upper Senegal and Niger' AND s.name = 'Niger (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1933-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Upper Volta (French Colony)' AND s.name = 'Ivory Coast (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1933-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Upper Volta (French Colony)' AND s.name = 'French Soudan'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1933-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Upper Volta (French Colony)' AND s.name = 'Niger (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1899-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Benin (French Colony)' AND s.name = 'Dahomey'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1944-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'French Soudan' AND s.name = 'French West Africa'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1944-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'French Guinea' AND s.name = 'French West Africa'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1944-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Ivory Coast (French Colony)' AND s.name = 'French West Africa'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1944-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Mauritania (French Colony)' AND s.name = 'French West Africa'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1944-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Niger (French Colony)' AND s.name = 'French West Africa'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1944-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Senegal (French Colony)' AND s.name = 'French West Africa'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1944-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Dahomey' AND s.name = 'French West Africa'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1959-04-04'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'French West Africa' AND s.name = 'Mali Federation'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1960-08-20'::date, '[confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Mali Federation' AND s.name = 'Senegal (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1907-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'French Congo' AND s.name = 'Middle Congo'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1906-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'French Congo' AND s.name = 'Gabon (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1906-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'French Congo' AND s.name = 'Oubangui – Chari – Tchad'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1922-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Oubangui – Chari – Tchad' AND s.name = 'Oubangui – Chari'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1922-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Oubangui – Chari – Tchad' AND s.name = 'Chad (French Colony)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1937-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Middle Congo' AND s.name = 'French Equatorial Africa (AEF)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1937-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Gabon (French Colony)' AND s.name = 'French Equatorial Africa (AEF)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1937-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Chad (French Colony)' AND s.name = 'French Equatorial Africa (AEF)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1937-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Oubangui – Chari' AND s.name = 'French Equatorial Africa (AEF)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1946-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Inini' AND s.name = 'French Guiana'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1914-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Morocco (French Post Offices)' AND s.name = 'French Protectorate, Morocco'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1915-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'French Protectorate, Morocco' AND s.name = 'French Morocco'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1915-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Tahiti' AND s.name = 'French Oceanic Settlements'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1958-07-22'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'French Oceanic Settlements' AND s.name = 'French Polynesia'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1923-01-15'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Memel (French Administration)' AND s.name = 'Klaipėda'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1867-04-01'::date, 'Straits Settlements transferred from the India Office to the Colonial Office as a Crown Colony in 1867.'
+  FROM issuers p, issuers s WHERE p.name = 'India' AND s.name = 'Straits Settlements'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1945-09-12'::date, 'BMA MALAYA overprints on pre-war Straits/Malay issues; military administration.'
+  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Malaya (British Military Administration)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1946-04-01'::date, 'On dissolution 1 Apr 1946 Singapore (with Cocos and Christmas Is.) became a separate Crown Colony; own stamps followed 1 Sept 1948. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Singapore, Malaya'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1946-04-01'::date, 'Penang joined the Malayan Union in 1946; own state issues appeared 1948-49. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Penang'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1946-04-01'::date, 'Malacca joined the Malayan Union in 1946; own state issues 1948-49. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Malacca'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1948-09-01'::date, 'BMA MALAYA issues withdrawn as Singapore Colony began its own SINGAPORE-inscribed stamps 1 Sept 1948. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Malaya (British Military Administration)' AND s.name = 'Singapore, Malaya'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1948-03-01'::date, 'Perlis state issues began 1948 as BMA overprints were withdrawn. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Malaya (British Military Administration)' AND s.name = 'Perlis'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1948-02-21'::date, 'BMA overprints superseded by Penang state issues. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Malaya (British Military Administration)' AND s.name = 'Penang'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1948-02-21'::date, 'BMA overprints superseded by Malacca state issues. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Malaya (British Military Administration)' AND s.name = 'Malacca'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1959-06-03'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Singapore, Malaya' AND s.name = 'Singapore, State of'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1963-09-16'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Singapore, State of' AND s.name = 'Malaysia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1963-09-16'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Malayan Federation' AND s.name = 'Malaysia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1963-09-16'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Sarawak' AND s.name = 'Malaysia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1963-09-16'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'North Borneo (British Colony)' AND s.name = 'Malaysia'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1965-08-09'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Malaysia' AND s.name = 'Singapore'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1900-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Negri Sembilan' AND s.name = 'Federated Malay States'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1900-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Pahang' AND s.name = 'Federated Malay States'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1900-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Perak' AND s.name = 'Federated Malay States'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1900-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Selangor' AND s.name = 'Federated Malay States'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1935-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Federated Malay States' AND s.name = 'Negri Sembilan'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1935-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Federated Malay States' AND s.name = 'Pahang'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1935-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Federated Malay States' AND s.name = 'Perak'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1935-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Federated Malay States' AND s.name = 'Selangor'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1895-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Sungei Ujong' AND s.name = 'Negri Sembilan'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1894-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Labuan' AND s.name = 'North Borneo (Labuan overprint)'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1907-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'North Borneo (Labuan overprint)' AND s.name = 'Straits Settlements'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1894-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'North Borneo (British North Borneo)' AND s.name = 'North Borneo (State of North Borneo)'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1945-12-17'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'North Borneo (State of North Borneo)' AND s.name = 'North Borneo (BMA)'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1946-07-15'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'North Borneo (BMA)' AND s.name = 'North Borneo (British Colony)'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1963-09-16'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'North Borneo (British Colony)' AND s.name = 'Sabah'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1945-09-11'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Sarawak' AND s.name = 'Sarawak (BMA)'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1946-07-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Sarawak (BMA)' AND s.name = 'Sarawak'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1979-02-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Selangor' AND s.name = 'Federal Territory (Kuala Lumpur)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '2001-02-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Selangor' AND s.name = 'Federal Territory (Putrajaya)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1958-10-01'::date, 'Christmas Island used Straits Settlements (to 1942) then Singapore stamps until Australian sovereignty 1958; own issues from 1958. [confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Straits Settlements' AND s.name = 'Christmas Island, Indian Ocean'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1993-03-02'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Christmas Island, Indian Ocean' AND s.name = 'Christmas Island, Australia'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1918-09-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Baghdad (British Occupation)' AND s.name = 'Iraq (British Occupation)'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1950-02-06'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Eritrea (British Military Administration)' AND s.name = 'Eritrea (British Administration)'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1950-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Somalia (British Military Administration)' AND s.name = 'Somalia (British Administration)'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1950-02-06'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Tripolitania (British Military Administration)' AND s.name = 'Tripolitania (British Administration)'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1948-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Middle East Forces (MEF)' AND s.name = 'Eritrea (British Military Administration)'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1948-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Middle East Forces (MEF)' AND s.name = 'Tripolitania (British Military Administration)'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1948-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'East Africa Forces' AND s.name = 'Somalia (British Military Administration)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1949-07-01'::date, 'Travancore and Cochin united as Travancore-Cochin on 1 July 1949; the new state''s Anchal issues succeeded both.'
+  FROM issuers p, issuers s WHERE p.name = 'Travancore' AND s.name = 'Travancore – Cochin'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1949-07-01'::date, 'Cochin Anchal administration merged into united Travancore-Cochin; early T-C stamps overprint Cochin issues.'
+  FROM issuers p, issuers s WHERE p.name = 'Cochin' AND s.name = 'Travancore – Cochin'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1948-03-25'::date, 'Bundi joined the Rajasthan Union 25 March 1948; Rajasthan overprints on Bundi confirm postal succession.'
+  FROM issuers p, issuers s WHERE p.name = 'Bundi' AND s.name = 'Rajasthan'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1948-03-25'::date, 'Kishangarh acceded to the Rajasthan Union; Rajasthan overprinted Kishangarh stamps.'
+  FROM issuers p, issuers s WHERE p.name = 'Kishangarh' AND s.name = 'Rajasthan'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1949-03-30'::date, 'Jaipur merged into Greater Rajasthan 30 March 1949.'
+  FROM issuers p, issuers s WHERE p.name = 'Jaipur' AND s.name = 'Rajasthan'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1948-03-25'::date, 'Dungarpur joined the Rajasthan Union on 25 March 1948. No known Rajasthan overprints on Dungarpur, so postal handover is inferred; confidence remains medium. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Dungarpur' AND s.name = 'Rajasthan'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1948-02-15'::date, 'Morvi absorbed into United State of Kathiawar/Saurashtra; posts continued under Soruth (Saurashtra). [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Morvi' AND s.name = 'Soruth (Saurashtra)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1948-02-15'::date, 'Jasdan''s 1942 issue predates union; joined Saurashtra 1948. Whether its office was absorbed by Saurashtra rather than Indian Posts is uncertain — low confidence. [confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Jasdan' AND s.name = 'Soruth (Saurashtra)'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1866-10-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Hanover' AND s.name = 'Prussia'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1867-07-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Postage of Thurn and Taxis (Northern District)' AND s.name = 'Prussia'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1867-07-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Postage of Thurn and Taxis (Southern District)' AND s.name = 'Prussia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Brunswick' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Oldenburg stamps demonetised at the creation of the North German Postal District, 1 Jan 1868.'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Oldenburg' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Hamburg''s city post absorbed into the North German Postal District, 1 Jan 1868.'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Hamburg' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Bremen''s post absorbed into the North German Postal District, 1 Jan 1868.'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Bremen' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Lübeck''s post absorbed into the North German Postal District, 1 Jan 1868.'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Lübeck' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Bergedorf [1861-1867] stamps valid to 31 Dec 1867. On 1 Jan 1868 Lübeck sold its share of the condominium to Hamburg and Bergedorf entered the North German Postal District. CONTESTED: territorially the successor is Hamburg, postally the NGC (Hamburg''s own post ended the same day). Both readings are defensible. [CONTESTED; confidence=medium]'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Bergedorf' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Merged into the North German Postal District, 1 Jan 1868.'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Mecklenburg-Schwerin' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Merged into the North German Postal District, 1 Jan 1868.'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'Mecklenburg-Strelitz' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Duchies annexed by Prussia 1866-67; separate Schleswig-Holstein issues gave way to Prussian and then North German Postal District stamps from 1 Jan 1868. CONTESTED: an intermediate Prussia edge is arguable, and this entity overlaps with ''Schleswig'' and ''Holstein 1850''. [CONTESTED; confidence=medium]'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Schleswig-Holstein' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Duchy of Schleswig [1864-1868] issues superseded when the North German Postal District took over on 1 Jan 1868. CONTESTED: overlaps with the ''Schleswig-Holstein'' entity covering the same territory. [CONTESTED; confidence=medium]'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Schleswig' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1868-01-01'::date, 'Holstein''s separate issues superseded by the North German Postal District, 1 Jan 1868. CONTESTED: overlaps with ''Schleswig-Holstein''; catalogue naming is idiosyncratic though the transition date is firm. [CONTESTED; confidence=medium]'
+SELECT p.id, s.id, 'merger', '1868-01-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Holstein 1850' AND s.name = 'North German Confederation'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1946-02-01'::date, 'The AMG-Germany issues of 1945 were superseded by the Allied Control Council joint ''general issue'' current from early 1946 across the American, British and Russian zones. [confidence=medium]'
+SELECT p.id, s.id, 'merger', '1946-02-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Anglo-American Zones (Military Government)' AND s.name = 'American, British and Russian Zones'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1946-02-01'::date, 'Soviet-zone provincial (Berlin-Brandenburg) issues withdrawn in favour of the joint Allied Control Council general issue. Date aligned to the common Oct 1946 demonetisation of Soviet-zone provincials. [confidence=medium]'
+SELECT p.id, s.id, 'merger', '1946-02-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Postage of Berlin-Brandenburg in the Russian Zone' AND s.name = 'American, British and Russian Zones'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1946-10-01'::date, 'Soviet-zone provincial issue replaced by the joint Allied general issue during 1946. [confidence=medium]'
+SELECT p.id, s.id, 'merger', '1946-10-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Postage of Mecklenburg-Vorpommern in the Russian Zone' AND s.name = 'American, British and Russian Zones'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1946-10-01'::date, 'West Saxony (Leipzig) district issues replaced by the joint Allied general issue during 1946. [confidence=medium]'
+SELECT p.id, s.id, 'merger', '1946-10-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Postage of North West Saxony in the Russian Zone' AND s.name = 'American, British and Russian Zones'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1946-10-01'::date, 'East Saxony (Dresden) district issues replaced by the joint Allied general issue during 1946. [confidence=medium]'
+SELECT p.id, s.id, 'merger', '1946-10-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Postage of South East Saxony in the Russian Zone' AND s.name = 'American, British and Russian Zones'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1946-10-01'::date, 'Province of Saxony (Halle) issues replaced by the joint Allied general issue during 1946. [confidence=medium]'
+SELECT p.id, s.id, 'merger', '1946-10-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Saxony (Russian Zone)' AND s.name = 'American, British and Russian Zones'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1946-10-01'::date, 'Thuringian district issues replaced by the joint Allied general issue during 1946. [confidence=medium]'
+SELECT p.id, s.id, 'merger', '1946-10-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Thuringia (Russian Zone)' AND s.name = 'American, British and Russian Zones'
 UNION ALL
-SELECT p.id, s.id, 'partition', '1948-06-21'::date, 'The June 1948 currency reform split the joint issue: the Bizone overprinted its own stamps for the Anglo-American area.'
+SELECT p.id, s.id, 'partition', '1948-06-21'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'American, British and Russian Zones' AND s.name = 'Anglo-American Zones (Civil Government)'
 UNION ALL
-SELECT p.id, s.id, 'partition', '1948-07-01'::date, 'The June/July 1948 currency reform split the joint issue: the Soviet zone overprinted its own stamps, ending the common Allied issue. Exact cutover date approximate (late June to early July 1948). [confidence=medium]'
+SELECT p.id, s.id, 'partition', '1948-07-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'American, British and Russian Zones' AND s.name = 'Russian Zone (General Issues)'
 UNION ALL
-SELECT p.id, s.id, 'partition', '1947-02-01'::date, 'The 1945-46 general French Zone issue was replaced in 1947 by separate Land issues, of which Baden was one.'
+SELECT p.id, s.id, 'partition', '1947-02-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'French Zone (General Issues)' AND s.name = 'Baden (French Zone)'
 UNION ALL
-SELECT p.id, s.id, 'partition', '1947-02-01'::date, 'Separate Land issue for Württemberg-Hohenzollern replaced the French Zone general issue in 1947.'
+SELECT p.id, s.id, 'partition', '1947-02-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'French Zone (General Issues)' AND s.name = 'Württemberg (French Zone)'
 UNION ALL
-SELECT p.id, s.id, 'partition', '1947-02-01'::date, 'Separate Land issue for Rhineland-Palatinate replaced the French Zone general issue in 1947.'
+SELECT p.id, s.id, 'partition', '1947-02-01'::date, NULL
   FROM issuers p, issuers s WHERE p.name = 'French Zone (General Issues)' AND s.name = 'Postage of the Rhineland-Palatinate in the French Zone'
 UNION ALL
-SELECT p.id, s.id, 'occupation', '1941-11-04'::date, 'German-occupation local issues of 1941 in Estonia were superseded by the Reichskommissariat Ostland overprints from 4 Nov 1941. Both are wartime occupation administrations, NOT legal successors to Estonian sovereignty. [CONTESTED; confidence=medium]'
+SELECT p.id, s.id, 'partition', '1947-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'French Zone (General Issues)' AND s.name = 'Saar (French Zone)'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1941-11-04'::date, '[CONTESTED; confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Estonia (German Occupation)' AND s.name = 'Ostland'
 UNION ALL
-SELECT p.id, s.id, 'occupation', '1941-11-04'::date, '1941 German-occupation issues in Latvia superseded by the Reichskommissariat Ostland overprints. Occupation administration, NOT legal succession to Latvian sovereignty. [CONTESTED; confidence=medium]'
+SELECT p.id, s.id, 'occupation', '1941-11-04'::date, '[CONTESTED; confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Latvia (German Occupation)' AND s.name = 'Ostland'
 UNION ALL
-SELECT p.id, s.id, 'occupation', '1941-11-04'::date, '1941 German-occupation issues in Lithuania superseded by the Reichskommissariat Ostland overprints. Occupation administration, NOT legal succession to Lithuanian sovereignty. [CONTESTED; confidence=medium]'
+SELECT p.id, s.id, 'occupation', '1941-11-04'::date, '[CONTESTED; confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Lithuania (German Occupation)' AND s.name = 'Ostland'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Colonial postal administration absorbed into the Commonwealth of Australia; first Commonwealth (Kangaroo) issue January 1913. One of six co-equal predecessors. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'New South Wales' AND s.name = 'Australia'
+SELECT p.id, s.id, 'renamed', '1905-01-01'::date, 'Verified date continuity in the file.'
+  FROM issuers p, issuers s WHERE p.name = 'Benadir' AND s.name = 'Italian Somaliland'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Colony federated 1901; postal issues superseded by Commonwealth issues in 1913. One of six co-equal predecessors. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'Queensland' AND s.name = 'Australia'
+SELECT p.id, s.id, 'annexation', '1926-06-30'::date, 'Corrected succession_date to 1926-06-30.'
+  FROM issuers p, issuers s WHERE p.name = 'Jubaland' AND s.name = 'Italian Somaliland'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Colonial issues ceased 1912; superseded by Commonwealth of Australia issues. One of six co-equal predecessors. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'South Australia' AND s.name = 'Australia'
+SELECT p.id, s.id, 'merger', '1938-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Italian Somaliland' AND s.name = 'Italian East Africa'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Colonial issues ceased 1912; superseded by Commonwealth of Australia issues. One of six co-equal predecessors. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'Tasmania' AND s.name = 'Australia'
+SELECT p.id, s.id, 'merger', '1938-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Eritrea (Italian Colony)' AND s.name = 'Italian East Africa'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Colonial issues ceased 1912; superseded by Commonwealth of Australia issues. One of six co-equal predecessors. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'Victoria' AND s.name = 'Australia'
+SELECT p.id, s.id, 'merger', '1938-01-01'::date, 'Contested annexation; occupation issues subsumed into A.O.I. Confidence lowered. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Ethiopia (Italian Occupation)' AND s.name = 'Italian East Africa'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Colonial issues ceased 1912; superseded by Commonwealth of Australia issues. One of six co-equal predecessors. [CONTESTED]'
-  FROM issuers p, issuers s WHERE p.name = 'Western Australia' AND s.name = 'Australia'
+SELECT p.id, s.id, 'occupation', '1941-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Cephalonia and Ithaca (Italian Occupation)' AND s.name = 'Ionian Islands (Italian Occupation)'
 UNION ALL
-SELECT p.id, s.id, 'renamed', '1856-01-01'::date, 'Same colony renamed Tasmania on 1 January 1856; catalogues list early issues under both names, hence the overlapping periods.'
-  FROM issuers p, issuers s WHERE p.name = 'Van Diemen''s Land' AND s.name = 'Tasmania'
+SELECT p.id, s.id, 'occupation', '1941-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Corfu and Paxos (Italian Occupation)' AND s.name = 'Ionian Islands (Italian Occupation)'
 UNION ALL
-SELECT p.id, s.id, 'independence', '1913-01-01'::date, 'Independence declared 28 Nov 1912; first Albanian issues (1913, Ottoman stamps overprinted) replaced the Ottoman postal administration. Philatelic transition dated to the 1913 first issue.'
-  FROM issuers p, issuers s WHERE p.name = 'Ottoman Empire issues' AND s.name = 'Albania'
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, 'One of a many-to-one convergence into the general Aegean administration. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Astypalaea' AND s.name = 'Aegean Islands (Dodecanese)'
 UNION ALL
-SELECT p.id, s.id, 'restored', '1992-01-01'::date, 'Azerbaijan Democratic Republic issued 1919-21 until Soviet annexation; the restored republic resumed issuing in 1992 and asserts legal continuity with the ADR. Continuity is an official claim, not an uncontroversial fact. [confidence=medium]'
-  FROM issuers p, issuers s WHERE p.name = 'Azerbaijan (pre–Soviet)' AND s.name = 'Azerbaijan'
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kalimnos' AND s.name = 'Aegean Islands (Dodecanese)'
 UNION ALL
-SELECT p.id, s.id, 'restored', '1972-01-01'::date, 'Aitutaki issues ceased 1932 when the island was subsumed into Cook Islands general issues, and resumed as a separate philatelic entity in 1972. Self-government dates from 4 Aug 1965, not 1972. The intermediate issuer (Cook Islands) is not present in this file, so this edge elides a real link in the chain. [CONTESTED; confidence=low]'
-  FROM issuers p, issuers s WHERE p.name = 'Aitutaki (New Zealand Administration)' AND s.name = 'Aitutaki'
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Karpathos' AND s.name = 'Aegean Islands (Dodecanese)'
 UNION ALL
-SELECT p.id, s.id, 'regime_change', '1920-04-04'::date, 'Denikin resigned as commander of the Armed Forces of South Russia on 4 April 1920 and handed command to Wrangel, who reorganised the remnant in Crimea as the ''Russian Army''. Same White South-Russian postal administration, new head - a direct continuation.'
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kasos' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kastellórizo' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Khalki' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kos' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Leros' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Lipsos' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Nisyros' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Patmos (Patmo)' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Syme' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1932-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Telos' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1935-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Rhodes' AND s.name = 'Aegean Islands (Dodecanese)'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1861-02-14'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Naples' AND s.name = 'Neapolitan Provinces'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1861-02-14'::date, 'Set contested=true due to overlap with the Naples edge and the mainland-only scope of Neapolitan Provinces. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Two Sicilies' AND s.name = 'Neapolitan Provinces'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1862-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Neapolitan Provinces' AND s.name = 'Sardinia'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1860-10-21'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Sicily' AND s.name = 'Sardinia'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1860-03-18'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Modena' AND s.name = 'Sardinia'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1860-03-18'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Parma' AND s.name = 'Sardinia'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1860-03-22'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Tuscany' AND s.name = 'Sardinia'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1860-03-18'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Romagna' AND s.name = 'Sardinia'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1859-09-01'::date, '[CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Papal States' AND s.name = 'Romagna'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1912-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Chinese Empire' AND s.name = 'Chinese Republic'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1898-02-01'::date, 'Confidence medium: closure of local posts spanned 1897–1900, so the single 1898 date is approximate. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Treaty ports' AND s.name = 'Chinese Empire'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1898-02-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Shanghai' AND s.name = 'Chinese Empire'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '[CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Chinese Republic' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1949-12-07'::date, 'Arguably a continuation/rename rather than partition, but partition captures the mainland/Taiwan split; retained. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Chinese Republic' AND s.name = 'Chinese Nationalist Republic'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1945-10-25'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Japanese Taiwan (Formosa)' AND s.name = 'Taiwan'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1945-08-15'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Manchukuo' AND s.name = 'North Eastern Provinces'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1932-03-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kirin and Heilungkiang' AND s.name = 'Manchukuo'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1932-03-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Manchuria' AND s.name = 'Manchukuo'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, 'Mainland control of the NE actually consolidated in late 1948; date reflects PRC founding, acceptable. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'North Eastern Provinces' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Sinkiang' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1942-01-01'::date, 'Confidence downgraded to low: the file''s active periods overlap (Inner Mongolia 1941–1943, Mengkiang 1942–1945), which is inconsistent with a clean sequential rename; regional-consolidation (''merger'') is an equally defensible reading. [confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Inner Mongolia (Japanese Occupation)' AND s.name = 'Mengkiang (Japanese Occupation)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1942-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Honan (Japanese Occupation)' AND s.name = 'North China (Japanese Occupation)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1942-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Hopei (Japanese Occupation)' AND s.name = 'North China (Japanese Occupation)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1942-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Shansi (Japanese Occupation)' AND s.name = 'North China (Japanese Occupation)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1942-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Shantung (Japanese Occupation)' AND s.name = 'North China (Japanese Occupation)'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1945-09-09'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'North China (Japanese Occupation)' AND s.name = 'Chinese Republic'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1945-09-09'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Central China (Japanese Occupation)' AND s.name = 'Chinese Republic'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1945-09-09'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Nangking and Shanghai (Japanese Occupation)' AND s.name = 'Chinese Republic'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1945-09-09'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kwangtung (Japanese Occupation)' AND s.name = 'Chinese Republic'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1945-08-19'::date, '[CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Mengkiang (Japanese Occupation)' AND s.name = 'Chinese Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Fukien' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Hunan' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Hupeh' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kansu' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kiangsi' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-12-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kwangsi' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-10-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Shensi' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1949-06-02'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Tsingtau' AND s.name = 'Chinese People''s Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1920-04-04'::date, 'Both names appear exactly in the file. Chronology consistent (Denikin 1919-1920, Wrangel 1920-1921).'
   FROM issuers p, issuers s WHERE p.name = 'Denikin Government' AND s.name = 'Wrangel Government'
 UNION ALL
-SELECT p.id, s.id, 'annexation', '1920-10-22'::date, 'Semyonov fled Chita and the FER People''s Revolutionary Army occupied the city on 22 Oct 1920; the FER then moved its capital from Verkhneudinsk to Chita and took over the postal administration of the ''Chita plug''. Absorption by force, not a regime succeeding in place. [confidence=medium]'
+SELECT p.id, s.id, 'regime_change', '1920-10-22'::date, 'Date 1920-10-22 falls within the documented late-October 1920 Chita operation. Both names exact.'
   FROM issuers p, issuers s WHERE p.name = 'Ataman Semyonov Regime' AND s.name = 'Far Eastern Republic'
 UNION ALL
-SELECT p.id, s.id, 'annexation', '1920-10-22'::date, 'Transbaikalia (the Semyonov-held Chita region) was absorbed into the FER when the NRA took Chita in Oct 1920. Overlaps heavily with the Semyonov Regime -> FER edge; catalogues treat the same 1920 Chita issues under both headings. [CONTESTED; confidence=medium]'
+SELECT p.id, s.id, 'annexation', '1920-10-22'::date, 'Both names exact. Same event as the Semyonov edge viewed via the territorial catalogue entity; the two entities are listed separately in the file, so both edges are legitimate.'
   FROM issuers p, issuers s WHERE p.name = 'Transbaikal Province' AND s.name = 'Far Eastern Republic'
 UNION ALL
-SELECT p.id, s.id, 'merger', '1920-10-28'::date, 'The Soviet government of the Amur territory agreed in August 1920 to join the FER; union was formalised at the Chita unification conference once the Chita gap was closed. Date is the conference opening, not a documented postal handover. [confidence=medium]'
+SELECT p.id, s.id, 'merger', '1920-10-01'::date, 'Exact postal transition date uncertain; medium confidence retained. Both names exact. [confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Amur Province' AND s.name = 'Far Eastern Republic'
 UNION ALL
-SELECT p.id, s.id, 'partition', '1921-05-27'::date, 'The May 1921 White coup in Vladivostok broke Priamurye/Primorye away from the FER; the Provisional Priamurye Government (Merkulov brothers, later Diterikhs) was formed 27 May 1921 behind Japanese troops. Contested: only part of FER territory was lost, the FER never recognised the breakaway, and the coup date itself is given as 23 or 26 May depending on source. [CONTESTED; confidence=medium]'
+SELECT p.id, s.id, 'partition', '1921-05-27'::date, 'Coup began 26 May; the breakaway government formed 27 May 1921, matching the proposed date. Both names exact. [CONTESTED; confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Far Eastern Republic' AND s.name = 'Priamur and Maritime Provinces'
 UNION ALL
-SELECT p.id, s.id, 'annexation', '1922-10-25'::date, 'After the Japanese withdrawal (June-Oct 1922) the FER''s People''s Revolutionary Army retook the Priamurye and entered Vladivostok on 25 Oct 1922, ending the last White enclave. The FER itself then merged into the RSFSR on 15 Nov 1922 (RSFSR not present in this file, so that edge is not representable). [confidence=medium]'
+SELECT p.id, s.id, 'annexation', '1922-10-25'::date, 'Reverse of the 1921 partition. Both names exact. FER itself then merged into the RSFSR on 15 Nov 1922 (RSFSR not in this file). [confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'Priamur and Maritime Provinces' AND s.name = 'Far Eastern Republic'
 UNION ALL
-SELECT p.id, s.id, 'annexation', NULL::date, 'The 1918-19 Crimean regional issues ceased when Denikin''s AFSR occupied the peninsula in mid-1919 and extended its postal administration over it. No firm postal transition date; catalogue treatment of the Crimean issues is inconsistent. [CONTESTED; confidence=low]'
+SELECT p.id, s.id, 'annexation', '1919-06-01'::date, 'Date approximate and catalogue treatment of the Crimean issues is inconsistent; low confidence retained. Both names exact. [confidence=low]'
   FROM issuers p, issuers s WHERE p.name = 'Crimea' AND s.name = 'Denikin Government'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1873-01-01'::date, 'Joint Cuba/Puerto Rico issues ended 1872; from 1873 Puerto Rico had its own stamps.'
+  FROM issuers p, issuers s WHERE p.name = 'Cuba and Puerto Rico' AND s.name = 'Puerto Rico'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1909-01-01'::date, 'Absorbed 1909 into the Spanish Territories of the Gulf of Guinea; Spanish Guinea stamps replaced its issues.'
+  FROM issuers p, issuers s WHERE p.name = 'Elobey, Annobón, and Corisco' AND s.name = 'Spanish Guinea'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1909-01-01'::date, 'Fernando Poo issues ceased 1909; Spanish Guinea stamps took over until separate issues resumed 1960. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Fernando Poo' AND s.name = 'Spanish Guinea'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1960-01-01'::date, '1960 reorganisation of Spanish Guinea into the provinces of Fernando Poo and Río Muni.'
+  FROM issuers p, issuers s WHERE p.name = 'Spanish Guinea' AND s.name = 'Fernando Poo'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1960-01-01'::date, 'Mainland province created from Spanish Guinea in 1960.'
+  FROM issuers p, issuers s WHERE p.name = 'Spanish Guinea' AND s.name = 'Río Muni'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1924-01-01'::date, 'Río de Oro and La Agüera consolidated into Spanish Sahara, whose issues began 1924.'
+  FROM issuers p, issuers s WHERE p.name = 'Río de Oro' AND s.name = 'Spanish Sahara'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1924-01-01'::date, 'Absorbed with Río de Oro into Spanish Sahara in 1924.'
+  FROM issuers p, issuers s WHERE p.name = 'La Agüera' AND s.name = 'Spanish Sahara'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1950-01-01'::date, 'From 1950 Cape Juby was postally integrated with Spanish Sahara and used its stamps until the 1958 transfer to Morocco (Morocco not in file). [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Cape Juby' AND s.name = 'Spanish Sahara'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1951-01-01'::date, 'Spanish West Africa issues (1949-51) reverted to separate Spanish Sahara issues after 1951. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Spanish West Africa' AND s.name = 'Spanish Sahara'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1951-01-01'::date, '1951 reversion to separate territorial issues; Ifni''s own stamps had run in parallel since 1941. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Spanish West Africa' AND s.name = 'Ifni'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1914-01-01'::date, 'Spanish post offices in Morocco became the Protectorate postal administration, issuing as Spanish Morocco from 1914. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Morocco (Spanish Post Offices)' AND s.name = 'Spanish Morocco'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1909-01-01'::date, 'Short-lived Tetuan local overprints subsumed back into the general Spanish office issues for Morocco. [confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Tetuan (Spanish Post Office)' AND s.name = 'Morocco (Spanish Post Offices)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1890-10-31'::date, 'St Christopher''s separate issues ceased 1890, absorbed into the Leeward Islands general issue.'
+  FROM issuers p, issuers s WHERE p.name = 'St Christopher' AND s.name = 'Leeward Islands'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1890-10-31'::date, 'Nevis colonial issues absorbed into Leeward Islands general issue in 1890.'
+  FROM issuers p, issuers s WHERE p.name = 'Nevis (British Colonial Issues)' AND s.name = 'Leeward Islands'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1903-01-01'::date, 'St Christopher + Nevis presidencies combined; St Kitts-Nevis inscribed stamps from 1903.'
+  FROM issuers p, issuers s WHERE p.name = 'St Christopher' AND s.name = 'St Kitts–Nevis'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1903-01-01'::date, 'Nevis combined with St Christopher into St Kitts-Nevis, 1903.'
+  FROM issuers p, issuers s WHERE p.name = 'Nevis (British Colonial Issues)' AND s.name = 'St Kitts–Nevis'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1952-01-01'::date, 'Same authority; inscription changed to add Anguilla in 1952. File''s overlapping 1903-1980 St Kitts-Nevis range makes this murky, hence medium confidence. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'St Kitts–Nevis' AND s.name = 'St Christopher Nevis and Anguilla'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1980-06-23'::date, 'Joint issuing authority split into separate St Kitts and Nevis administrations, June 1980.'
+  FROM issuers p, issuers s WHERE p.name = 'St Christopher Nevis and Anguilla' AND s.name = 'St Kitts'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1980-06-23'::date, 'Nevis resumed separate issues when the joint authority split, June 1980.'
+  FROM issuers p, issuers s WHERE p.name = 'St Christopher Nevis and Anguilla' AND s.name = 'Nevis'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1967-09-04'::date, 'Anguilla seceded 1967 and began overprinted issues on 4 Sept 1967; secession contested by St Kitts. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'St Christopher Nevis and Anguilla' AND s.name = 'Anguilla'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1956-07-01'::date, 'Antigua presidency issues continued after the 1956 dissolution. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Leeward Islands' AND s.name = 'Antigua'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1956-07-01'::date, 'Montserrat continued its own issues after 1956. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Leeward Islands' AND s.name = 'Montserrat'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1956-07-01'::date, 'Virgin Islands issues continued after the 1956 dissolution. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Leeward Islands' AND s.name = 'Virgin Islands'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1956-07-01'::date, 'St Christopher-Nevis-Anguilla presidency issues survived the 1956 dissolution. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Leeward Islands' AND s.name = 'St Christopher Nevis and Anguilla'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1968-01-01'::date, 'Inscription changed to British Virgin Islands, 1968.'
+  FROM issuers p, issuers s WHERE p.name = 'Virgin Islands' AND s.name = 'British Virgin Islands'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1981-11-01'::date, 'Independence 1 November 1981.'
+  FROM issuers p, issuers s WHERE p.name = 'Antigua' AND s.name = 'Antigua and Barbuda'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1896-01-01'::date, 'Tobago''s last own issue 1896; thereafter Trinidad stamps used in Tobago.'
+  FROM issuers p, issuers s WHERE p.name = 'Tobago' AND s.name = 'Trinidad'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Unified Trinidad & Tobago issues from 1913.'
+  FROM issuers p, issuers s WHERE p.name = 'Trinidad' AND s.name = 'Trinidad and Tobago'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1937-04-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'India' AND s.name = 'Aden (Colony, State of)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1963-01-18'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Aden (Colony, State of)' AND s.name = 'Federation of South Arabia'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1955-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Qu''Aiti State of Shihr and Mukalla' AND s.name = 'Qu''Aiti State in Hadhramaut'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1967-11-30'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Federation of South Arabia' AND s.name = 'Southern Yemen'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1967-11-30'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Kathiri State of Seiyun' AND s.name = 'Southern Yemen'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1967-11-30'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Qu''Aiti State in Hadhramaut' AND s.name = 'Southern Yemen'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1967-11-30'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Mahra Sultanate of Qishn and Socotra' AND s.name = 'Southern Yemen'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1967-11-30'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Upper Yafa' AND s.name = 'Southern Yemen'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1970-11-30'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Southern Yemen' AND s.name = 'Yemen PDR'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1962-09-26'::date, '[CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Yemen (Mutawakelite Kingdom)' AND s.name = 'Yemen Arab Republic'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1990-05-22'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Yemen Arab Republic' AND s.name = 'Yemen Arab Republic (Unified)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1990-05-22'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Yemen PDR' AND s.name = 'Yemen Arab Republic (Unified)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1961-01-07'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'British postal agencies in Eastern Arabia' AND s.name = 'Trucial States'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1963-06-15'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Trucial States' AND s.name = 'Dubai'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1972-08-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Trucial States' AND s.name = 'United Arab Emirates (UAE)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1972-08-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Abu Dhabi' AND s.name = 'United Arab Emirates (UAE)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1972-08-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Dubai' AND s.name = 'United Arab Emirates (UAE)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1972-08-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Sharjah' AND s.name = 'United Arab Emirates (UAE)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1972-08-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Ajman' AND s.name = 'United Arab Emirates (UAE)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1972-08-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Umm Al Qiwain' AND s.name = 'United Arab Emirates (UAE)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1972-08-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Fujeira' AND s.name = 'United Arab Emirates (UAE)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1972-08-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Ras Al Khaima' AND s.name = 'United Arab Emirates (UAE)'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1923-10-29'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Ottoman Empire issues' AND s.name = 'Republic issues'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1923-10-29'::date, 'Type corrected regime_change -> renamed; confidence held at medium. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Angora' AND s.name = 'Republic issues'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1912-10-18'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Ottoman Empire postal administration' AND s.name = 'Italian Occupation: postal administration'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1943-01-23'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Italian Occupation: postal administration' AND s.name = 'British Administration: postal administration in Tripolitania and Cyrenaica'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1943-01-01'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Italian Occupation: postal administration' AND s.name = 'French Administration: postal administration in Fezzan'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1949-06-01'::date, 'Correct as proposed. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'British Administration: postal administration in Tripolitania and Cyrenaica' AND s.name = 'Cyrenaica Independent Kingdom: postal administration'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1951-12-24'::date, 'One of three predecessors converging on Kingdom of Libya; merger correctly reflects the many-to-one federation.'
+  FROM issuers p, issuers s WHERE p.name = 'Cyrenaica Independent Kingdom: postal administration' AND s.name = 'Kingdom of Libya: postal administration'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1951-12-24'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'British Administration: postal administration in Tripolitania and Cyrenaica' AND s.name = 'Kingdom of Libya: postal administration'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1951-12-24'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'French Administration: postal administration in Fezzan' AND s.name = 'Kingdom of Libya: postal administration'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1969-09-01'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Kingdom of Libya: postal administration' AND s.name = 'L.A.R. Libyan Arab Republic'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1969-09-01'::date, 'Confidence lowered to low; parallel operator-succession alongside the Kingdom->LAR state-name edge. [confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Kingdom of Libya: postal administration' AND s.name = 'General Posts and Telecommunications Company (GPTC)'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1977-03-02'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'L.A.R. Libyan Arab Republic' AND s.name = 'S.P.L.A.J. Socialist People''s Libyan Arab Jamahiriya'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1988-11-01'::date, 'Date corrected 1986-04-15 -> 1988-11-01 to match documented inscription change and file issuing periods.'
+  FROM issuers p, issuers s WHERE p.name = 'S.P.L.A.J. Socialist People''s Libyan Arab Jamahiriya' AND s.name = 'G.S.P.L.A.J. The Great Socialist People''s Libyan Arab Jamahiriya'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1930-09-22'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Alaouites' AND s.name = 'Latakia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1936-12-05'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Latakia' AND s.name = 'Syria'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1938-09-02'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Alexandretta' AND s.name = 'Hatay'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1939-06-29'::date, 'Contested flag appropriately set true. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Hatay' AND s.name = 'Turkey'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1918-02-10'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Ottoman Post Offices' AND s.name = 'Palestine (British Mandate)'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1920-05-14'::date, 'Correct as proposed; date is a few days early vs the 20 May takeover but within tolerance. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Thrace (Allied Occupation)' AND s.name = 'Western Thrace (Greek Occupation)'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1922-10-11'::date, 'Correct as proposed. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Eastern Thrace' AND s.name = 'Turkey'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1922-10-11'::date, 'Correct as proposed. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Adrianople (Edirne)' AND s.name = 'Turkey'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1905-11-02'::date, 'Correct as proposed. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Cretan Revolutionary Assembly' AND s.name = 'Crete'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1861-09-01'::date, 'Direction verified: although ''New Granada'' was historically the pre-1858 name, this file dates ''New Granada'' to the 1861 renamed issue, which correctly follows the Confederation. Date consistent with the 20 Sept 1861 Pacto de Unión.'
+  FROM issuers p, issuers s WHERE p.name = 'Granadine Confederation' AND s.name = 'New Granada'
+UNION ALL
+SELECT p.id, s.id, 'merger', NULL::date, 'Real relationship, correctly directed. Medium confidence appropriate given full corporate integration ran to 1954 and no single postal transition date can be pinned. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'LANSA' AND s.name = 'AVIANCA'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1973-07-05'::date, 'Partial territorial succession; GB (Regional Issues) continues for Scotland/Wales/N. Ireland.'
+  FROM issuers p, issuers s WHERE p.name = 'Great Britain (Regional Issues)' AND s.name = 'Isle of Man'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1969-10-01'::date, 'Successor entity''s listed start (1941) predates the predecessor''s (1958) due to occupation-era issues; edge models the 1969 postal-authority transfer only. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Great Britain (Regional Issues)' AND s.name = 'Guernsey'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1969-10-01'::date, 'As with Guernsey, listed entity period (from 1941) overlaps; edge models the 1969 transfer only. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Great Britain (Regional Issues)' AND s.name = 'Jersey'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1946-04-18'::date, 'Corrected contested=false -> true. Not a clean 1:1 legal succession; several League organs passed to different successors. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'League of Nations (Geneva)' AND s.name = 'United Nations (UN)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1969-01-01'::date, 'Corrected confidence medium -> low. Merger date 1969 differs from catalogue listing periods (IEO to 1960, UNESCO from 1961); different national postal systems weaken the philatelic succession. [confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Postage of the International Education Office' AND s.name = 'UNESCO'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'NSW colonial issues [1850-1913] superseded by first Commonwealth (Kangaroo) issue Jan 1913. One of six colonies federating into the Commonwealth. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'New South Wales' AND s.name = 'Australia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Queensland issues [1860-1913] superseded by Commonwealth issues in 1913. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Queensland' AND s.name = 'Australia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'South Australia issues [1855-1912] superseded by Commonwealth issues. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'South Australia' AND s.name = 'Australia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Tasmania issues [1853-1912] superseded by Commonwealth issues in 1913. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Tasmania' AND s.name = 'Australia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Victoria issues [1850-1912] superseded by Commonwealth issues. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Victoria' AND s.name = 'Australia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1913-01-01'::date, 'Western Australia issues [1854-1912] superseded by Commonwealth issues. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Western Australia' AND s.name = 'Australia'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1856-01-01'::date, 'Same colony renamed Tasmania on 1 January 1856.'
+  FROM issuers p, issuers s WHERE p.name = 'Van Diemen''s Land' AND s.name = 'Tasmania'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1913-01-01'::date, 'First Albanian issues (1913, overprinted Ottoman stamps) replaced the Ottoman postal administration.'
+  FROM issuers p, issuers s WHERE p.name = 'Ottoman Empire issues' AND s.name = 'Albania'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1992-01-01'::date, 'Azerbaijan Democratic Republic issued 1919-21 until Soviet annexation; restored republic resumed in 1992 claiming continuity. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Azerbaijan (pre–Soviet)' AND s.name = 'Azerbaijan'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1972-08-07'::date, 'Aitutaki issues ceased 1932 (subsumed into Cook Islands); resumed as separate philatelic entity Aug 1972 under Cook Islands self-government. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Aitutaki (New Zealand Administration)' AND s.name = 'Aitutaki'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1908-11-15'::date, 'Belgian annexation of the personal state; first Belgian Congo stamps 1909.'
+  FROM issuers p, issuers s WHERE p.name = 'Congo Free State' AND s.name = 'Belgian Congo'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1960-06-30'::date, 'Successor is ''Zaire'' [1960-1971], not the DRC-unrelated ''Congo Republic'' entity.'
+  FROM issuers p, issuers s WHERE p.name = 'Belgian Congo' AND s.name = 'Zaire'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1960-07-11'::date, 'Katangan secession never internationally recognised; central Congo claimed the territory throughout. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Zaire' AND s.name = 'Katanga'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1960-08-08'::date, 'South Kasai (Bakwanga) unrecognised; own stamps 1961; claimed by central state. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Zaire' AND s.name = 'South Kasai'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1963-01-15'::date, 'Reintegration itself uncontested; end of Katanga period matches file [1960-1963].'
+  FROM issuers p, issuers s WHERE p.name = 'Katanga' AND s.name = 'Zaire'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1962-10-01'::date, 'Date approximate but within the 1962 collapse window. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'South Kasai' AND s.name = 'Zaire'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1962-07-01'::date, 'Many-to-many partition captured jointly with the Burundi edge.'
+  FROM issuers p, issuers s WHERE p.name = 'Ruanda – Urundi' AND s.name = 'Rwanda'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1962-07-01'::date, 'Second arm of the two-way partition.'
+  FROM issuers p, issuers s WHERE p.name = 'Ruanda – Urundi' AND s.name = 'Burundi'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1995-08-07'::date, 'Eastern sector split handled by the separate Sremsko Baranjska edge. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Srpska Krajina (Croatia)' AND s.name = 'Croatia'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1995-08-07'::date, 'Rump-continuation partition. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Srpska Krajina (Croatia)' AND s.name = 'Sremsko Baranjska Oblast (Croatia)'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1998-01-15'::date, 'Peaceful reintegration; type framing imperfect but relationship correct. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Sremsko Baranjska Oblast (Croatia)' AND s.name = 'Croatia'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1974-07-20'::date, 'Republic of Cyprus claims whole island and treats northern issues as invalid. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Cyprus' AND s.name = 'Northern Cyprus'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1889-12-31'::date, 'Costa Rica predates Guanacaste; this is a provincial-issue termination. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Guanacaste' AND s.name = 'Costa Rica'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1959-12-31'::date, 'Always Ecuadorian territory; issuing-arrangement dissolution only. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Galapagos Islands' AND s.name = 'Ecuador'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1936-05-09'::date, 'Verified against authoritative file. The specified filename ''misc-ethiopia-abys.md'' does not exist; the entities live in misc-egypt.md. Note italian.md carries a differently-capitalised ''Ethiopia (Italian Occupation)'', but this edge correctly uses the misc-egypt.md spelling ''Etiopia (Italian occupation)''. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Ethiopia' AND s.name = 'Etiopia (Italian occupation)'
+UNION ALL
+SELECT p.id, s.id, 'restored', '1941-05-05'::date, 'British-led liberation restored the legitimate pre-occupation government, so ''restored'' rather than ''independence'' or ''regime_change'' is correct. British military administration issues that followed are not entities in this cluster, so no additional edges are warranted.'
+  FROM issuers p, issuers s WHERE p.name = 'Etiopia (Italian occupation)' AND s.name = 'Ethiopia'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1976-01-01'::date, 'One half of the two-way partition of the colony.'
+  FROM issuers p, issuers s WHERE p.name = 'Gilbert and Ellice Islands' AND s.name = 'Gilbert Islands'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1976-01-01'::date, 'Other half of the two-way partition.'
+  FROM issuers p, issuers s WHERE p.name = 'Gilbert and Ellice Islands' AND s.name = 'Tuvalu'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1979-07-12'::date, 'Independence, also effectively a rename.'
+  FROM issuers p, issuers s WHERE p.name = 'Gilbert Islands' AND s.name = 'Kiribati'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1915-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Samos' AND s.name = 'Greece'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1913-01-01'::date, NULL
+  FROM issuers p, issuers s WHERE p.name = 'Ikaria' AND s.name = 'Greece'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1913-01-01'::date, 'Despite ''Greek Occupation'' cluster, island became permanently Greek. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Lemnos' AND s.name = 'Greece'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1913-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Lesbos' AND s.name = 'Greece'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1913-01-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Khios' AND s.name = 'Greece'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1913-08-10'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Kavalla (Greek Occupation)' AND s.name = 'Greece'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1947-03-31'::date, 'Date approximate; issuing period is 1947.'
+  FROM issuers p, issuers s WHERE p.name = 'Dodecanese Islands (Greek Occupation)' AND s.name = 'Greece'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1997-07-01'::date, 'Sovereignty transfer with philatelic continuity; ''renamed'' captures the unbroken administration.'
+  FROM issuers p, issuers s WHERE p.name = 'Hong Kong (British colony)' AND s.name = 'Hong Kong, China'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1948-08-15'::date, 'Merger date fuzzy (~1948). [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Chamba' AND s.name = 'Postage stamps and postal history of India'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1948-05-01'::date, '[confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Gwalior' AND s.name = 'Postage stamps and postal history of India'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1948-05-05'::date, 'Merged into PEPSU on 5 May 1948. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Nabha' AND s.name = 'Postage stamps and postal history of India'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1948-05-05'::date, 'Merged into PEPSU on 5 May 1948; issuing ceased 1947. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Patiala' AND s.name = 'Postage stamps and postal history of India'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1969-11-19'::date, '[CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'West Irian' AND s.name = 'Indonesia'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1965-01-01'::date, 'Philatelic sub-entity dissolved into Indonesia. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Riau–Lingga Archipelago' AND s.name = 'Indonesia'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1893-05-12'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Oil Rivers Protectorate' AND s.name = 'Niger Coast Protectorate'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1900-01-01'::date, 'Slight merger element (RNC territory added) but rename is the accepted characterization.'
+  FROM issuers p, issuers s WHERE p.name = 'Niger Coast Protectorate' AND s.name = 'Southern Nigeria'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1906-02-16'::date, 'Southern Nigeria is a legitimate multi-predecessor node (NCP + Lagos); each edge stands on its own.'
+  FROM issuers p, issuers s WHERE p.name = 'Lagos' AND s.name = 'Southern Nigeria'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1966-04-30'::date, 'Low confidence justified by the intervening administration gap; honest notes retained. [confidence=low]'
+  FROM issuers p, issuers s WHERE p.name = 'Muscat' AND s.name = 'Muscat and Oman'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1971-01-16'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'Muscat and Oman' AND s.name = 'Oman'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1949-10-10'::date, 'Pakistan has other in-file predecessors (Amb State, Las Bela State) but this pairwise accession/merger edge is not itself contested. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Bahawalpur' AND s.name = 'Pakistan'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1983-03-10'::date, 'Changed type independence->partition and contested false->true; date verified correct (10 Mar 1983). [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'US post in the Trust Territory of the Pacific Islands' AND s.name = 'Palau'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1906-09-01'::date, 'Correct as proposed.'
+  FROM issuers p, issuers s WHERE p.name = 'British New Guinea' AND s.name = 'Papua'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1915-01-01'::date, 'Occupied predecessor (German New Guinea) not in file; edge is the correct in-file link. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'New Britain' AND s.name = 'North West Pacific Islands'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1925-01-01'::date, 'Legitimate occupation->mandate transition. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'North West Pacific Islands' AND s.name = 'New Guinea (Australian Administration)'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1952-10-30'::date, 'One of two co-successor merger edges into PNG.'
+  FROM issuers p, issuers s WHERE p.name = 'Papua' AND s.name = 'Papua New Guinea'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1952-10-30'::date, 'Co-successor merger with the Papua edge; correct.'
+  FROM issuers p, issuers s WHERE p.name = 'New Guinea (Australian Administration)' AND s.name = 'Papua New Guinea'
+UNION ALL
+SELECT p.id, s.id, 'merger', '1949-01-01'::date, 'Reorganization/expansion; merger is an acceptable characterization. [confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Shensi–Kansu–Ninghsia' AND s.name = 'North West China (People''s Post)'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1865-04-01'::date, 'Date 1865-04-01 postdates the file''s stated period [1860-1863]; the file period understates actual usage, which ran to April 1865. The succession date reflects the true postal transition and falls within Russia (pre-Soviet) [1858-1923]. Not contested, not many-to-many.'
+  FROM issuers p, issuers s WHERE p.name = 'Poland (Russian Province)' AND s.name = 'Russia (pre-Soviet)'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1922-03-24'::date, 'Occupation correctly resolved to a (contested) annexation rather than passed off as clean succession. Date within issuing period [1920-1922]. Some sources cite the incorporation act slightly later (early April 1922) but 1922-03-24 for the Sejm act is defensible. [CONTESTED]'
+  FROM issuers p, issuers s WHERE p.name = 'Central Lithuania (Polish Occupation)' AND s.name = 'Poland'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1922-06-20'::date, 'Names exact, date within [1920-1922], contested/partition flags appropriate. German half legitimately not emitted as no German entity is in this file. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Upper Silesia' AND s.name = 'Poland'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1920-07-28'::date, 'Names exact, date matches the award, within issuing period [1920-1920]. Czechoslovak half legitimately not emitted. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'East Silesia' AND s.name = 'Poland'
+UNION ALL
+SELECT p.id, s.id, 'regime_change', '1945-07-05'::date, 'Names exact, date within issuing period [1941-1945]. Direction correct: exile issues succeeded by the continuing Polish state''s issues. [CONTESTED; confidence=medium]'
+  FROM issuers p, issuers s WHERE p.name = 'Polish Government in Exile' AND s.name = 'Poland'
 ON CONFLICT (predecessor_id, successor_id, succession_type) DO NOTHING;
 
 COMMIT;
