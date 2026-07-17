@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 // MARK: - Core Stamp Model
 // Mirrors the PostgreSQL `stamps` table + joined data from issuers, valuations, catalogue_references
@@ -129,7 +130,7 @@ struct CatalogueRef: Codable, Hashable, Identifiable {
     }
 }
 
-struct StampValuation: Codable {
+struct StampValuation: Codable, Hashable {
     let mintTypical: Double?
     let mintMin: Double?
     let mintMax: Double?

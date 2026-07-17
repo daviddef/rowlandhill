@@ -1,0 +1,66 @@
+# XcodeGen spec — the .xcodeproj is generated, not checked in.
+# Regenerate after adding files or changing settings:  xcodegen generate
+name: StampScan
+options:
+  bundleIdPrefix: app.stampscan
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  StampScan:
+    type: application
+    platform: iOS
+    sources:
+      - path: StampScan
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.stampscan
+        INFOPLIST_FILE: StampScan/Resources/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        # Dark mode only in v1 — see CLAUDE.md design system.
+        UIUserInterfaceStyle: Dark
+        TARGETED_DEVICE_FAMILY: "1"
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+    entitlements:
+      path: StampScan/Resources/StampScan.entitlements
+      properties:
+        com.apple.developer.applesignin: [Default]
+        com.apple.developer.icloud-container-identifiers:
+          - iCloud.app.stampscan
+        com.apple.developer.icloud-services: [CloudKit]
+        com.apple.developer.associated-domains:
+          - applinks:stampscan.app
+
+  StampScanTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: StampScanTests
+    dependencies:
+      - target: StampScan
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.stampscan.tests
+        GENERATE_INFOPLIST_FILE: YES
+
+schemes:
+  StampScan:
+    build:
+      targets:
+        StampScan: all
+    test:
+      targets:
+        - StampScanTests
+    run:
+      config: Debug

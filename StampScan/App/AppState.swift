@@ -61,4 +61,8 @@ extension Color {
     static let stampCard    = Color(red: 0.094, green: 0.118, blue: 0.153)
     static let stampBorder  = Color(red: 0.188, green: 0.212, blue: 0.239)
     static let stampMuted   = Color(red: 0.545, green: 0.58, blue: 0.62)
+
+    /// Primary text colour. The app is dark-mode only in v1, so this is a
+    /// fixed white rather than a semantic colour that would flip in light mode.
+    static let text         = Color.white
 }

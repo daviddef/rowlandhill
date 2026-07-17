@@ -184,7 +184,7 @@ private struct EmptyResultsView: View {
         VStack(spacing: 16) {
             Spacer()
             Image(systemName: "magnifyingglass").font(.system(size: 48)).foregroundColor(.stampMuted)
-            Text("No stamps found for "\(query)"")
+            Text("No stamps found for “\(query)”")
                 .font(.headline)
             Text("Try different search terms, or browse by country")
                 .font(.subheadline).foregroundColor(.stampMuted)

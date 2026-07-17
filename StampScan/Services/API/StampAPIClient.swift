@@ -140,7 +140,7 @@ final class StampAPIClient {
             model_version: modelVersion,
             user_confirmed: userConfirmed
         )
-        try await post("/scans", body: body) as EmptyResponse
+        _ = try await post("/scans", body: body) as EmptyResponse
     }
 
     // MARK: - Auth
