@@ -245,7 +245,11 @@ These are locked. Research is done. Implement these.
 
 #### Priority 4 — Backend (separate repo/team)
 14. **Deploy API** — Node.js/Fastify on AWS
-15. **PostgreSQL schema** — run `docs/schema/001_core_schema.sql` and `004_succession_schema.sql`
+15. **PostgreSQL schema** — run `001_core_schema.sql`, `004_succession_schema.sql`, then
+   `005_succession_seed.sql`. ✅ **Verified against PostgreSQL 16.14 on 17 July 2026** — all
+   three apply to an empty database and 005 is idempotent. **They did not before**: the FTS
+   index was not IMMUTABLE (schema aborted), and `get_issuer_lineage()` was invalid SQL that
+   had never executed. See `docs/research/country-succession.md`.
 16. **Elasticsearch** — apply `docs/schema/002_elasticsearch_mappings.json`
 17. **Crawler** — Python/Node.js workers per `docs/crawler/architecture.md`
 18. **Seed database** — 🚨 **the planned seed does not exist.** Wikidata was measured at
@@ -267,8 +271,19 @@ Searching "Rhodesia" must return stamps from ALL related issuers:
 - Zimbabwe Rhodesia (1979)
 - Zimbabwe (1980–present)
 
-The PostgreSQL `get_issuer_lineage()` function handles this recursively.
-The `search_aliases` table handles name variant matching.
+The PostgreSQL `get_issuer_lineage()` function handles this recursively — **use
+`get_issuer_lineage_by_issuer(issuer_id)`**, the issuer-level variant; the country-level one
+needs a populated `countries` + `country_succession` graph that the seed does not build.
+The `search_aliases` table handles name variant matching. ⚠️ It is **polymorphic with no
+foreign key** — every query MUST filter `entity_type`, or country ids silently join against
+issuer ids.
+
+**Seeded and verified (17 July 2026):** 1,181 issuing entities (879 dead), 1,063 aliases,
+44 succession edges — `docs/schema/005_succession_seed.sql`, built from Wikipedia's
+"List of entities that have issued postage stamps". Searching "Rhodesia" returns the full
+1890–present lineage; USSR walks to all 15 successors. **The graph is only ~5% complete** —
+44 edges against 879 dead entities; the colonial empires have none yet. See
+`docs/research/country-succession.md`.
 The Elasticsearch `synonym_filter` in `002_elasticsearch_mappings.json` handles real-time search.
 
 **On iOS:** When the user types "Rhodesia" in the search bar, the API handles the translation. No iOS-side special casing needed.

@@ -242,12 +242,29 @@ CREATE INDEX idx_stamps_uuid         ON stamps(uuid);
 CREATE INDEX idx_stamps_stamp_id     ON stamps(stamp_id);
 
 -- Full-text search
-CREATE INDEX idx_stamps_fts ON stamps USING gin(
-  to_tsvector('english',
-    coalesce(subject, '') || ' ' ||
-    coalesce(description, '') || ' ' ||
-    coalesce(array_to_string(topics, ' '), '')
+-- Full-text search over subject + description + topics.
+--
+-- Two separate reasons the naive form cannot be indexed, both of which made the
+-- original schema fail to apply at all:
+--   1. to_tsvector('english', ...) resolves to to_tsvector(text, text), which is only
+--      STABLE. The regconfig cast selects the IMMUTABLE two-arg form.
+--   2. array_to_string(anyarray, text) is STABLE — it is declared that way because the
+--      generic anyarray path goes through type output functions. For a plain text[] the
+--      result is genuinely deterministic, so the standard workaround is to wrap the
+--      expression in an IMMUTABLE function. Keep the wrapper text[]-only; widening it to
+--      anyarray would make the immutability claim false.
+CREATE OR REPLACE FUNCTION stamps_fts_document(
+  p_subject TEXT, p_description TEXT, p_topics TEXT[]
+) RETURNS tsvector AS $$
+  SELECT to_tsvector('english'::regconfig,
+    coalesce(p_subject, '') || ' ' ||
+    coalesce(p_description, '') || ' ' ||
+    coalesce(array_to_string(p_topics, ' '), '')
   )
+$$ LANGUAGE sql IMMUTABLE;
+
+CREATE INDEX idx_stamps_fts ON stamps USING gin(
+  stamps_fts_document(subject, description, topics)
 );
 
 -- Trigram indexes for fuzzy matching

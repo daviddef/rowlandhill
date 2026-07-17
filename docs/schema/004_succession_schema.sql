@@ -315,33 +315,70 @@ $$;
 -- Use this in API queries to power "show all Rhodesia stamps" across all eras
 -- =============================================================================
 
+-- Walks the country succession graph in BOTH directions from a starting country and
+-- returns every issuer along the lineage. Negative depth = ancestors, positive = successors.
+--
+-- Two things this has to get right, both of which the first version got wrong:
+--
+--   1. A WITH RECURSIVE may contain exactly ONE union between the non-recursive and
+--      recursive terms. Writing "base UNION ALL walk-back UNION ALL walk-forward" makes
+--      Postgres read the first two branches as the non-recursive term, and the second
+--      branch references `lineage` — hence "recursive reference to query lineage must not
+--      appear within its non-recursive term". Both directions are unioned into a single
+--      edge set instead.
+--   2. A bidirectional walk cycles. A -> successor B, then from B -> predecessor A, and
+--      round again. Depth alone never terminates it: the oscillation keeps depth inside
+--      the bounds forever. `visited` carries the path and blocks re-entry.
 CREATE OR REPLACE FUNCTION get_issuer_lineage(p_country_id SMALLINT)
 RETURNS TABLE(issuer_id INT, country_id SMALLINT, depth INT) AS $$
 WITH RECURSIVE lineage AS (
   -- Start with all issuers for the given country
-  SELECT i.id AS issuer_id, i.country_id, 0 AS depth
+  SELECT i.id AS issuer_id, i.country_id, 0 AS depth, ARRAY[i.country_id] AS visited
   FROM issuers i
   WHERE i.country_id = p_country_id
 
   UNION ALL
 
-  -- Walk predecessors
-  SELECT i.id, i.country_id, l.depth - 1
+  -- Walk predecessors (step -1) and successors (step +1) in one recursive term
+  SELECT i.id, nxt.cid, l.depth + nxt.step, l.visited || nxt.cid
   FROM lineage l
-  JOIN country_succession cs ON cs.successor_id = l.country_id
-  JOIN issuers i ON i.country_id = cs.predecessor_id
-  WHERE l.depth > -20  -- max 20 hops back
+  JOIN (
+    SELECT successor_id   AS from_cid, predecessor_id AS cid, -1 AS step FROM country_succession
+    UNION ALL
+    SELECT predecessor_id AS from_cid, successor_id   AS cid,  1 AS step FROM country_succession
+  ) nxt ON nxt.from_cid = l.country_id
+  JOIN issuers i ON i.country_id = nxt.cid
+  WHERE NOT nxt.cid = ANY(l.visited)   -- cycle guard
+    AND abs(l.depth) < 20              -- max 20 hops either way
+)
+SELECT DISTINCT issuer_id, country_id, depth FROM lineage;
+$$ LANGUAGE sql STABLE;
+
+-- Issuer-level lineage. The country-level function above requires a populated
+-- `countries` + `country_succession` graph; the seeded data in 005 is issuer-level
+-- (issuers rarely map 1:1 to a modern country — the whole point of the succession
+-- problem), so this is the one the API actually calls.
+CREATE OR REPLACE FUNCTION get_issuer_lineage_by_issuer(p_issuer_id INT)
+RETURNS TABLE(issuer_id INT, name TEXT, depth INT) AS $$
+WITH RECURSIVE lineage AS (
+  SELECT i.id AS issuer_id, 0 AS depth, ARRAY[i.id] AS visited
+  FROM issuers i
+  WHERE i.id = p_issuer_id
 
   UNION ALL
 
-  -- Walk successors
-  SELECT i.id, i.country_id, l.depth + 1
+  SELECT nxt.iid, l.depth + nxt.step, l.visited || nxt.iid
   FROM lineage l
-  JOIN country_succession cs ON cs.predecessor_id = l.country_id
-  JOIN issuers i ON i.country_id = cs.successor_id
-  WHERE l.depth < 20   -- max 20 hops forward
+  JOIN (
+    SELECT successor_id   AS from_iid, predecessor_id AS iid, -1 AS step FROM issuer_succession
+    UNION ALL
+    SELECT predecessor_id AS from_iid, successor_id   AS iid,  1 AS step FROM issuer_succession
+  ) nxt ON nxt.from_iid = l.issuer_id
+  WHERE NOT nxt.iid = ANY(l.visited)
+    AND abs(l.depth) < 20
 )
-SELECT DISTINCT issuer_id, country_id, depth FROM lineage;
+SELECT DISTINCT l.issuer_id, i.name, l.depth
+FROM lineage l JOIN issuers i ON i.id = l.issuer_id;
 $$ LANGUAGE sql STABLE;
 
 -- =============================================================================
