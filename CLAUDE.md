@@ -22,8 +22,8 @@ The project was called **StampScan** until we checked. **That name was already t
 `stampscan.app` is owned and actively operated by **FETCH TECHNOLOGY PTE. LTD.**, who ship
 "StampScan – Stamp Identifier" on Google Play (3.9★, 142 reviews, 5K+ downloads, updated
 July 2026) with the same pitch we had. Their site claims "50,000+ collectors" and "4.7 on
-Google Play"; Play itself reports 5K+ and 3.9★, and reviews report vanishing subscriptions
-and bouncing support email. The Phase 1 docs invented `stampscan.app` as our domain without
+Google Play"; the Play listing itself showed 5K+ downloads and 3.9★ when checked. The Phase 1
+docs invented `stampscan.app` as our domain without
 checking that it belonged to a competitor — the old API base URL and `applinks:` entitlement
 both pointed at their domain.
 

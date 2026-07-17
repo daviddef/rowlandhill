@@ -89,16 +89,16 @@ The working name **StampScan** is an **active competitor**, verified July 2026:
 | **Pitch** | AI photo ID, Scott/Michel/SG catalogue numbers, eBay + auction values, CSV export — i.e. ours |
 | **Pricing** | $7.99/month or **$29.99/year** — undercuts our planned $39.99 |
 
-**Their marketing claims are false, and provably so.** The site advertises "50,000+
-collectors" and "4.7 on Google Play". Google Play reports **5K+ downloads and 3.9★**. It also
-claims to be "featured in" Stanley Gibbons, Scott Catalogue, the APS and Linn's — which is not
-a thing those organisations do. Reviews report subscriptions vanishing after payment, support
-mail bouncing, and one user stating the contact address is "fake too".
+**Their published figures do not match their store listing.** The site advertises "50,000+
+collectors" and "4.7 on Google Play"; the Google Play listing itself showed **5K+ downloads
+and 3.9★ from 142 reviews** when checked in July 2026. The site also lists Stanley Gibbons,
+Scott Catalogue, the APS and Linn's under a "featured in" heading, for which we found no
+corroboration. Several Play reviews report subscription and support problems.
 
-That made the name **worse than unavailable**. A 3.9★ app with billing complaints and
-fabricated social proof owns the search results, the `.app` domain, and the Play listing.
-Trading as StampScan meant inheriting that reputation — for a product whose entire strategy
-is being the trustworthy one.
+That made the name **worse than unavailable**. A 3.9★ app whose own marketing overstates its
+traction owns the search results, the `.app` domain, and the Play listing. Trading as
+StampScan meant inheriting that association — for a product whose entire strategy is being
+the trustworthy one.
 
 It had also leaked into the code: `StampAPIClient.baseURL` pointed at
 `https://api.stampscan.app/v1` and the entitlements declared `applinks:stampscan.app` —
