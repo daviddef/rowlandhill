@@ -1,0 +1,147 @@
+{
+  "_comment": "StampScan Elasticsearch 8.x index mappings",
+
+  "stamps": {
+    "settings": {
+      "number_of_shards": 5,
+      "number_of_replicas": 1,
+      "analysis": {
+        "filter": {
+          "autocomplete_filter": {
+            "type": "edge_ngram",
+            "min_gram": 2,
+            "max_gram": 20
+          },
+          "synonym_filter": {
+            "type": "synonym",
+            "synonyms": [
+              "gb,great britain,uk,united kingdom,britain",
+              "us,usa,united states,america",
+              "ussr,soviet union,russia,cccp",
+              "brd,west germany,bundesrepublik,federal republic",
+              "ddr,east germany,german democratic republic",
+              "commonwealth,bma,british military administration"
+            ]
+          }
+        },
+        "analyzer": {
+          "autocomplete": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": ["lowercase", "autocomplete_filter"]
+          },
+          "stamp_search": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": ["lowercase", "asciifolding", "synonym_filter"]
+          },
+          "catalogue_number": {
+            "type": "custom",
+            "tokenizer": "keyword",
+            "filter": ["uppercase", "trim"]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "stamp_id":       { "type": "keyword" },
+        "uuid":           { "type": "keyword" },
+        "issuer_id":      { "type": "integer" },
+        "issuer_name":    {
+          "type": "text",
+          "analyzer": "stamp_search",
+          "fields": { "keyword": { "type": "keyword" }, "autocomplete": { "type": "text", "analyzer": "autocomplete" } }
+        },
+        "country_name":   { "type": "keyword" },
+        "country_iso":    { "type": "keyword" },
+        "region":         { "type": "keyword" },
+        "format":         { "type": "keyword" },
+        "issue_date":     { "type": "date", "format": "yyyy-MM-dd||yyyy-MM||yyyy" },
+        "issue_year":     { "type": "short" },
+        "denomination":   { "type": "float" },
+        "currency":       { "type": "keyword" },
+        "denomination_text": { "type": "keyword" },
+        "colour": {
+          "type": "text",
+          "analyzer": "stamp_search",
+          "fields": { "keyword": { "type": "keyword" } }
+        },
+        "subject": {
+          "type": "text",
+          "analyzer": "stamp_search",
+          "fields": {
+            "keyword":      { "type": "keyword" },
+            "autocomplete": { "type": "text", "analyzer": "autocomplete" }
+          }
+        },
+        "description":    { "type": "text", "analyzer": "stamp_search" },
+        "designer":       { "type": "text", "fields": { "keyword": { "type": "keyword" } } },
+        "engraver":       { "type": "text", "fields": { "keyword": { "type": "keyword" } } },
+        "printer":        { "type": "text", "fields": { "keyword": { "type": "keyword" } } },
+        "print_method":   { "type": "keyword" },
+        "watermark":      { "type": "keyword" },
+        "perf_gauge":     { "type": "float" },
+        "topics": {
+          "type": "text",
+          "analyzer": "stamp_search",
+          "fields": { "keyword": { "type": "keyword" } }
+        },
+        "keywords":       { "type": "keyword" },
+        "series_name":    { "type": "text", "fields": { "keyword": { "type": "keyword" } } },
+
+        "catalogue_refs": {
+          "type": "nested",
+          "properties": {
+            "catalogue_code": { "type": "keyword" },
+            "cat_number": {
+              "type": "text",
+              "analyzer": "catalogue_number",
+              "fields": { "keyword": { "type": "keyword" } }
+            },
+            "is_primary": { "type": "boolean" }
+          }
+        },
+
+        "primary_image_url": { "type": "keyword", "index": false },
+        "image_count":    { "type": "short" },
+
+        "value_usd_typical": { "type": "float" },
+        "value_usd_min":     { "type": "float" },
+        "value_usd_max":     { "type": "float" },
+        "value_updated_at":  { "type": "date" },
+
+        "source_tier":    { "type": "keyword" },
+        "review_status":  { "type": "keyword" },
+        "confidence":     { "type": "float" },
+
+        "created_at":     { "type": "date" },
+        "updated_at":     { "type": "date" }
+      }
+    }
+  },
+
+  "valuations_timeseries": {
+    "_comment": "Separate index for valuation history — optimised for time-range aggregations",
+    "settings": {
+      "number_of_shards": 3,
+      "number_of_replicas": 1
+    },
+    "mappings": {
+      "properties": {
+        "stamp_id":        { "type": "long" },
+        "stamp_uuid":      { "type": "keyword" },
+        "source_code":     { "type": "keyword" },
+        "source_type":     { "type": "keyword" },
+        "sale_date":       { "type": "date" },
+        "realised_price":  { "type": "float" },
+        "value_typical":   { "type": "float" },
+        "currency":        { "type": "keyword" },
+        "condition":       { "type": "keyword" },
+        "is_used":         { "type": "boolean" },
+        "lot_number":      { "type": "keyword" },
+        "source_url":      { "type": "keyword", "index": false }
+      }
+    }
+  }
+}
