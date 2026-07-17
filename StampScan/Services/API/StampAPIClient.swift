@@ -15,6 +15,11 @@ final class StampAPIClient {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 30
         config.waitsForConnectivity = true
+        // waitsForConnectivity makes timeoutIntervalForRequest inapplicable while the
+        // session waits for a usable connection — the resource timeout governs instead,
+        // and it defaults to 7 days. Without this, an unreachable API leaves callers
+        // awaiting forever and the UI spinning with no error.
+        config.timeoutIntervalForResource = 60
         config.requestCachePolicy = .returnCacheDataElseLoad
         self.session = URLSession(configuration: config)
     }
