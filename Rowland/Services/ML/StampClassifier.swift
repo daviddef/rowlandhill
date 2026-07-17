@@ -56,16 +56,64 @@ final class StampClassifier: ObservableObject {
 
     // MARK: - Identification Pipeline
 
-    /// Identify a stamp from a UIImage.
-    /// Returns top-5 candidates with confidence scores.
+    /// Identify a single stamp that fills most of the frame.
     func identify(image: UIImage) async throws -> ScanResult {
         guard isLoaded else { throw ClassifierError.modelNotLoaded }
 
-        // 1. Pre-process image (crop to stamp region using Vision)
-        let stampRegion = try await detectStampRegion(in: image)
+        let upright = image.normalizedUpright()
+        // Largest detection wins; falls back to the whole frame if Vision finds nothing.
+        let regions = try await detectStampRegions(in: upright, limit: 1)
+        let stampRegion = regions.first?.crop ?? upright
 
+        return try await identify(crop: stampRegion)
+    }
+
+    /// Identify every stamp on a page image (an album page, a stock card, a pile on a table).
+    ///
+    /// Detection and identification are separate phases so the UI can show "found 24 stamps"
+    /// before the slower per-stamp identification starts.
+    /// - Parameter onProgress: called on the main actor after each stamp resolves.
+    func identifyPage(
+        image: UIImage,
+        onProgress: @MainActor (Int, Int) -> Void = { _, _ in }
+    ) async throws -> PageScan {
+        guard isLoaded else { throw ClassifierError.modelNotLoaded }
+
+        let upright = image.normalizedUpright()
+        let detections = try await detectStampRegions(in: upright, limit: 0).inReadingOrder()
+
+        guard !detections.isEmpty else {
+            throw ClassifierError.noStampsFound
+        }
+
+        var stamps = detections
+        onProgress(0, stamps.count)
+
+        // Sequential rather than a TaskGroup: identification hits the shared embedding DB
+        // and may fall back to the network per stamp, and a page of 30 stamps firing 30
+        // concurrent requests would be hostile to the API and to the user's battery.
+        // Each await yields, so the UI stays responsive and progress ticks visibly.
+        for index in stamps.indices {
+            do {
+                let result = try await identify(crop: stamps[index].crop)
+                stamps[index].outcome = .identified(result)
+                stamps[index].isSelected = result.confidence >= DetectedStamp.autoSelectThreshold
+            } catch {
+                stamps[index].outcome = .failed(error.localizedDescription)
+                stamps[index].isSelected = false
+            }
+            onProgress(index + 1, stamps.count)
+        }
+
+        return PageScan(sourceImage: upright, stamps: stamps)
+    }
+
+    // MARK: - Core Identification
+
+    /// Identify one already-cropped stamp image.
+    private func identify(crop: UIImage) async throws -> ScanResult {
         // 2. Extract embedding from cropped region
-        let embedding = try await extractEmbedding(from: stampRegion)
+        let embedding = try await extractEmbedding(from: crop)
 
         // 3. Search on-device embedding DB first (fast, offline)
         var candidates = embeddingDB?.search(embedding: embedding, topK: 10) ?? []
@@ -92,38 +140,62 @@ final class StampClassifier: ObservableObject {
 
     // MARK: - Vision Pipeline
 
-    private func detectStampRegion(in image: UIImage) async throws -> UIImage {
+    /// Locate stamps in an image. Pass `limit: 0` for no limit (page mode), `1` for single-stamp mode.
+    ///
+    /// The image must already be upright — Vision reads `cgImage` and ignores `imageOrientation`.
+    private func detectStampRegions(in image: UIImage, limit: Int) async throws -> [DetectedStamp] {
         guard let cgImage = image.cgImage else { throw ClassifierError.invalidImage }
 
-        return try await withCheckedThrowingContinuation { continuation in
-            // Use VNDetectRectanglesRequest to find the stamp boundary
+        let observations: [VNRectangleObservation] = try await withCheckedThrowingContinuation { continuation in
             let request = VNDetectRectanglesRequest { request, error in
                 if let error { return continuation.resume(throwing: error) }
-
-                guard let results = request.results as? [VNRectangleObservation],
-                      let rect = results.first else {
-                    // No rectangle detected — use full image
-                    return continuation.resume(returning: image)
-                }
-
-                // Crop to detected rectangle
-                let croppedCGImage = cgImage.cropping(to: VNImageRectForNormalizedRect(
-                    rect.boundingBox,
-                    cgImage.width,
-                    cgImage.height
-                ))
-                let cropped = croppedCGImage.map { UIImage(cgImage: $0) } ?? image
-                continuation.resume(returning: cropped)
+                continuation.resume(returning: request.results as? [VNRectangleObservation] ?? [])
             }
-            request.minimumAspectRatio = 0.3
-            request.maximumAspectRatio = 1.0
-            request.minimumSize = 0.1
-            request.maximumObservations = 1
 
-            let handler = VNImageRequestHandler(cgImage: cgImage)
-            try? handler.perform([request])
+            // Stamps are portrait, landscape, and occasionally square, so the aspect window
+            // has to be wide in both directions.
+            request.minimumAspectRatio = 0.3
+            request.maximumAspectRatio = 3.0
+
+            if limit == 1 {
+                // Single-stamp mode: the stamp fills the frame.
+                request.minimumSize = 0.1
+                request.maximumObservations = 1
+            } else {
+                // Page mode: one stamp on a 5×10 album page is ~2% of the frame's smaller side.
+                request.minimumSize = 0.02
+                request.maximumObservations = 0  // 0 = no limit
+            }
+            request.minimumConfidence = 0.5
+            // Perforated edges and hand-held pages mean stamps are never perfectly square-on.
+            request.quadratureTolerance = 30
+
+            let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+            do { try handler.perform([request]) } catch { continuation.resume(throwing: error) }
         }
+
+        let candidates = observations.filter { observation in
+            guard limit != 1 else { return true }
+            // Page mode: anything covering half the frame is the page itself, a mount, or a
+            // binder edge — not one stamp among many. Left in, such a box would swallow every
+            // real stamp during deduplication.
+            let box = observation.boundingBox
+            return Double(box.width * box.height) < Self.maxPageStampArea
+        }
+
+        return candidates.compactMap { observation -> DetectedStamp? in
+            // A small outset keeps perforation tips inside the crop; the perfs carry
+            // identifying information and Vision tends to box the design, not the teeth.
+            guard let crop = image.cropping(toVisionRect: observation.boundingBox, insetBy: 0.02) else {
+                return nil
+            }
+            return DetectedStamp(boundingBox: observation.boundingBox, crop: crop)
+        }
+        .deduplicated()
     }
+
+    /// Upper bound on one stamp's share of a page image, used only in page mode.
+    private static let maxPageStampArea: Double = 0.5
 
     private func extractEmbedding(from image: UIImage) async throws -> [Float] {
         // TODO: Replace with actual CoreML model inference
@@ -159,6 +231,7 @@ final class StampClassifier: ObservableObject {
         case modelNotLoaded
         case invalidImage
         case noMatchFound
+        case noStampsFound
 
         var errorDescription: String? {
             switch self {
@@ -166,6 +239,7 @@ final class StampClassifier: ObservableObject {
             case .modelNotLoaded: return "Model is still loading, please wait"
             case .invalidImage:   return "Could not process this image"
             case .noMatchFound:   return "No matching stamp found"
+            case .noStampsFound:  return "No stamps found on this page. Try better lighting, or a straight-on photo with the whole page in frame."
             }
         }
     }

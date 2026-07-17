@@ -269,20 +269,61 @@ The Elasticsearch `synonym_filter` in `002_elasticsearch_mappings.json` handles 
 
 **On iOS:** When the user types "Rhodesia" in the search bar, the API handles the translation. No iOS-side special casing needed.
 
-### Scan Flow (detailed)
+### Scan Flow — Page & Batch Scanning (added July 2026)
+
+**Rowland scans a whole album page, not one stamp at a time.** This is a deliberate product
+wedge: every competitor identified in `competitors-2026.md` is one-stamp-at-a-time, and the
+customer the research actually found is someone with an **inherited album** — pages of
+stamps, and "hours for 1 stamp" in a catalogue. Crucially this differentiator depends on
+neither the 5–15M corpus nor the Scott licence, so it is deliverable while both are open.
+
+Single-stamp scanning is the degenerate case of page scanning: one page, one detection.
+
 ```
-User taps camera → DataScannerViewController opens
-User frames stamp → Vision VNDetectRectanglesRequest finds stamp boundary
-User taps capture → UIImage captured, sent to StampClassifier.identify()
-StampClassifier:
-  1. detectStampRegion() — Vision rectangle detection, crop
-  2. extractEmbedding() — CoreML inference → 512-dim float array
-  3. EmbeddingDatabase.search() — cosine similarity, top-10 on-device
-  4. If confidence < 0.85 → api.searchByEmbedding() — server-side Qdrant
-  5. api.fetchStamp(id:) — load full stamp detail
-  6. Return ScanResult
-ScanView switches to .result(scanResult) → ScanResultView appears
+Entry points:
+  • Camera            → ScanViewModel.captureCurrentFrame()   (frame grab still TODO)
+  • "Choose Photos"   → PhotosPicker, up to 50 images, ordered → identifyPages([UIImage])
+
+StampClassifier.identifyPage(image:onProgress:)
+  1. normalizedUpright()      — Vision ignores UIImage.imageOrientation; without this,
+                                boxes come out rotated 90° for library/camera photos
+  2. detectStampRegions(limit: 0)
+                              — VNDetectRectanglesRequest, maximumObservations = 0,
+                                minimumSize 0.02 (a stamp is ~2% of an album page)
+  3. inReadingOrder()         — rows banded by vertical overlap, then left-to-right
+  4. per stamp, sequentially: identify(crop:) → embedding → search → ScanResult
+                                (sequential on purpose — 30 concurrent server calls per
+                                 page would be hostile to the API and the battery)
+  → PageScan(sourceImage, [DetectedStamp])
+
+ScanView state machine:
+  .processingPages(BatchProgress)  → PageProcessingView (per-page + per-stamp progress)
+  .pageResults([PageScan])         → PageResultsView
 ```
+
+`PageResultsView` draws every detection boxed on the source page, so **misses are visible**
+rather than silent. Matches below `DetectedStamp.autoSelectThreshold` (0.85) arrive
+**deselected** — a bulk add must never quietly import guesses into someone's inventory.
+Bulk add goes through `CollectionStore.add([CollectionItem])` with `nextLocalIDs(count:)`
+(local IDs count downward from 0 so they can't collide with server-assigned positive IDs).
+
+**Condition is user-declared, never inferred.** Bulk-added items default to `.fine` for the
+user to edit. Per `competitors-2026.md`, a photo cannot see gum, thins, regumming, or
+watermarks — and those often *are* the value. Do not add "AI condition grading".
+
+⚠️ **Open monetisation question for David:** the free tier is "10 scans/day". **Does one
+album page of 24 stamps count as 1 scan or 24?** As 1, the free tier gives away the entire
+product. As 24, a single page exhausts the daily limit twice over and the headline feature is
+unusable before purchase. This was never considered — the tier was designed for
+one-stamp-at-a-time. It needs an answer alongside the pricing/paywall revisit.
+
+**Known limits of rectangle detection** (honest, not yet solved):
+- `VNDetectRectanglesRequest` finds *rectangles*, not *stamps*. On a real album page it will
+  also box mounts, hingeless pockets, page borders, and printed frames.
+- Perforated edges are not straight lines; heavy perfs may lower detection confidence.
+- Se-tenant strips and blocks may be detected as one rectangle rather than several.
+- A trained object detector would beat parameter-tuned rectangle detection here. Revisit
+  once the embedding model exists — the same training corpus serves both.
 
 ### Catalogue Numbers (IMPORTANT)
 
