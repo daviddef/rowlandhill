@@ -8,10 +8,16 @@ honest measure of where our corpus ceiling actually sits.
 
 | | |
 |---|---|
-| Nauru stamps **catalogued** (StampWorld 739 / StampData 709) | **~700–740** |
+| Nauru stamps **catalogued** — postage only (StampWorld 739, highest no. 732) | **~740** |
+| …including miniature sheets & varieties (album/catalogue claims 867–910) | **~850–900** |
 | Scott Classic majors, 1916–1948 | **38** |
 | Nauru images on **Wikimedia Commons** under a reusable licence | **25** (only **2** unique to Nauru) |
 | **Our coverage of Nauru** | **~3%** |
+
+⚠️ **Any single count is meaningless without naming the catalogue.** StampWorld 739 counts
+postage stamps only and numbers miniature sheets separately; StampData says ~709 "types";
+album makers claim 867–910 including sheets and varieties; Scott counts fewer still (the 2006
+Dinosaurs are Scott 556–563, implying a low-600s Scott total by 2011). Uncertainty ≈ ±20%.
 
 **This is the whole answer to "there are lots of Nauru resources online."** There are — Scott,
 Stanley Gibbons (Western Pacific 4th ed.), Michel Ü 7.2, StampWorld, Colnect, PISC's *Pacifica*,
@@ -44,6 +50,28 @@ as "used in Nauru." Any G.R.I. item offered as *used on Nauru* is almost certain
 — and this is a heavily forged area. **No edge links G.R.I. / New Britain to Nauru.**
 
 ---
+
+## The modern era — and why Nauru is *not* a "wallpaper" issuer
+
+- **Independence 31 Jan 1968.** First independent-era stamps that same day were the 1966
+  definitives overprinted `REPUBLIC OF NAURU` (14 values). The purpose-designed independence
+  commemorative followed **11 Sept 1968**. UPU membership **17 April 1969**.
+- **Total collapse 2011–2018.** Issuing stopped after 2011 and there was likely no functioning
+  postal service at all — collectors in 2016 reported 1990s definitives still in use and
+  postcards handstamped "Nauru Post Paid $1.00". Issuing restarted **31 Jan 2018** (50th
+  Anniversary of Independence), under the new **Naoero Postal Services Corporation** ("Nauru
+  Post", created by the 2018 Act).
+- **2018–2026: just 11 stamps, every one a single-stamp issue**, all on genuinely Nauruan
+  subjects — the Constitution, Sir Hammer DeRoburt, Day of the Tribes, and the 75th and 80th
+  anniversaries of the Return from Chuuk (the 1946 repatriation of Nauruans deported by Japan).
+  A further apparent gap 2023–2025, resuming 31 Jan 2026. *(Gap is probable, not proven.)*
+- **Agency history:** produced by **CASCO / Crown Agents** (taken over by Harry Allen, 2007) —
+  one of the *reputable* agencies, explicitly contrasted by the trade with IGPC and Stamperija.
+  No evidence Nauru was ever a client of the wallpaper mills.
+- **Nauru does not appear on the UPU's circulars of illegal stamp issues.** The fair criticism
+  is that the 2000s programme drifted into agency topicals with no Nauruan connection
+  (Dinosaurs 2006, RAF 2008, Mozart, Diana) — collector-facing filler, which is a much lesser
+  charge than illegitimacy.
 
 ## Facts worth having in a catalogue
 
