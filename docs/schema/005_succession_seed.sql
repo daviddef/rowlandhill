@@ -9,7 +9,7 @@
 --   Wikipedia's groupings are a naming convention, not a lineage graph: USSR and
 --   Russia sit in separate groups with no link between them.
 --
--- Issuers: 1181   Succession edges: 59   Vernacular aliases: 46
+-- Issuers: 1181   Succession edges: 69   Vernacular aliases: 46
 
 BEGIN;
 
@@ -562,7 +562,7 @@ INSERT INTO issuers (name, issuer_type, active_from, active_to, notes) VALUES
   ('King Edward VII Land', 'historic', '1908-01-01', '1908-12-31', 'Philatelic cluster: Antarctic Territories. Source: Wikipedia list of stamp-issuing entities.'),
   ('King Edward VII Land *', 'historic', '1908-01-01', '1908-12-31', 'Philatelic cluster: New Zealand. Source: Wikipedia list of stamp-issuing entities.'),
   ('Kingdom of Libya: postal administration', 'historic', '1951-01-01', '1969-12-31', 'Philatelic cluster: Libya. Source: Wikipedia list of stamp-issuing entities.'),
-  ('Kingdom of Serbs, Croats and Slovenes', 'national_post', '1921-01-01', NULL, 'Philatelic cluster: Serbia. Source: Wikipedia list of stamp-issuing entities.'),
+  ('Kingdom of Serbs, Croats and Slovenes', 'historic', '1918-01-01', '1929-12-31', 'Philatelic cluster: Serbia. Source: Wikipedia list of stamp-issuing entities.'),
   ('Kionga', 'historic', '1916-01-01', '1916-12-31', 'Philatelic cluster: Mozambique Territories. Source: Wikipedia list of stamp-issuing entities.'),
   ('Kiribati', 'national_post', '1979-01-01', NULL, 'Philatelic cluster: Gilbert and Ellice Islands. Source: Wikipedia list of stamp-issuing entities.'),
   ('Kirin and Heilungkiang', 'historic', '1927-01-01', '1931-12-31', 'Philatelic cluster: Chinese Provinces. Source: Wikipedia list of stamp-issuing entities.'),
@@ -4591,6 +4591,36 @@ SELECT p.id, s.id, 'merger', '1871-01-01'::date, 'German Empire proclaimed'
 UNION ALL
 SELECT p.id, s.id, 'merger', '1920-04-01'::date, 'Bavaria ran its own post until 1920, then joined the Reichspost'
   FROM issuers p, issuers s WHERE p.name = 'Bavaria' AND s.name = 'Germany'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1929-10-03'::date, 'Renamed 3 Oct 1929; stamps kept the SHS inscription until 1931/33 — legal name change precedes the philatelic one'
+  FROM issuers p, issuers s WHERE p.name = 'Kingdom of Serbs, Croats and Slovenes' AND s.name = 'Yugoslavia (Kingdom)'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1992-04-06'::date, 'Declared 3 Mar 1992, EC/US recognition 6 Apr 1992. Commonly omitted from succession lists because BiH never issued as one unified authority'
+  FROM issuers p, issuers s WHERE p.name = 'Yugoslavia' AND s.name = 'Bosnia & Herzegovina'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1941-04-10'::date, '[CONTESTED] Independent State of Croatia (NDH) proclaimed 10 Apr 1941 — Axis puppet, not a legal successor'
+  FROM issuers p, issuers s WHERE p.name = 'Yugoslavia (Kingdom)' AND s.name = 'Croatia (Semi–Autonomous State)'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1945-05-08'::date, '[CONTESTED] NDH collapsed May 1945; stocks overprinted star + Jugoslavija / Demokratska Federativna'
+  FROM issuers p, issuers s WHERE p.name = 'Croatia (Semi–Autonomous State)' AND s.name = 'Yugoslavia (Democratic Federation)'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1992-10-26'::date, '[CONTESTED] Pošte Srpske — a designated operator of BiH, not an independent UPU member'
+  FROM issuers p, issuers s WHERE p.name = 'Bosnia & Herzegovina' AND s.name = 'Bosnian Serb Republic'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1993-05-12'::date, '[CONTESTED] Hrvatska pošta Mostar — designated operator, inscriptions harmonised to BiH from 1996'
+  FROM issuers p, issuers s WHERE p.name = 'Bosnia & Herzegovina' AND s.name = 'Croatian Posts in Bosnia'
+UNION ALL
+SELECT p.id, s.id, 'dissolution', '1918-11-01'::date, 'A-H administration issues 1879-1918, then SHS-era overprints'
+  FROM issuers p, issuers s WHERE p.name = 'Bosnia and Herzegovina (Austro–Hungarian Empire)' AND s.name = 'Bosnia and Herzegovina (Provincial Issues)'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1945-05-03'::date, 'Annexed to Italy 22 Feb 1924; Yugoslav troops entered 3 May 1945'
+  FROM issuers p, issuers s WHERE p.name = 'Fiume (Free State)' AND s.name = 'Fiume (Yugoslav Occupation)'
+UNION ALL
+SELECT p.id, s.id, 'annexation', '1947-09-15'::date, 'Ceded by the Paris Peace Treaty, in force 15 Sept 1947'
+  FROM issuers p, issuers s WHERE p.name = 'Fiume (Yugoslav Occupation)' AND s.name = 'Yugoslavia'
+UNION ALL
+SELECT p.id, s.id, 'partition', '1878-07-13'::date, 'Occupied 1878 under the Congress of Berlin; first Bosnian stamps 1879'
+  FROM issuers p, issuers s WHERE p.name = 'Austria-Hungary' AND s.name = 'Bosnia and Herzegovina (Austro–Hungarian Empire)'
 UNION ALL
 SELECT p.id, s.id, 'partition', '1886-01-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'French Colonies' AND s.name = 'French Guiana'

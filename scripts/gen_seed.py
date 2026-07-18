@@ -49,6 +49,11 @@ def infer_type(name, cluster, end):
 # --- Issuers the Wikipedia inventory omits ----------------------------------
 # (name, type, from, to, note). Austria-Hungary is a major issuer in its own right;
 # without it, its ~950 Commons images would have to be misfiled under Bosnia.
+ISSUER_DATE_FIX = {
+    # The Wikipedia inventory leaves this open-ended; it was renamed 3 Oct 1929.
+    "Kingdom of Serbs, Croats and Slovenes": (1918, 1929),
+}
+
 EXTRA_ISSUERS = [
     ("Austria-Hungary", "historic", 1867, 1918,
      "Dual Monarchy. Its stamps are distinct from Austria's and Hungary's own issues."),
@@ -135,7 +140,39 @@ EDGES = [
     ("Saxony", "North German Confederation", "merger", "1868-01-01", None),
     ("North German Confederation", "Imperial Germany", "merger", "1871-01-01", "German Empire proclaimed"),
     ("Bavaria", "Germany", "merger", "1920-04-01", "Bavaria ran its own post until 1920, then joined the Reichspost"),
+
+    # --- Yugoslav space (researched July 2026; see docs/research/yugoslavia.md) -----------
+    # Badinter Commission Opinion No.1: the SFRY was "in the process of dissolution", so all
+    # six republics are EQUAL successors — hence `dissolution`, never `secession`.
+    ("Kingdom of Serbs, Croats and Slovenes", "Yugoslavia (Kingdom)", "renamed", "1929-10-03",
+     "Renamed 3 Oct 1929; stamps kept the SHS inscription until 1931/33 — legal name change precedes the philatelic one"),
+    ("Yugoslavia", "Bosnia & Herzegovina", "dissolution", "1992-04-06",
+     "Declared 3 Mar 1992, EC/US recognition 6 Apr 1992. Commonly omitted from succession lists because BiH never issued as one unified authority"),
+    # NDH — an Axis puppet recognised only by the Axis. NOT a legal successor: the Allied-
+    # recognised government-in-exile ran continuously in London, and modern Croatia traces
+    # itself to SR Croatia of the SFRY, not to 1941. Modelled as occupation on both sides.
+    ("Yugoslavia (Kingdom)", "Croatia (Semi–Autonomous State)", "occupation", "1941-04-10",
+     "[CONTESTED] Independent State of Croatia (NDH) proclaimed 10 Apr 1941 — Axis puppet, not a legal successor"),
+    ("Croatia (Semi–Autonomous State)", "Yugoslavia (Democratic Federation)", "occupation", "1945-05-08",
+     "[CONTESTED] NDH collapsed May 1945; stocks overprinted star + Jugoslavija / Demokratska Federativna"),
+    # Bosnia's three postal administrations are designated operators of ONE UPU member, not
+    # separate states. The Serb entity issued first (26 Oct 1992), Sarajevo last (27 Oct 1993).
+    ("Bosnia & Herzegovina", "Bosnian Serb Republic", "partition", "1992-10-26",
+     "[CONTESTED] Pošte Srpske — a designated operator of BiH, not an independent UPU member"),
+    ("Bosnia & Herzegovina", "Croatian Posts in Bosnia", "partition", "1993-05-12",
+     "[CONTESTED] Hrvatska pošta Mostar — designated operator, inscriptions harmonised to BiH from 1996"),
+    ("Bosnia and Herzegovina (Austro–Hungarian Empire)", "Bosnia and Herzegovina (Provincial Issues)",
+     "dissolution", "1918-11-01", "A-H administration issues 1879-1918, then SHS-era overprints"),
+    # Fiume
+    ("Fiume (Free State)", "Fiume (Yugoslav Occupation)", "occupation", "1945-05-03",
+     "Annexed to Italy 22 Feb 1924; Yugoslav troops entered 3 May 1945"),
+    ("Fiume (Yugoslav Occupation)", "Yugoslavia", "annexation", "1947-09-15",
+     "Ceded by the Paris Peace Treaty, in force 15 Sept 1947"),
+    # Austria-Hungary's Bosnian administration
+    ("Austria-Hungary", "Bosnia and Herzegovina (Austro–Hungarian Empire)", "partition", "1878-07-13",
+     "Occupied 1878 under the Congress of Berlin; first Bosnian stamps 1879"),
 ]
+
 
 
 # --- Vernacular / inscription aliases ---------------------------------------
@@ -276,6 +313,10 @@ def main():
     w("-- 1. Issuers")
     w("-- ---------------------------------------------------------------------------")
     w("INSERT INTO issuers (name, issuer_type, active_from, active_to, notes) VALUES")
+    for _n, (_f, _to) in ISSUER_DATE_FIX.items():
+        if _n in issuers:
+            issuers[_n]["start"], issuers[_n]["end"] = _f, _to
+
     for _n, _t, _f, _to, _note in EXTRA_ISSUERS:
         issuers.setdefault(_n, {"clusters": {"(curated)"}, "start": _f, "end": _to})
 
