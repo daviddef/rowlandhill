@@ -38,7 +38,7 @@ database as approximate for shared colonial issues.
 
 ## How it was built
 
-Wikimedia Commons, harvested via the MediaWiki API in three passes, all reusable-licence only,
+Wikimedia Commons, harvested via the MediaWiki API in four passes, all reusable-licence only,
 deduped by Commons pageid:
 
 0. **`probe_zeros.py`** — probes Commons name variants for countries showing zero, since most
@@ -49,15 +49,19 @@ deduped by Commons pageid:
    Russia, China, Switzerland…), full-depth walk.
 3. **the underperformers** — 32 countries that the fast pass under-counted because they file
    stamps by series/subject rather than year (France gave 658 year-only vs 8,000 full-depth).
+4. **`deep_harvest_zero.py`** — the 82 gap countries found by the probe, walked from their
+   exact category titles (+20,470 records).
 
-`load_deep.py` merges the three, extracts year + denomination from filenames, and emits
-`006_commons_stamps.sql` in 1000-row batches (a single 116K-row `UNION` blows Postgres's
+`load_deep.py` merges all four, extracts year + denomination from filenames, and emits
+`006_commons_stamps.sql` in 1000-row batches (a single 130K-row `UNION` blows Postgres's
 `max_stack_depth` — found by a scale test before the real load). Reproduce end to end:
 
 ```bash
 cd scripts
+python3 probe_zeros.py
 python3 deep_harvest.py && python3 deep_harvest_full.py && python3 deep_harvest_under.py
-python3 load_deep.py deep_records.json deep_full_records.json deep_under_records.json
+python3 deep_harvest_zero.py
+python3 load_deep.py deep_records.json deep_full_records.json deep_under_records.json zero_records.json
 ```
 
 The 41 MB merged records JSON and the 60 MB generated SQL are **gitignored** (regenerable);
@@ -68,10 +72,10 @@ the scripts and the compact coverage summaries are committed.
 ## What this data IS — and is NOT
 
 **Image-tier, not catalogue-tier.** Every record: `source_tier=scraped`, `review_status=pending`,
-`confidence=0.4`. It has issuer, year (77%), denomination (6%), a real image URL, and a
+`confidence=0.4`. It has issuer, year (80%), denomination (6%), a real image URL, and a
 verified-reusable licence. It does **not** have catalogue numbers (Scott/SG/Michel), and it
 carries the usual Commons noise: covers, full sheets, duplicates (several images of one stamp),
-and the occasional miscategorised file. **So 115,987 *records* is not 115,987 *distinct
+and the occasional miscategorised file. **So 132,327 *records* is not 132,327 *distinct
 catalogued stamps*** — the true distinct count is lower. These are a training/image corpus and
 a structural spine, and must pass review before being treated as catalogue truth.
 
@@ -88,20 +92,23 @@ under-counted (the UK sits at 362, year-only) and would jump with a full-depth p
 
 ## This does NOT change the "beyond a million" ceiling
 
-Commons is now largely tapped at ~115K reusable records. The million-record catalogue is still
+Commons is now largely tapped at ~132K reusable records. The million-record catalogue is still
 an **acquisition decision** — licence Colnect (~1.4M; draft enquiry in
 `docs/colnect-licensing-email.md`) or take a scraping position that runs into the Scott
 numbering-rights question. See `corpus-sourcing.md`. What this session bought:
 
-1. **A real, structured corpus** — 116K records keyed to issuers and the succession graph,
+1. **A real, structured corpus** — 132K records keyed to issuers and the succession graph,
    proven end to end.
-2. **A legally-clean training set** for the embedding model — ~90K dated, labelled images.
+2. **A legally-clean training set** for the embedding model — ~105K dated, labelled images.
 3. **A repeatable ingestion pipeline** any future source (Smithsonian NPM ≈ 8.8K images was
    confirmed available) can reuse.
 
 ## Next to grow it further
 
-1. Fill the 95 zero countries (naming-variant harvest) and full-depth the under-counted big ones.
-2. Add Smithsonian NPM (CC0, ~8.8K) via the same loader shape.
-3. Deduplicate to a true distinct-stamp count (perceptual hash / title clustering).
-4. The real catalogue jump still waits on the licensing decision.
+1. **Add a `stamp_issuers` join table** so one image can belong to several countries properly
+   (see the warning above) — the clearest correctness fix outstanding.
+2. Full-depth the still-under-counted big ones (the UK at 362 is the worst).
+3. Source the last 17 countries from somewhere other than Commons — their stamps are in
+   copyright there. Smithsonian NPM (CC0, ~8.8K images) is confirmed available.
+4. Deduplicate to a true distinct-stamp count (perceptual hash / title clustering).
+5. The real catalogue jump still waits on the licensing decision.
