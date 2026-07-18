@@ -8,12 +8,12 @@
 
 | Layer | Count |
 |---|---|
-| **Stamp records** | **115,987** |
-| Stamp images | 115,987 (one per record; 0 without an image) |
-| …with a known year | 89,761 (77%) |
-| …with a denomination | 7,223 |
-| **Countries covered** | **123 of 218** modern countries |
-| Distinct issuers with stamps | 150 |
+| **Stamp records** | **132,327** |
+| Stamp images | 132,327 (one per record; 0 without an image) |
+| …with a known year | 105,250 (80%) |
+| …with a denomination | 7,607 |
+| **Countries covered** | **201 of 218** modern countries |
+| Distinct issuers with stamps | 216 |
 | Issuing entities (succession spine) | 1,181 |
 | Succession edges | 406 · Search aliases | 1,093 |
 
@@ -21,7 +21,18 @@ Integrity: **0 stamps without an issuer, 0 without an image.** Full-text search,
 graph, and aliases all work over the real rows. Visual coverage report: `docs/coverage.html`;
 per-country numbers in `docs/data/world-coverage.txt` / `.json`.
 
-This is a **20× leap in one session** (5,820 → 115,987) and clears the 100K target.
+This is a **23× leap in one session** (5,820 → 132,327), clearing the 100K target, with coverage
+of **201 of 218** countries.
+
+### ⚠️ One image can belong to several countries — the DB flattens this
+
+A French Indochina stamp is filed on Commons under **Cambodia, Laos and Vietnam** alike, and
+that is philatelically correct. The coverage report counts these **many-to-many** (distinct
+`(image, country)` pairs). The `stamps` table does **not**: it stores one row per image with a
+single `issuer_id`, so a shared image is attributed to whichever country the merge saw last.
+That is why Cambodia briefly showed zero despite having 440 images — Laos had taken them all.
+**Proper fix: a `stamp_issuers` join table.** Until then, treat per-country counts in the
+database as approximate for shared colonial issues.
 
 ---
 
@@ -30,6 +41,9 @@ This is a **20× leap in one session** (5,820 → 115,987) and clears the 100K t
 Wikimedia Commons, harvested via the MediaWiki API in three passes, all reusable-licence only,
 deduped by Commons pageid:
 
+0. **`probe_zeros.py`** — probes Commons name variants for countries showing zero, since most
+   gaps are naming misses ("Stamps of Malaysia" was never tried), not missing data. Found
+   categories for **82 of 95**.
 1. **`deep_harvest.py`** — 162 countries, year-category descent (fast).
 2. **`deep_harvest_full.py`** — 21 large countries the enumeration first *missed* (US, Germany,
    Russia, China, Switzerland…), full-depth walk.
@@ -64,11 +78,11 @@ a structural spine, and must pass review before being treated as catalogue truth
 **Licensing is clean** — only Public Domain / CC0 / CC-BY(-SA) files were kept, tracked per
 image in `stamp_images.licence`.
 
-**Known coverage gaps** (the 95 zero-count countries): mostly smaller or later-independence
-issuers — Malaysia, Singapore, Hong Kong, Kenya, most of West Africa and the Gulf, the Crown
-dependencies. Their Commons categories use naming the harvest didn't reach; each is a fixable
-gap, not a dead end. A few big countries are also under-counted (UK sits at 362, year-only) and
-would jump with a full-depth pass.
+**Known coverage gaps** (now 17, down from 95): Commons holds no reusable-licensed stamp
+images for them: mostly modern issuers whose designs are still in copyright (Hong Kong, Jersey,
+Guernsey, the Faroes, Aruba) plus recent or very small states (South Sudan, Timor-Leste, Tuvalu,
+Micronesia). These need a **different source**, not a deeper crawl. A few big countries remain
+under-counted (the UK sits at 362, year-only) and would jump with a full-depth pass.
 
 ---
 

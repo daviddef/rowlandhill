@@ -38,7 +38,7 @@ def extract_denomination(title):
     return f"{m.group(1)}{m.group(2).lower()}"
 
 def main(paths=None):
-    paths = paths or ["deep_records.json","deep_full_records.json","deep_under_records.json"]
+    paths = paths or ["deep_records.json","deep_full_records.json","deep_under_records.json","zero_records.json"]
     # Merge all harvest files, dedup by pageid (a page in two files is loaded once).
     by_pid = {}
     for p in paths:

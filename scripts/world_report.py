@@ -47,28 +47,40 @@ ALIAS = {
  "Czech Republic":"Czechia","Burma":"Myanmar",
 }
 def norm(lbl):
+    # The gap-fill pass seeds its walk with exact Commons category titles, so its labels
+    # arrive as "Stamps of Malaysia" / "Postage stamps of Angola". Strip that to the country.
+    m = re.match(r"^(?:Postage stamps|Stamps) of (.+)$", lbl)
+    if m:
+        lbl = m.group(1)
     if lbl in ALIAS: return ALIAS[lbl]
-    return lbl[4:] if lbl.startswith("the ") else lbl
+    if lbl.startswith("the "): lbl = lbl[4:]
+    return ALIAS.get(lbl, lbl)
 
 def main(paths=None):
-    paths = paths or ["deep_records.json","deep_full_records.json","deep_under_records.json"]
-    by_pid = {}
+    paths = paths or ["deep_records.json","deep_full_records.json","deep_under_records.json","zero_records.json"]
+    # Coverage is MANY-TO-MANY on purpose. One Commons image can sit in several countries'
+    # category trees — a French Indochina stamp is filed under Cambodia, Laos AND Vietnam —
+    # and that is philatelically correct. Collapsing to one row per pageid (as the DB does)
+    # makes an arbitrary country win and starves the others: Laos took all 440 of Cambodia's
+    # images. So count distinct (pageid, country) pairs here.
+    pairs = set()
+    pids = set()
     for p in paths:
         try:
             for r in json.load(open(p)):
-                by_pid[r["pageid"]] = r
+                pairs.add((r["pageid"], norm(r["label"])))
+                pids.add(r["pageid"])
         except FileNotFoundError:
             pass
-    recs = list(by_pid.values())
     vol = Counter()
-    hist = Counter()   # labels that aren't a modern world country (historical entities)
+    hist = Counter()
     worldset = set(WORLD)
-    for r in recs:
-        w = norm(r["label"])
+    for _pid, w in pairs:
         if w in worldset:
             vol[w] += 1
         else:
-            hist[r["label"]] += 1
+            hist[w] += 1
+    recs = pids   # distinct images, for the headline count
 
     covered = [(c, vol[c]) for c in WORLD if vol[c] > 0]
     zero    = [c for c in WORLD if vol[c] == 0]
@@ -76,7 +88,7 @@ def main(paths=None):
 
     out = []
     out.append(f"WORLD COVERAGE — {len([c for c,_ in covered])} of {len(WORLD)} modern countries have stamps")
-    out.append(f"Total records: {len(recs):,}   (harvest may still be running)\n")
+    out.append(f"Distinct images: {len(recs):,}   ·   country attributions counted many-to-many\n")
     out.append("== COVERED (by volume) ==")
     for c, n in covered:
         out.append(f"  {n:>6,}  {c}")

@@ -1,190 +1,267 @@
-WORLD COVERAGE — 123 of 218 modern countries have stamps
-Total records: 115,987   (harvest may still be running)
+WORLD COVERAGE — 201 of 218 modern countries have stamps
+Distinct images: 132,327   ·   country attributions counted many-to-many
 
 == COVERED (by volume) ==
-  16,088  Russia
+  16,610  Russia
+   8,171  France
    8,148  Netherlands
-   8,146  France
-   7,992  Indonesia
-   7,734  Germany
-   5,266  United States
-   4,219  Belarus
-   4,129  Albania
-   3,848  China
-   3,812  Ukraine
-   3,458  Azerbaijan
-   3,205  Romania
-   3,160  Brazil
+   8,051  Indonesia
+   8,000  Germany
+   5,429  United States
+   4,261  Belarus
+   4,239  Albania
+   4,043  China
+   4,000  United Arab Emirates
+   3,838  Ukraine
+   3,543  Azerbaijan
+   3,350  Moldova
+   3,208  Romania
+   3,193  Brazil
    2,927  India
-   2,501  Finland
-   2,312  Armenia
-   1,917  Switzerland
-   1,534  Italy
-   1,239  Peru
-   1,197  Denmark
-   1,183  Seychelles
-   1,180  Israel
-   1,071  Hungary
-   1,014  Bolivia
-     998  Iraq
-     892  Lithuania
-     865  Turkey
-     800  Portugal
-     718  Japan
-     707  Egypt
+   2,532  Finland
+   2,358  Armenia
+   1,930  Switzerland
+   1,701  Malaysia
+   1,661  Tajikistan
+   1,660  Italy
+   1,386  Austria
+   1,374  Kazakhstan
+   1,363  Uzbekistan
+   1,327  Hungary
+   1,262  Peru
+   1,207  Israel
+   1,204  Denmark
+   1,202  Seychelles
+   1,148  Lithuania
+   1,029  Bolivia
+   1,021  Iraq
+   1,020  Turkey
+     898  Algeria
+     835  Poland
+     816  Portugal
+     797  Egypt
+     766  Japan
+     744  Mexico
      683  Philippines
-     681  Mexico
-     655  Algeria
-     638  Belgium
-     519  South Africa
-     514  Colombia
-     506  Vietnam
-     473  Australia
-     456  Spain
-     451  Austria
-     418  Tanzania
-     396  Poland
-     362  United Kingdom
-     360  Canada
-     357  Iran
-     315  Syria
-     292  Congo (Republic)
-     288  Serbia
+     646  Belgium
+     640  Kyrgyzstan
+     579  South Africa
+     558  Rwanda
+     548  Vietnam
+     530  Colombia
+     506  Angola
+     492  Australia
+     480  Greece
+     465  Spain
+     453  Laos
+     441  Canada
+     441  Tanzania
+     440  Cambodia
+     421  Venezuela
+     407  United Kingdom
+     363  Iran
+     345  Serbia
+     341  Syria
+     327  Palestine
+     308  Yemen
+     298  Congo (Republic)
+     274  Malta
+     263  Morocco
+     255  Sweden
+     252  Gibraltar
      248  Latvia
-     230  Sweden
-     210  Norway
-     193  Greece
+     246  Norway
+     187  Croatia
      171  Uruguay
-     151  Bermuda
-     148  North Macedonia
-     132  Liechtenstein
-     131  Monaco
-     130  Nicaragua
-     129  Argentina
-     128  Ireland
-     124  New Zealand
-     119  Croatia
+     156  Bermuda
+     149  Argentina
+     149  North Macedonia
+     147  Comoros
+     137  Nicaragua
+     135  Liechtenstein
+     134  Ireland
+     133  Monaco
+     127  El Salvador
+     125  New Zealand
+     125  Panama
+     117  Lesotho
+     116  Pakistan
+     110  Slovenia
      109  Estonia
-      85  Chile
-      85  Iceland
-      79  Bulgaria
+     108  Bosnia and Herzegovina
+     104  Kenya
+     104  Mozambique
+     103  Guyana
+      99  Montenegro
+      95  Cuba
+      95  Somalia
+      91  Bulgaria
+      89  Iceland
+      88  Chile
+      79  Costa Rica
       78  Congo (DR)
-      75  Guatemala
-      66  Cuba
+      76  Guatemala
+      74  Taiwan
+      73  Mauritius
+      73  Tunisia
+      70  Libya
+      67  Jamaica
+      63  Burundi
+      63  Maldives
+      62  Turkmenistan
       56  Luxembourg
-      53  Burundi
       53  Ecuador
-      51  Slovenia
-      38  Thailand
-      37  Libya
-      34  Panama
+      53  Macau
+      46  Trinidad and Tobago
+      40  Togo
+      39  Singapore
+      39  Thailand
+      39  Cook Islands
+      37  Papua New Guinea
+      36  Uganda
+      33  Zimbabwe
+      32  Central African Republic
+      32  Solomon Islands
+      31  Cyprus
+      31  Lebanon
+      31  Madagascar
       30  Barbados
+      30  Saint Vincent and the Grenadines
       30  Sierra Leone
-      27  Saint Helena
+      28  Cameroon
+      28  Saint Helena
+      27  Antigua and Barbuda
       26  Korea (South)
-      26  Madagascar
+      25  Marshall Islands
+      25  Myanmar
       24  Honduras
-      23  Nigeria
-      23  Pakistan
-      21  Paraguay
+      24  Nigeria
+      24  Suriname
+      23  Chad
+      22  Paraguay
+      22  Sudan
+      20  Eritrea
       20  Gambia
-      20  Morocco
+      20  Malawi
+      20  Palau
       19  Mongolia
-      17  Ethiopia
+      19  Samoa
+      19  Vatican City
+      19  Zambia
+      18  Ethiopia
+      16  Slovakia
       16  Ascension Island
       15  Haiti
       14  Botswana
-      13  Brunei
-      13  Papua New Guinea
+      14  Brunei
+      14  Jordan
+      14  Vanuatu
+      13  Fiji
+      13  Kiribati
       12  Ghana
+      12  Grenada
+      12  Kuwait
       12  Saint Lucia
       12  San Marino
-      12  Uganda
       12  Cayman Islands
-      11  Fiji
-      11  Grenada
-      11  Jordan
-      11  Suriname
+      11  Benin
+      11  Bhutan
+      11  Djibouti
+      11  British Virgin Islands
+      10  Bahrain
       10  Dominica
+      10  Equatorial Guinea
+      10  Greenland
       10  Montserrat
-       9  Bahrain
-       8  Bhutan
+      10  Turks and Caicos Islands
+       9  Saint Kitts and Nevis
+       8  Ivory Coast
        8  Nepal
-       8  Samoa
+       7  Czechia
+       7  Guinea
        7  Liberia
+       7  Tonga
+       6  Cape Verde
+       6  Mali
+       6  Oman
+       6  Senegal
+       6  Isle of Man
+       5  Guinea-Bissau
        5  Niger
        5  Saudi Arabia
+       5  Niue
        4  Bahamas
        4  Dominican Republic
        4  Eswatini
        4  Kosovo
        4  Qatar
+       3  Bangladesh
        3  Sri Lanka
        3  Anguilla
+       2  Afghanistan
+       2  Andorra
        2  Belize
+       2  Mauritania
        2  Nauru
-       1  Afghanistan
-       1  Bangladesh
 
-== ZERO — 95 modern countries with NO stamps yet ==
-  Andorra · Angola · Antigua and Barbuda
-  Benin · Bosnia and Herzegovina · Burkina Faso
-  Cambodia · Cameroon · Cape Verde
-  Central African Republic · Chad · Comoros
-  Costa Rica · Cyprus · Czechia
-  Djibouti · El Salvador · Equatorial Guinea
-  Eritrea · Gabon · Georgia
-  Guinea · Guinea-Bissau · Guyana
-  Ivory Coast · Jamaica · Kazakhstan
-  Kenya · Kiribati · Korea (North)
-  Kuwait · Kyrgyzstan · Laos
-  Lebanon · Lesotho · Malawi
-  Malaysia · Maldives · Mali
-  Malta · Marshall Islands · Mauritania
-  Mauritius · Micronesia · Moldova
-  Montenegro · Mozambique · Myanmar
-  Namibia · Oman · Palau
-  Palestine · Rwanda · Saint Kitts and Nevis
-  Saint Vincent and the Grenadines · Sao Tome and Principe · Senegal
-  Singapore · Slovakia · Solomon Islands
-  Somalia · South Sudan · Sudan
-  Taiwan · Tajikistan · Timor-Leste
-  Togo · Tonga · Trinidad and Tobago
-  Tunisia · Turkmenistan · Tuvalu
-  United Arab Emirates · Uzbekistan · Vanuatu
-  Vatican City · Venezuela · Yemen
-  Zambia · Zimbabwe · Aruba
-  British Virgin Islands · Cook Islands · Faroe Islands
-  Falkland Islands · Gibraltar · Greenland
-  Guernsey · Hong Kong · Isle of Man
-  Jersey · Macau · Niue
-  Norfolk Island · Turks and Caicos Islands
+== ZERO — 17 modern countries with NO stamps yet ==
+  Burkina Faso · Gabon · Georgia
+  Korea (North) · Micronesia · Namibia
+  Sao Tome and Principe · South Sudan · Timor-Leste
+  Tuvalu · Aruba · Faroe Islands
+  Falkland Islands · Guernsey · Hong Kong
+  Jersey · Norfolk Island
 
-== HISTORICAL / colonial entities also harvested (27) ==
-     556  Yugoslavia
-     371  the German Empire
-     141  Saarland
+== HISTORICAL / colonial entities also harvested (52) ==
+     654  German Empire
+     599  Ottoman Empire
+     557  Yugoslavia
+     453  Czechoslovakia
+     312  French Indochina
+     273  Saarland
+     255  Manchukuo
+     144  Protectorate of Bohemia and Moravia
      116  Basutoland
-     101  Martinique
-      84  British Guiana
-      61  the Cape of Good Hope
+     114  South African Republic
+     113  Ifni
+     103  Martinique
+      85  British Guiana
+      62  Cape of Good Hope
+      53  Netherlands East Indies
+      44  United Arab Republic
+      36  Confederate States of America
       36  British Honduras
-      22  New Caledonia
-      19  British Somaliland
+      31  New Caledonia
+      26  British Somaliland
+      22  Guadeloupe
+      20  French Equatorial Africa
+      18  Federated States of Micronesia
+      17  Italian Eritrea
+      16  Portuguese Timor
       16  Southern Rhodesia
-      16  the Falkland Islands Dependencies
+      16  Falkland Islands Dependencies
+      16  French Congo
+      14  New Hebrides
+      14  Italian Libya
+      14  Tibet
       13  North Korea
-      11  the Straits Settlements
-       9  the Leeward Islands
-       8  French Equatorial Africa
+      13  Far Eastern Republic
+      12  French West Africa
+      12  Straits Settlements
+       9  Leeward Islands
+       9  Danish West Indies
        8  Nyasaland
        8  Rhodesia
-       7  the Gilbert and Ellice Islands
-       7  the Czech Republic
-       6  East Africa & Uganda Protectorates
-       6  Guadeloupe
-       5  British Central Africa
+       7  Netherlands New Guinea
+       7  East Africa & Uganda Protectorates
+       7  Gilbert and Ellice Islands
+       6  British East Africa
        5  Northern Rhodesia
-       3  British East Africa
-       1  Kenya and Uganda
-       1  the Danish West Indies
+       5  French Somali Coast
+       5  British Central Africa
+       4  Reunion
+       4  Guam
+       3  Thrace
+       3  Kenya and Uganda
+       3  Upper Volta
+       2  Fernando Poo
