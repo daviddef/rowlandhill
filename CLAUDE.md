@@ -8,6 +8,11 @@
 
 **Rowland** is an iOS app that identifies postage stamps from a phone photo using AI, then shows details, valuations, and lets users manage their collection. The ambition is to build the world's largest proprietary philatelic database — larger and more accurate than Colnect (currently 1.6M items).
 
+> **Corpus status (18 Jul 2026):** 5,820 real stamp records with images now loaded from
+> Wikimedia Commons — image-tier, not catalogue-tier (see `docs/research/corpus-status.md`).
+> Plus the succession spine: 1,181 issuing entities, 406 verified lineage edges, 1,093 aliases.
+> "Beyond a million" is still an acquisition decision, not a scraping one — see `corpus-sourcing.md`.
+
 > ⚠️ **Read `docs/research/competitors-2026.md` before acting on any competitive or
 > monetisation claim in this file.** The Phase 1 research missed the AI stamp identifier
 > category. **PhilSnap** (September 2025, 4.7★, $39.99/year) already ships photo ID +

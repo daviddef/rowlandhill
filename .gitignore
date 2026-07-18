@@ -20,3 +20,6 @@ Rowland.xcodeproj/
 ## ML artefacts (large; built by the training pipeline)
 *.mlmodel
 *.mlmodelc
+
+## Generated bulk-data SQL — large, regenerate from docs/data/*.json via scripts/load_commons.py
+docs/schema/006_commons_stamps.sql

@@ -188,6 +188,7 @@ CREATE TABLE stamps (
 
   -- Issue details
   issue_date      DATE,
+  issue_year      SMALLINT,                 -- known year even when the full date is uncertain
   issue_date_text TEXT,
   denomination    NUMERIC(12, 4),           -- face value
   currency        CHAR(3),                  -- ISO 4217
