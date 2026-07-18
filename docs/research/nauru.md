@@ -31,9 +31,27 @@ reusable source, and Commons has 25 images. The gap is licensing, not effort.
 ```
 German Marshall Islands ──occupation 1915──▶ N.W. Pacific Islands ──renamed Oct 1916──▶ Nauru
    (stamps used at Nauru                        (Australian o/p,              (GB KGV o/p
-    1908–1914)                                   Jan 1915–Oct 1916)            "NAURU", SG 1–12)
+    1908–1914)                                   Jan 1915–Oct 1916)            "NAURU", SG 1–25)
 ```
 
+- **The 1916 first issue is SG 1–25, not 1–12.** SG 1–12 are the low values with the overprint
+  at the foot (12½mm); **SG 13–16 are a separate 1923 setting**, 13½mm and *centred*; SG 17–25
+  are the Seahorse high values (Waterlow, De La Rue and Bradbury Wilkinson printings, the 10s
+  overprinted in red). The base stamps are the **1912–13 KGV Royal Cypher** definitives — *not*
+  Downey Heads, a claim that does not survive checking against the control letters.
+- **Two dates for the first issue, both real:** earliest recorded strike is **2 Sept 1916** but
+  on *cancelled-to-order* material; earliest genuine **commercial use is 7 Oct 1916**, which is
+  why catalogues say "October 1916".
+- The **1924 Freighter** definitives are **SG 26–39 / Scott 17–30**, watermarkless, printed by
+  the Note Printing Branch of the Commonwealth Bank in Melbourne, and reprinted 22 times until
+  the final printing in **Feb 1954**. Michel dates the issue **18 March 1924**; the widely-seen
+  "1 December 1924" is unsupported. The design carries **no ship name** — "Century Freighter"
+  is a dealer trade name, and the stamp reads only `NAURU` / `POSTAGE & REVENUE`.
+- ⚠️ **A designer attribution ("R.A. Harrison") circulating online is fabricated** — it traces
+  to a single AI-generated dealer page whose same paragraph also wrongly claims the values have
+  different designs (all 14 share one). Search summaries repeat it as fact. No reliable designer
+  attribution exists. A caution for any future automated ingestion: AI-generated content is now
+  polluting philatelic sources.
 - Nauru **never had German-era stamps of its own.** Its post office (opened **14 July 1908**)
   used German **Marshall Islands** stamps, cancelled `NAURU MARSHALL-INSELN`.
 - Searching "Nauru" now reaches **23 stamps** — 2 Nauru-inscribed plus 21 German Marshall
