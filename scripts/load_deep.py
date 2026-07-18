@@ -56,25 +56,33 @@ def main(paths=None):
 
     BATCH = 1000   # multi-row VALUES batches; a single 90K-row UNION blows max_stack_depth
 
-    # --- stamps: issuer_id is known directly, so a plain VALUES insert works ---
+    # --- stamps ---
+    # Resolve the issuer by NAME, not by an id captured at harvest time. Adding a single
+    # issuer renumbers the IDENTITY column and would silently misattribute every stamp;
+    # names are stable. Records carry issuer_name (see id2name backfill).
     def stamp_val(r):
         sid = f"SID-CMN-{r['pageid']}"
         y = r.get("year")
-        issue_date = f"'{y}-01-01'::date" if y else "NULL"
+        issue_date = sq(f"{y}-01-01") if y else "NULL"
         year_txt = sq(str(y)) if y else "NULL"
-        year_val = str(y) if y else "NULL"
+        year_val = sq(str(y)) if y else "NULL"
         denom = extract_denomination(r["title"])
         page = f"https://commons.wikimedia.org/?curid={r['pageid']}"
-        return (f"({sq(sid)}, {int(r['issuer_id'])}, {issue_date}, {year_val}, {year_txt}, "
-                f"{sq(denom)}, {sq(clean_subject(r['title']))}, 'scraped'::data_source_tier, "
-                f"'pending'::review_status, {sq(page)}, 0.4)")
+        return (f"({sq(sid)}, {sq(r['issuer_name'])}, {issue_date}, {year_val}, {year_txt}, "
+                f"{sq(denom)}, {sq(clean_subject(r['title']))}, {sq(page)})")
 
+    recs = [r for r in recs if r.get("issuer_name")]
     cols = ("stamp_id, issuer_id, issue_date, issue_year, issue_date_text, "
             "denomination_text, subject, source_tier, review_status, source_url, confidence")
     for i in range(0, len(recs), BATCH):
         chunk = recs[i:i+BATCH]
-        out.append(f"INSERT INTO stamps ({cols}) VALUES")
+        out.append(f"INSERT INTO stamps ({cols})")
+        out.append("SELECT v.sid, i.id, v.idate::date, v.iyear::smallint, v.itext, v.denom, v.subj,")
+        out.append("       'scraped'::data_source_tier, 'pending'::review_status, v.page, 0.4")
+        out.append("FROM (VALUES")
         out.append(",\n".join(stamp_val(r) for r in chunk))
+        out.append(") AS v(sid, iname, idate, iyear, itext, denom, subj, page)")
+        out.append("JOIN issuers i ON i.name = v.iname")
         out.append("ON CONFLICT (stamp_id) DO NOTHING;\n")
 
     # --- images: need stamps.id (serial), so JOIN a VALUES list on the text stamp_id ---

@@ -46,6 +46,14 @@ def infer_type(name, cluster, end):
         return "state"
     return "national_post" if end is None else "historic"
 
+# --- Issuers the Wikipedia inventory omits ----------------------------------
+# (name, type, from, to, note). Austria-Hungary is a major issuer in its own right;
+# without it, its ~950 Commons images would have to be misfiled under Bosnia.
+EXTRA_ISSUERS = [
+    ("Austria-Hungary", "historic", 1867, 1918,
+     "Dual Monarchy. Its stamps are distinct from Austria's and Hungary's own issues."),
+]
+
 # --- Hand-authored succession edges -----------------------------------------
 # (predecessor, successor, type, date, note). Names must match the inventory;
 # any that do not are reported and skipped rather than silently inserted.
@@ -268,6 +276,9 @@ def main():
     w("-- 1. Issuers")
     w("-- ---------------------------------------------------------------------------")
     w("INSERT INTO issuers (name, issuer_type, active_from, active_to, notes) VALUES")
+    for _n, _t, _f, _to, _note in EXTRA_ISSUERS:
+        issuers.setdefault(_n, {"clusters": {"(curated)"}, "start": _f, "end": _to})
+
     rows = []
     for name in sorted(issuers):
         r = issuers[name]

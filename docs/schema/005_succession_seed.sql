@@ -82,6 +82,7 @@ INSERT INTO issuers (name, issuer_type, active_from, active_to, notes) VALUES
   ('Australia', 'national_post', '1913-01-01', NULL, 'Philatelic cluster: Australia. Source: Wikipedia list of stamp-issuing entities.'),
   ('Australian Antarctic Territory', 'national_post', '1957-01-01', NULL, 'Philatelic cluster: Antarctic Territories. Source: Wikipedia list of stamp-issuing entities.'),
   ('Austria', 'national_post', '1850-01-01', NULL, 'Philatelic cluster: Austria. Source: Wikipedia list of stamp-issuing entities.'),
+  ('Austria-Hungary', 'historic', '1867-01-01', '1918-12-31', 'Philatelic cluster: (curated). Source: Wikipedia list of stamp-issuing entities.'),
   ('Austrian post offices abroad', 'post_abroad', NULL, NULL, 'Philatelic cluster: Austrian Post Abroad. Source: Wikipedia list of stamp-issuing entities.'),
   ('Austro–Hungarian Military Post', 'historic', '1915-01-01', '1918-12-31', 'Philatelic cluster: Austrian Post Abroad. Source: Wikipedia list of stamp-issuing entities.'),
   ('Austro–Hungarian Post in the Turkish Empire', 'post_abroad', '1867-01-01', '1915-12-31', 'Philatelic cluster: Austrian Post Abroad. Source: Wikipedia list of stamp-issuing entities.'),
@@ -1355,6 +1356,9 @@ SELECT 'Finland', 'former_name', 'issuer', id
 UNION ALL
 SELECT 'Antarctic Territories', 'former_name', 'issuer', id
   FROM issuers WHERE name = 'Australian Antarctic Territory'
+UNION ALL
+SELECT '(curated)', 'former_name', 'issuer', id
+  FROM issuers WHERE name = 'Austria-Hungary'
 UNION ALL
 SELECT 'Austrian Post Abroad', 'former_name', 'issuer', id
   FROM issuers WHERE name = 'Austrian post offices abroad'
