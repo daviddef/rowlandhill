@@ -171,7 +171,24 @@ EDGES = [
     # Austria-Hungary's Bosnian administration
     ("Austria-Hungary", "Bosnia and Herzegovina (Austro–Hungarian Empire)", "partition", "1878-07-13",
      "Occupied 1878 under the Congress of Berlin; first Bosnian stamps 1879"),
+
+    # --- Nauru (researched July 2026; see docs/research/nauru.md) -------------------------
+    # Nauru never had German-era stamps of its own: the post office (opened 14 Jul 1908) used
+    # German MARSHALL ISLANDS stamps, cancelled "NAURU MARSHALL-INSELN".
+    ("Marshall Islands (German Colony)", "North West Pacific Islands", "occupation", "1915-01-01",
+     "Australian occupation Nov 1914; German stock impounded and shipped to Rabaul. Nauru then used Australian stamps overprinted N.W. PACIFIC ISLANDS from Jan 1915"),
+    ("North West Pacific Islands", "Nauru", "renamed", "1916-10-01",
+     "GB KGV stamps overprinted NAURU from Oct 1916 (SG 1-12) — Nauru's first own issue"),
+    ("Marshall Islands (German Colony)", "US post in the Trust Territory of the Pacific Islands", "occupation", "1944-01-01",
+     "German colony 1897-1914; Japanese mandate; US trust territory from 1944"),
+    ("US post in the Trust Territory of the Pacific Islands", "Marshall Islands", "independence", "1986-10-21",
+     "Compact of Free Association; RMI own issues from 1984"),
+    # NOTE deliberately ABSENT: any edge from the G.R.I. overprints (SG ~50-64, catalogued
+    # under New Britain). Those stamps were captured ON Nauru, overprinted at Rabaul and sold
+    # in New Guinea — they were NEVER postally used on Nauru. Linking them would encode a
+    # common and well-documented myth.
 ]
+
 
 
 

@@ -9,7 +9,7 @@
 --   Wikipedia's groupings are a naming convention, not a lineage graph: USSR and
 --   Russia sit in separate groups with no link between them.
 --
--- Issuers: 1181   Succession edges: 69   Vernacular aliases: 46
+-- Issuers: 1181   Succession edges: 73   Vernacular aliases: 46
 
 BEGIN;
 
@@ -4621,6 +4621,18 @@ SELECT p.id, s.id, 'annexation', '1947-09-15'::date, 'Ceded by the Paris Peace T
 UNION ALL
 SELECT p.id, s.id, 'partition', '1878-07-13'::date, 'Occupied 1878 under the Congress of Berlin; first Bosnian stamps 1879'
   FROM issuers p, issuers s WHERE p.name = 'Austria-Hungary' AND s.name = 'Bosnia and Herzegovina (Austro–Hungarian Empire)'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1915-01-01'::date, 'Australian occupation Nov 1914; German stock impounded and shipped to Rabaul. Nauru then used Australian stamps overprinted N.W. PACIFIC ISLANDS from Jan 1915'
+  FROM issuers p, issuers s WHERE p.name = 'Marshall Islands (German Colony)' AND s.name = 'North West Pacific Islands'
+UNION ALL
+SELECT p.id, s.id, 'renamed', '1916-10-01'::date, 'GB KGV stamps overprinted NAURU from Oct 1916 (SG 1-12) — Nauru''s first own issue'
+  FROM issuers p, issuers s WHERE p.name = 'North West Pacific Islands' AND s.name = 'Nauru'
+UNION ALL
+SELECT p.id, s.id, 'occupation', '1944-01-01'::date, 'German colony 1897-1914; Japanese mandate; US trust territory from 1944'
+  FROM issuers p, issuers s WHERE p.name = 'Marshall Islands (German Colony)' AND s.name = 'US post in the Trust Territory of the Pacific Islands'
+UNION ALL
+SELECT p.id, s.id, 'independence', '1986-10-21'::date, 'Compact of Free Association; RMI own issues from 1984'
+  FROM issuers p, issuers s WHERE p.name = 'US post in the Trust Territory of the Pacific Islands' AND s.name = 'Marshall Islands'
 UNION ALL
 SELECT p.id, s.id, 'partition', '1886-01-01'::date, '[confidence=medium]'
   FROM issuers p, issuers s WHERE p.name = 'French Colonies' AND s.name = 'French Guiana'

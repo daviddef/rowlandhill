@@ -11,7 +11,7 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.0"
-    DEVELOPMENT_TEAM: ""
+    DEVELOPMENT_TEAM: "L9SAXP2E2W"
     CODE_SIGN_STYLE: Automatic
     MARKETING_VERSION: "0.1.0"
     CURRENT_PROJECT_VERSION: "1"
@@ -32,15 +32,11 @@ targets:
         TARGETED_DEVICE_FAMILY: "1"
         ENABLE_USER_SCRIPT_SANDBOXING: YES
         SWIFT_EMIT_LOC_STRINGS: YES
-    entitlements:
-      path: Rowland/Resources/Rowland.entitlements
-      properties:
-        com.apple.developer.applesignin: [Default]
-        com.apple.developer.icloud-container-identifiers:
-          - iCloud.app.rowlandhill
-        com.apple.developer.icloud-services: [CloudKit]
-        com.apple.developer.associated-domains:
-          - applinks:rowlandhill.app
+    # Entitlements are deliberately EMPTY for the first TestFlight build.
+    # Sign in with Apple, iCloud/CloudKit and Associated Domains are all declared-but-
+    # unimplemented (AppState.signIn is a TODO, CollectionStore is UserDefaults, deep links
+    # don't navigate). Requesting capabilities the app doesn't use blocks provisioning and
+    # forces premature registration of an iCloud container. Re-add each one as it ships.
 
   RowlandTests:
     type: bundle.unit-test
