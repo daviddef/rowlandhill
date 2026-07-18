@@ -22,6 +22,35 @@ those are yours. The steps below mark clearly which is which.
 
 ---
 
+## Status (18 Jul 2026)
+
+| Step | State |
+|---|---|
+| Team ID `L9SAXP2E2W` set in `project.yml` | ✅ |
+| Signing certificates on this machine | ✅ (2 Apple Development identities) |
+| App Store Connect API key `AuthKey_9K9486HSDF.p8` + Issuer ID | ✅ verified against the API |
+| Bundle ID `app.rowlandhill` registered | ✅ (ID `64522MQRDN`) |
+| Release **archive** | ✅ succeeds |
+| **IPA export** (app-store-connect) | ✅ succeeds (~870 KB) |
+| **App record in App Store Connect** | ❌ **blocked — only you can do this** |
+| Upload | ⛔ blocked by the above |
+
+**The single blocker.** Apple's API cannot create app records —
+`POST /v1/apps` returns *"The resource 'apps' does not allow 'CREATE'"* — so the upload fails
+with *"Cannot determine the Apple ID from Bundle ID 'app.rowlandhill'"*. Create the record once
+in the web UI:
+
+> App Store Connect → **Apps → + → New App** · Platform **iOS** · Bundle ID **app.rowlandhill**
+> · SKU **ROWLAND001** · Name must be unique App-Store-wide (e.g. "Rowland" or "Rowland Stamps")
+
+Then the entire release is one command: `./scripts/release_testflight.sh`
+
+**Getting the archive to build required stripping entitlements.** Sign in with Apple, iCloud and
+Associated Domains were declared but unimplemented, and requesting unused capabilities blocked
+provisioning. They're commented out in `project.yml` — re-add each as it actually ships.
+
+---
+
 ## Steps to TestFlight
 
 ### 1. Apple Developer Program — **you**
