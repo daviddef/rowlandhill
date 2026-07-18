@@ -1,0 +1,495 @@
+<style>
+:root{
+  --ground:#141419; --card:#1b212b; --card2:#181e27; --gold:#f0a500; --gold-soft:#c48200;
+  --ink:#f3f0e8; --muted:#8b949e; --border:#2c333f; --track:#232a35;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+}
+:root[data-theme="light"]{
+  --ground:#f4f1ea; --card:#fffdf8; --card2:#faf6ec; --gold:#b6790a; --gold-soft:#d8a63b;
+  --ink:#20242b; --muted:#6b7280; --border:#e3ddce; --track:#ece6d8;
+}
+@media (prefers-color-scheme:light){
+  :root{ --ground:#f4f1ea; --card:#fffdf8; --card2:#faf6ec; --gold:#b6790a; --gold-soft:#d8a63b;
+    --ink:#20242b; --muted:#6b7280; --border:#e3ddce; --track:#ece6d8; }
+}
+:root[data-theme="dark"]{
+  --ground:#141419; --card:#1b212b; --card2:#181e27; --gold:#f0a500; --gold-soft:#c48200;
+  --ink:#f3f0e8; --muted:#8b949e; --border:#2c333f; --track:#232a35;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:56px 24px 80px}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+  font-weight:600;margin-bottom:14px}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,5vw,46px);line-height:1.08;
+  margin:0 0 16px;text-wrap:balance;letter-spacing:-.01em}
+.lede{color:var(--muted);max-width:60ch;margin:0 0 34px;font-size:17px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
+@media(max-width:640px){.tiles{grid-template-columns:repeat(2,1fr)}}
+.tile{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 16px;
+  position:relative;overflow:hidden}
+.tile::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:repeating-linear-gradient(90deg,var(--gold) 0 6px,transparent 6px 12px);opacity:.5}
+.tn{font-family:var(--serif);font-size:30px;font-weight:700;font-variant-numeric:tabular-nums;
+  color:var(--gold);line-height:1}
+.tl{color:var(--muted);font-size:12.5px;margin-top:6px;letter-spacing:.02em}
+section{margin-top:52px}
+h2{font-family:var(--serif);font-size:23px;font-weight:700;margin:0 0 6px;
+  display:flex;align-items:baseline;gap:12px}
+h2 .c{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted)}
+.sub{color:var(--muted);font-size:14px;max-width:64ch;margin:0 0 22px}
+.bars{display:flex;flex-direction:column;gap:7px;margin-top:20px}
+.row{display:grid;grid-template-columns:150px 1fr 74px;align-items:center;gap:14px}
+@media(max-width:560px){.row{grid-template-columns:110px 1fr 60px;gap:10px}}
+.cn{font-size:13.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{height:16px;background:var(--track);border-radius:4px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,var(--gold-soft),var(--gold));border-radius:4px;
+  min-width:3px}
+.num{font-variant-numeric:tabular-nums;font-size:13.5px;color:var(--gold);text-align:right;
+  font-weight:600}
+.zeros{display:flex;flex-wrap:wrap;gap:7px}
+.z{font-size:12.5px;color:var(--muted);background:var(--card2);border:1px solid var(--border);
+  border-radius:999px;padding:5px 11px}
+.hist{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 28px}
+@media(max-width:560px){.hist{grid-template-columns:1fr}}
+.hrow{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);
+  font-size:13.5px}
+footer{margin-top:56px;padding-top:20px;border-top:1px dashed var(--border);color:var(--muted);
+  font-size:13px;max-width:64ch}
+footer span{color:var(--gold-soft)}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Rowland · Catalogue coverage</div>
+  <h1>The stamp library, country by country</h1>
+  <p class="lede">Every stamp-issuing country in the world, and how many records Rowland now
+  holds for each. Harvested from Wikimedia Commons under reusable licences — image-tier,
+  pending catalogue enrichment.</p>
+  <div class="tiles">
+    <div class="tile"><div class="tn">115,987</div><div class="tl">stamp records</div></div>
+    <div class="tile"><div class="tn">123</div><div class="tl">of 218 countries covered</div></div>
+    <div class="tile"><div class="tn">89,761</div><div class="tl">dated (77%)</div></div>
+    <div class="tile"><div class="tn">7,223</div><div class="tl">with denomination</div></div>
+  </div>
+</header>
+
+<section>
+  <h2>Covered <span class="c">123 countries</span></h2>
+  <div class="bars"><div class="row"><div class="cn">Russia</div>
+<div class="track"><div class="fill" style="width:100.0%"></div></div>
+<div class="num">16,088</div></div>
+<div class="row"><div class="cn">Netherlands</div>
+<div class="track"><div class="fill" style="width:50.6%"></div></div>
+<div class="num">8,148</div></div>
+<div class="row"><div class="cn">France</div>
+<div class="track"><div class="fill" style="width:50.6%"></div></div>
+<div class="num">8,146</div></div>
+<div class="row"><div class="cn">Indonesia</div>
+<div class="track"><div class="fill" style="width:49.7%"></div></div>
+<div class="num">7,992</div></div>
+<div class="row"><div class="cn">Germany</div>
+<div class="track"><div class="fill" style="width:48.1%"></div></div>
+<div class="num">7,734</div></div>
+<div class="row"><div class="cn">United States</div>
+<div class="track"><div class="fill" style="width:32.7%"></div></div>
+<div class="num">5,266</div></div>
+<div class="row"><div class="cn">Belarus</div>
+<div class="track"><div class="fill" style="width:26.2%"></div></div>
+<div class="num">4,219</div></div>
+<div class="row"><div class="cn">Albania</div>
+<div class="track"><div class="fill" style="width:25.7%"></div></div>
+<div class="num">4,129</div></div>
+<div class="row"><div class="cn">China</div>
+<div class="track"><div class="fill" style="width:23.9%"></div></div>
+<div class="num">3,848</div></div>
+<div class="row"><div class="cn">Ukraine</div>
+<div class="track"><div class="fill" style="width:23.7%"></div></div>
+<div class="num">3,812</div></div>
+<div class="row"><div class="cn">Azerbaijan</div>
+<div class="track"><div class="fill" style="width:21.5%"></div></div>
+<div class="num">3,458</div></div>
+<div class="row"><div class="cn">Romania</div>
+<div class="track"><div class="fill" style="width:19.9%"></div></div>
+<div class="num">3,205</div></div>
+<div class="row"><div class="cn">Brazil</div>
+<div class="track"><div class="fill" style="width:19.6%"></div></div>
+<div class="num">3,160</div></div>
+<div class="row"><div class="cn">India</div>
+<div class="track"><div class="fill" style="width:18.2%"></div></div>
+<div class="num">2,927</div></div>
+<div class="row"><div class="cn">Finland</div>
+<div class="track"><div class="fill" style="width:15.5%"></div></div>
+<div class="num">2,501</div></div>
+<div class="row"><div class="cn">Armenia</div>
+<div class="track"><div class="fill" style="width:14.4%"></div></div>
+<div class="num">2,312</div></div>
+<div class="row"><div class="cn">Switzerland</div>
+<div class="track"><div class="fill" style="width:11.9%"></div></div>
+<div class="num">1,917</div></div>
+<div class="row"><div class="cn">Italy</div>
+<div class="track"><div class="fill" style="width:9.5%"></div></div>
+<div class="num">1,534</div></div>
+<div class="row"><div class="cn">Peru</div>
+<div class="track"><div class="fill" style="width:7.7%"></div></div>
+<div class="num">1,239</div></div>
+<div class="row"><div class="cn">Denmark</div>
+<div class="track"><div class="fill" style="width:7.4%"></div></div>
+<div class="num">1,197</div></div>
+<div class="row"><div class="cn">Seychelles</div>
+<div class="track"><div class="fill" style="width:7.4%"></div></div>
+<div class="num">1,183</div></div>
+<div class="row"><div class="cn">Israel</div>
+<div class="track"><div class="fill" style="width:7.3%"></div></div>
+<div class="num">1,180</div></div>
+<div class="row"><div class="cn">Hungary</div>
+<div class="track"><div class="fill" style="width:6.7%"></div></div>
+<div class="num">1,071</div></div>
+<div class="row"><div class="cn">Bolivia</div>
+<div class="track"><div class="fill" style="width:6.3%"></div></div>
+<div class="num">1,014</div></div>
+<div class="row"><div class="cn">Iraq</div>
+<div class="track"><div class="fill" style="width:6.2%"></div></div>
+<div class="num">998</div></div>
+<div class="row"><div class="cn">Lithuania</div>
+<div class="track"><div class="fill" style="width:5.5%"></div></div>
+<div class="num">892</div></div>
+<div class="row"><div class="cn">Turkey</div>
+<div class="track"><div class="fill" style="width:5.4%"></div></div>
+<div class="num">865</div></div>
+<div class="row"><div class="cn">Portugal</div>
+<div class="track"><div class="fill" style="width:5.0%"></div></div>
+<div class="num">800</div></div>
+<div class="row"><div class="cn">Japan</div>
+<div class="track"><div class="fill" style="width:4.5%"></div></div>
+<div class="num">718</div></div>
+<div class="row"><div class="cn">Egypt</div>
+<div class="track"><div class="fill" style="width:4.4%"></div></div>
+<div class="num">707</div></div>
+<div class="row"><div class="cn">Philippines</div>
+<div class="track"><div class="fill" style="width:4.2%"></div></div>
+<div class="num">683</div></div>
+<div class="row"><div class="cn">Mexico</div>
+<div class="track"><div class="fill" style="width:4.2%"></div></div>
+<div class="num">681</div></div>
+<div class="row"><div class="cn">Algeria</div>
+<div class="track"><div class="fill" style="width:4.1%"></div></div>
+<div class="num">655</div></div>
+<div class="row"><div class="cn">Belgium</div>
+<div class="track"><div class="fill" style="width:4.0%"></div></div>
+<div class="num">638</div></div>
+<div class="row"><div class="cn">South Africa</div>
+<div class="track"><div class="fill" style="width:3.2%"></div></div>
+<div class="num">519</div></div>
+<div class="row"><div class="cn">Colombia</div>
+<div class="track"><div class="fill" style="width:3.2%"></div></div>
+<div class="num">514</div></div>
+<div class="row"><div class="cn">Vietnam</div>
+<div class="track"><div class="fill" style="width:3.1%"></div></div>
+<div class="num">506</div></div>
+<div class="row"><div class="cn">Australia</div>
+<div class="track"><div class="fill" style="width:2.9%"></div></div>
+<div class="num">473</div></div>
+<div class="row"><div class="cn">Spain</div>
+<div class="track"><div class="fill" style="width:2.8%"></div></div>
+<div class="num">456</div></div>
+<div class="row"><div class="cn">Austria</div>
+<div class="track"><div class="fill" style="width:2.8%"></div></div>
+<div class="num">451</div></div>
+<div class="row"><div class="cn">Tanzania</div>
+<div class="track"><div class="fill" style="width:2.6%"></div></div>
+<div class="num">418</div></div>
+<div class="row"><div class="cn">Poland</div>
+<div class="track"><div class="fill" style="width:2.5%"></div></div>
+<div class="num">396</div></div>
+<div class="row"><div class="cn">United Kingdom</div>
+<div class="track"><div class="fill" style="width:2.3%"></div></div>
+<div class="num">362</div></div>
+<div class="row"><div class="cn">Canada</div>
+<div class="track"><div class="fill" style="width:2.2%"></div></div>
+<div class="num">360</div></div>
+<div class="row"><div class="cn">Iran</div>
+<div class="track"><div class="fill" style="width:2.2%"></div></div>
+<div class="num">357</div></div>
+<div class="row"><div class="cn">Syria</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">315</div></div>
+<div class="row"><div class="cn">Congo (Republic)</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">292</div></div>
+<div class="row"><div class="cn">Serbia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">288</div></div>
+<div class="row"><div class="cn">Latvia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">248</div></div>
+<div class="row"><div class="cn">Sweden</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">230</div></div>
+<div class="row"><div class="cn">Norway</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">210</div></div>
+<div class="row"><div class="cn">Greece</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">193</div></div>
+<div class="row"><div class="cn">Uruguay</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">171</div></div>
+<div class="row"><div class="cn">Bermuda</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">151</div></div>
+<div class="row"><div class="cn">North Macedonia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">148</div></div>
+<div class="row"><div class="cn">Liechtenstein</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">132</div></div>
+<div class="row"><div class="cn">Monaco</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">131</div></div>
+<div class="row"><div class="cn">Nicaragua</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">130</div></div>
+<div class="row"><div class="cn">Argentina</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">129</div></div>
+<div class="row"><div class="cn">Ireland</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">128</div></div>
+<div class="row"><div class="cn">New Zealand</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">124</div></div>
+<div class="row"><div class="cn">Croatia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">119</div></div>
+<div class="row"><div class="cn">Estonia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">109</div></div>
+<div class="row"><div class="cn">Chile</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">85</div></div>
+<div class="row"><div class="cn">Iceland</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">85</div></div>
+<div class="row"><div class="cn">Bulgaria</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">79</div></div>
+<div class="row"><div class="cn">Congo (DR)</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">78</div></div>
+<div class="row"><div class="cn">Guatemala</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">75</div></div>
+<div class="row"><div class="cn">Cuba</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">66</div></div>
+<div class="row"><div class="cn">Luxembourg</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">56</div></div>
+<div class="row"><div class="cn">Burundi</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">53</div></div>
+<div class="row"><div class="cn">Ecuador</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">53</div></div>
+<div class="row"><div class="cn">Slovenia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">51</div></div>
+<div class="row"><div class="cn">Thailand</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">38</div></div>
+<div class="row"><div class="cn">Libya</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">37</div></div>
+<div class="row"><div class="cn">Panama</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">34</div></div>
+<div class="row"><div class="cn">Barbados</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">30</div></div>
+<div class="row"><div class="cn">Sierra Leone</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">30</div></div>
+<div class="row"><div class="cn">Saint Helena</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">27</div></div>
+<div class="row"><div class="cn">Korea (South)</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">26</div></div>
+<div class="row"><div class="cn">Madagascar</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">26</div></div>
+<div class="row"><div class="cn">Honduras</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">24</div></div>
+<div class="row"><div class="cn">Nigeria</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">23</div></div>
+<div class="row"><div class="cn">Pakistan</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">23</div></div>
+<div class="row"><div class="cn">Paraguay</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">21</div></div>
+<div class="row"><div class="cn">Gambia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">20</div></div>
+<div class="row"><div class="cn">Morocco</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">20</div></div>
+<div class="row"><div class="cn">Mongolia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">19</div></div>
+<div class="row"><div class="cn">Ethiopia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">17</div></div>
+<div class="row"><div class="cn">Ascension Island</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">16</div></div>
+<div class="row"><div class="cn">Haiti</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">15</div></div>
+<div class="row"><div class="cn">Botswana</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">14</div></div>
+<div class="row"><div class="cn">Brunei</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">13</div></div>
+<div class="row"><div class="cn">Papua New Guinea</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">13</div></div>
+<div class="row"><div class="cn">Ghana</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">12</div></div>
+<div class="row"><div class="cn">Saint Lucia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">12</div></div>
+<div class="row"><div class="cn">San Marino</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">12</div></div>
+<div class="row"><div class="cn">Uganda</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">12</div></div>
+<div class="row"><div class="cn">Cayman Islands</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">12</div></div>
+<div class="row"><div class="cn">Fiji</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">11</div></div>
+<div class="row"><div class="cn">Grenada</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">11</div></div>
+<div class="row"><div class="cn">Jordan</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">11</div></div>
+<div class="row"><div class="cn">Suriname</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">11</div></div>
+<div class="row"><div class="cn">Dominica</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">10</div></div>
+<div class="row"><div class="cn">Montserrat</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">10</div></div>
+<div class="row"><div class="cn">Bahrain</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">9</div></div>
+<div class="row"><div class="cn">Bhutan</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">8</div></div>
+<div class="row"><div class="cn">Nepal</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">8</div></div>
+<div class="row"><div class="cn">Samoa</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">8</div></div>
+<div class="row"><div class="cn">Liberia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">7</div></div>
+<div class="row"><div class="cn">Niger</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">5</div></div>
+<div class="row"><div class="cn">Saudi Arabia</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">5</div></div>
+<div class="row"><div class="cn">Bahamas</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">4</div></div>
+<div class="row"><div class="cn">Dominican Republic</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">4</div></div>
+<div class="row"><div class="cn">Eswatini</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">4</div></div>
+<div class="row"><div class="cn">Kosovo</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">4</div></div>
+<div class="row"><div class="cn">Qatar</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">4</div></div>
+<div class="row"><div class="cn">Sri Lanka</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">3</div></div>
+<div class="row"><div class="cn">Anguilla</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">3</div></div>
+<div class="row"><div class="cn">Belize</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">2</div></div>
+<div class="row"><div class="cn">Nauru</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">2</div></div>
+<div class="row"><div class="cn">Afghanistan</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">1</div></div>
+<div class="row"><div class="cn">Bangladesh</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">1</div></div></div>
+</section>
+
+<section>
+  <h2>Not yet in the library <span class="c">95 countries</span></h2>
+  <p class="sub">Modern countries with zero records so far — mostly smaller or later-independence
+  issuers whose Commons categories use naming the harvest didn't reach. Each is a known gap, not
+  a dead end.</p>
+  <div class="zeros"><span class="z">Andorra</span><span class="z">Angola</span><span class="z">Antigua and Barbuda</span><span class="z">Aruba</span><span class="z">Benin</span><span class="z">Bosnia and Herzegovina</span><span class="z">British Virgin Islands</span><span class="z">Burkina Faso</span><span class="z">Cambodia</span><span class="z">Cameroon</span><span class="z">Cape Verde</span><span class="z">Central African Republic</span><span class="z">Chad</span><span class="z">Comoros</span><span class="z">Cook Islands</span><span class="z">Costa Rica</span><span class="z">Cyprus</span><span class="z">Czechia</span><span class="z">Djibouti</span><span class="z">El Salvador</span><span class="z">Equatorial Guinea</span><span class="z">Eritrea</span><span class="z">Falkland Islands</span><span class="z">Faroe Islands</span><span class="z">Gabon</span><span class="z">Georgia</span><span class="z">Gibraltar</span><span class="z">Greenland</span><span class="z">Guernsey</span><span class="z">Guinea</span><span class="z">Guinea-Bissau</span><span class="z">Guyana</span><span class="z">Hong Kong</span><span class="z">Isle of Man</span><span class="z">Ivory Coast</span><span class="z">Jamaica</span><span class="z">Jersey</span><span class="z">Kazakhstan</span><span class="z">Kenya</span><span class="z">Kiribati</span><span class="z">Korea (North)</span><span class="z">Kuwait</span><span class="z">Kyrgyzstan</span><span class="z">Laos</span><span class="z">Lebanon</span><span class="z">Lesotho</span><span class="z">Macau</span><span class="z">Malawi</span><span class="z">Malaysia</span><span class="z">Maldives</span><span class="z">Mali</span><span class="z">Malta</span><span class="z">Marshall Islands</span><span class="z">Mauritania</span><span class="z">Mauritius</span><span class="z">Micronesia</span><span class="z">Moldova</span><span class="z">Montenegro</span><span class="z">Mozambique</span><span class="z">Myanmar</span><span class="z">Namibia</span><span class="z">Niue</span><span class="z">Norfolk Island</span><span class="z">Oman</span><span class="z">Palau</span><span class="z">Palestine</span><span class="z">Rwanda</span><span class="z">Saint Kitts and Nevis</span><span class="z">Saint Vincent and the Grenadines</span><span class="z">Sao Tome and Principe</span><span class="z">Senegal</span><span class="z">Singapore</span><span class="z">Slovakia</span><span class="z">Solomon Islands</span><span class="z">Somalia</span><span class="z">South Sudan</span><span class="z">Sudan</span><span class="z">Taiwan</span><span class="z">Tajikistan</span><span class="z">Timor-Leste</span><span class="z">Togo</span><span class="z">Tonga</span><span class="z">Trinidad and Tobago</span><span class="z">Tunisia</span><span class="z">Turkmenistan</span><span class="z">Turks and Caicos Islands</span><span class="z">Tuvalu</span><span class="z">United Arab Emirates</span><span class="z">Uzbekistan</span><span class="z">Vanuatu</span><span class="z">Vatican City</span><span class="z">Venezuela</span><span class="z">Yemen</span><span class="z">Zambia</span><span class="z">Zimbabwe</span></div>
+</section>
+
+<section>
+  <h2>Historical &amp; colonial entities <span class="c">27</span></h2>
+  <p class="sub">Dead countries and colonial issuers harvested separately — they hang off the
+  succession graph, so a search for the modern name reaches them.</p>
+  <div class="hist"><div class="hrow"><span>Yugoslavia</span><span class="num">556</span></div>
+<div class="hrow"><span>the German Empire</span><span class="num">371</span></div>
+<div class="hrow"><span>Saarland</span><span class="num">141</span></div>
+<div class="hrow"><span>Basutoland</span><span class="num">116</span></div>
+<div class="hrow"><span>Martinique</span><span class="num">101</span></div>
+<div class="hrow"><span>British Guiana</span><span class="num">84</span></div>
+<div class="hrow"><span>the Cape of Good Hope</span><span class="num">61</span></div>
+<div class="hrow"><span>British Honduras</span><span class="num">36</span></div>
+<div class="hrow"><span>New Caledonia</span><span class="num">22</span></div>
+<div class="hrow"><span>British Somaliland</span><span class="num">19</span></div>
+<div class="hrow"><span>Southern Rhodesia</span><span class="num">16</span></div>
+<div class="hrow"><span>the Falkland Islands Dependencies</span><span class="num">16</span></div>
+<div class="hrow"><span>North Korea</span><span class="num">13</span></div>
+<div class="hrow"><span>the Straits Settlements</span><span class="num">11</span></div>
+<div class="hrow"><span>the Leeward Islands</span><span class="num">9</span></div>
+<div class="hrow"><span>French Equatorial Africa</span><span class="num">8</span></div>
+<div class="hrow"><span>Nyasaland</span><span class="num">8</span></div>
+<div class="hrow"><span>Rhodesia</span><span class="num">8</span></div>
+<div class="hrow"><span>the Gilbert and Ellice Islands</span><span class="num">7</span></div>
+<div class="hrow"><span>the Czech Republic</span><span class="num">7</span></div>
+<div class="hrow"><span>East Africa & Uganda Protectorates</span><span class="num">6</span></div>
+<div class="hrow"><span>Guadeloupe</span><span class="num">6</span></div>
+<div class="hrow"><span>British Central Africa</span><span class="num">5</span></div>
+<div class="hrow"><span>Northern Rhodesia</span><span class="num">5</span></div>
+<div class="hrow"><span>British East Africa</span><span class="num">3</span></div>
+<div class="hrow"><span>Kenya and Uganda</span><span class="num">1</span></div>
+<div class="hrow"><span>the Danish West Indies</span><span class="num">1</span></div></div>
+</section>
+
+<footer>Image-tier corpus · reusable licences only · <span>confidence 0.4, pending review</span>.
+The jump past a million distinct catalogue records is a licensing decision, not a harvest.</footer>
+</div>

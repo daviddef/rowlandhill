@@ -23,3 +23,6 @@ Rowland.xcodeproj/
 
 ## Generated bulk-data SQL — large, regenerate from docs/data/*.json via scripts/load_commons.py
 docs/schema/006_commons_stamps.sql
+
+## Large regenerable harvest data (scripts + summaries are committed; full JSON is not)
+docs/data/commons-stamp-records.json
