@@ -32,18 +32,20 @@ those are yours. The steps below mark clearly which is which.
 | Bundle ID `app.rowlandhill` registered | ✅ (ID `64522MQRDN`) |
 | Release **archive** | ✅ succeeds |
 | **IPA export** (app-store-connect) | ✅ succeeds (~870 KB) |
-| **App record in App Store Connect** | ❌ **blocked — only you can do this** |
-| Upload | ⛔ blocked by the above |
+| App record in App Store Connect | ✅ created by David, 19 Jul 2026 |
+| **Upload of build 1** | ✅ **UPLOAD SUCCEEDED** — delivery UUID `7e9ff943-f018-41d3-a61c-659bf1694292` |
 
-**The single blocker.** Apple's API cannot create app records —
-`POST /v1/apps` returns *"The resource 'apps' does not allow 'CREATE'"* — so the upload fails
-with *"Cannot determine the Apple ID from Bundle ID 'app.rowlandhill'"*. Create the record once
-in the web UI:
+**Build 1 is uploaded.** It appears under TestFlight after ~5–15 minutes of processing.
+Every subsequent release is one command — `./scripts/release_testflight.sh` — after bumping
+`CURRENT_PROJECT_VERSION` in `project.yml`.
 
-> App Store Connect → **Apps → + → New App** · Platform **iOS** · Bundle ID **app.rowlandhill**
-> · SKU **ROWLAND001** · Name must be unique App-Store-wide (e.g. "Rowland" or "Rowland Stamps")
-
-Then the entire release is one command: `./scripts/release_testflight.sh`
+The one manual step was creating the app record: Apple's API cannot do it
+(`POST /v1/apps` → *"The resource 'apps' does not allow 'CREATE'"*), so until the record
+existed the upload failed with *"Cannot determine the Apple ID from Bundle ID"*. **The App
+Store listing name does not have to be "Rowland"** — the name was taken, and it does not
+matter: uploads key on the bundle ID, and the listing name can be changed any time before
+release. The API key lives at `~/.appstoreconnect/private_keys/AuthKey_9K9486HSDF.p8` and is
+deliberately outside the repo.
 
 **Getting the archive to build required stripping entitlements.** Sign in with Apple, iCloud and
 Associated Domains were declared but unimplemented, and requesting unused capabilities blocked

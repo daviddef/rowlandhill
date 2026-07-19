@@ -60,21 +60,41 @@ h2 .c{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14e
 footer{margin-top:56px;padding-top:20px;border-top:1px dashed var(--border);color:var(--muted);
   font-size:13px;max-width:64ch}
 footer span{color:var(--gold-soft)}
+
+.note{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px}
+.note h3{font-family:var(--serif);font-size:16px;margin:0 0 8px}
+.note p{margin:0;color:var(--muted);font-size:14px;max-width:70ch}
+.note strong{color:var(--ink)} .note em{color:var(--gold-soft);font-style:italic}
+
+h3.sh{font-family:var(--serif);font-size:17px;margin:38px 0 4px;letter-spacing:.01em}
+.decoder .hrow{gap:18px;align-items:baseline}
+.decoder .ins{color:var(--gold-soft);text-align:right;font-size:12.5px;letter-spacing:.01em}
+.note.trap{margin-top:38px}
+.sub strong{color:var(--ink)}
+.sub em{color:var(--gold-soft);font-style:italic}
 </style>
 <div class="wrap">
 <header>
   <div class="eyebrow">Rowland · Catalogue coverage</div>
   <h1>The stamp library, country by country</h1>
   <p class="lede">Every stamp-issuing country in the world and how many records Rowland holds
-  for each. Harvested from Wikimedia Commons under reusable licences only — image-tier,
-  pending catalogue enrichment.</p>
+  for each — harvested from Wikimedia Commons under reusable licences only.</p>
   <div class="tiles">
-    <div class="tile"><div class="tn">132,327</div><div class="tl">stamp records</div></div>
-    <div class="tile"><div class="tn">201</div><div class="tl">of 218 countries covered</div></div>
-    <div class="tile"><div class="tn">105,250</div><div class="tl">dated (79%)</div></div>
-    <div class="tile"><div class="tn">216</div><div class="tl">distinct issuers</div></div>
+    <div class="tile"><div class="tn">132,351</div><div class="tl">stamp records</div></div>
+    <div class="tile"><div class="tn">201</div><div class="tl">of 218 countries</div></div>
+    <div class="tile"><div class="tn">105,280</div><div class="tl">dated (79%)</div></div>
+    <div class="tile"><div class="tn">420</div><div class="tl">succession edges</div></div>
   </div>
 </header>
+<section class="note">
+  <h3>What this is — and isn't</h3>
+  <p>Image-tier, not catalogue-tier: every record carries an issuer, a year and a licensed
+  image, but no catalogue number. Counts include covers, sheets and duplicates, so this is
+  <em>not</em> a count of distinct catalogued stamps. Worked example — <strong>Nauru</strong> has
+  roughly 740 catalogued stamps; Commons holds 25 images of them. <strong>We hold about 3%.</strong>
+  The remainder exists online but is not freely licensed. That gap is a licensing decision,
+  not a crawling problem.</p>
+</section>
 <section><h2>Covered <span class="c">201 countries</span></h2>
   <p class="sub">A stamp can belong to more than one country — a French Indochina issue is filed
   under Cambodia, Laos and Vietnam alike — so attributions are counted many-to-many.</p>
@@ -474,6 +494,9 @@ footer span{color:var(--gold-soft)}
 <div class="row"><div class="cn">Myanmar</div>
 <div class="track"><div class="fill" style="width:2.0%"></div></div>
 <div class="num">25</div></div>
+<div class="row"><div class="cn">Nauru</div>
+<div class="track"><div class="fill" style="width:2.0%"></div></div>
+<div class="num">25</div></div>
 <div class="row"><div class="cn">Honduras</div>
 <div class="track"><div class="fill" style="width:2.0%"></div></div>
 <div class="num">24</div></div>
@@ -677,19 +700,18 @@ footer span{color:var(--gold-soft)}
 <div class="num">2</div></div>
 <div class="row"><div class="cn">Mauritania</div>
 <div class="track"><div class="fill" style="width:2.0%"></div></div>
-<div class="num">2</div></div>
-<div class="row"><div class="cn">Nauru</div>
-<div class="track"><div class="fill" style="width:2.0%"></div></div>
 <div class="num">2</div></div></div></section>
-<section><h2>Not yet in the library <span class="c">17 countries</span></h2>
-  <p class="sub">Commons has no reusable-licensed stamp images for these — mostly modern
-  issuers whose designs remain in copyright (Hong Kong, Jersey, the Faroes) and recent or very
-  small states. They need a different source, not a deeper crawl.</p>
+<section><h2>Not yet held <span class="c">17 countries</span></h2>
+  <p class="sub">Commons has no reusable-licensed images for these — mostly modern issuers whose
+  designs remain in copyright (Hong Kong, Jersey, the Faroes) and recent or very small states.
+  They need a different source, not a deeper crawl.</p>
   <div class="zeros"><span class="z">Aruba</span><span class="z">Burkina Faso</span><span class="z">Falkland Islands</span><span class="z">Faroe Islands</span><span class="z">Gabon</span><span class="z">Georgia</span><span class="z">Guernsey</span><span class="z">Hong Kong</span><span class="z">Jersey</span><span class="z">Korea (North)</span><span class="z">Micronesia</span><span class="z">Namibia</span><span class="z">Norfolk Island</span><span class="z">Sao Tome and Principe</span><span class="z">South Sudan</span><span class="z">Timor-Leste</span><span class="z">Tuvalu</span></div></section>
-<section><h2>Historical &amp; colonial issuers <span class="c">top 30 of 52</span></h2>
+<section><h2>Historical &amp; colonial issuers <span class="c">top 30 of 59</span></h2>
   <p class="sub">Dead countries and colonial administrations, hanging off the succession graph —
-  so searching the modern name reaches them.</p>
-  <div class="hist"><div class="hrow"><span>German Empire</span><span class="num">654</span></div>
+  so searching a modern name reaches them. Era reattribution moved 12,709 stamps to the issuer
+  that actually printed them: the USSR alone holds 11,849.</p>
+  <div class="hist"><div class="hrow"><span>Austria-Hungary</span><span class="num">955</span></div>
+<div class="hrow"><span>German Empire</span><span class="num">654</span></div>
 <div class="hrow"><span>Ottoman Empire</span><span class="num">599</span></div>
 <div class="hrow"><span>Yugoslavia</span><span class="num">557</span></div>
 <div class="hrow"><span>Czechoslovakia</span><span class="num">453</span></div>
@@ -697,6 +719,7 @@ footer span{color:var(--gold-soft)}
 <div class="hrow"><span>Saarland</span><span class="num">273</span></div>
 <div class="hrow"><span>Manchukuo</span><span class="num">255</span></div>
 <div class="hrow"><span>Protectorate of Bohemia and Moravia</span><span class="num">144</span></div>
+<div class="hrow"><span>Independent State of Croatia</span><span class="num">132</span></div>
 <div class="hrow"><span>Basutoland</span><span class="num">116</span></div>
 <div class="hrow"><span>South African Republic</span><span class="num">114</span></div>
 <div class="hrow"><span>Ifni</span><span class="num">113</span></div>
@@ -704,21 +727,52 @@ footer span{color:var(--gold-soft)}
 <div class="hrow"><span>British Guiana</span><span class="num">85</span></div>
 <div class="hrow"><span>Cape of Good Hope</span><span class="num">62</span></div>
 <div class="hrow"><span>Netherlands East Indies</span><span class="num">53</span></div>
+<div class="hrow"><span>Free Territory of Trieste</span><span class="num">45</span></div>
 <div class="hrow"><span>United Arab Republic</span><span class="num">44</span></div>
 <div class="hrow"><span>Confederate States of America</span><span class="num">36</span></div>
 <div class="hrow"><span>British Honduras</span><span class="num">36</span></div>
+<div class="hrow"><span>Fiume</span><span class="num">34</span></div>
 <div class="hrow"><span>New Caledonia</span><span class="num">31</span></div>
+<div class="hrow"><span>German New Guinea</span><span class="num">27</span></div>
 <div class="hrow"><span>British Somaliland</span><span class="num">26</span></div>
 <div class="hrow"><span>Guadeloupe</span><span class="num">22</span></div>
 <div class="hrow"><span>French Equatorial Africa</span><span class="num">20</span></div>
 <div class="hrow"><span>Federated States of Micronesia</span><span class="num">18</span></div>
 <div class="hrow"><span>Italian Eritrea</span><span class="num">17</span></div>
-<div class="hrow"><span>Portuguese Timor</span><span class="num">16</span></div>
-<div class="hrow"><span>Southern Rhodesia</span><span class="num">16</span></div>
-<div class="hrow"><span>Falkland Islands Dependencies</span><span class="num">16</span></div>
-<div class="hrow"><span>French Congo</span><span class="num">16</span></div>
-<div class="hrow"><span>New Hebrides</span><span class="num">14</span></div>
-<div class="hrow"><span>Italian Libya</span><span class="num">14</span></div></div></section>
-<footer>Image-tier corpus · reusable licences only · <span>confidence 0.4, pending review</span>.
-Record counts include covers, sheets and duplicates, so this is not a count of distinct catalogued
-stamps. The jump past a million is a licensing decision, not a harvest.</footer></div>
+<div class="hrow"><span>Falkland Islands Dependencies</span><span class="num">16</span></div></div></section>
+
+<section><h2>Philatelic profiles <span class="c">69 of 218 countries</span></h2>
+  <p class="sub">Counting images tells us what we hold. It does not tell us what we are missing,
+  or what the stamp in front of the camera actually says. So each country now carries a
+  researched profile: when it first issued, under which authority, what is printed on the
+  stamps, and where the catalogue hides things. <strong>409</strong> distinct issuing periods
+  and <strong>628</strong> inscriptions recorded so far. Every profile also records where
+  issuing stopped and why, and which areas are known to be forged — because on those two
+  questions an empty field would be a guess dressed as a fact.</p>
+
+  <h3 class="sh">When each country first issued</h3>
+  <p class="sub">Great Britain 1840, then a scramble. Twenty-three of these 69 countries issued
+  their first stamp in the 1850s alone — the decade the idea went global.</p>
+  <div class="bars"><div class="row"><div class="cn">1840s</div><div class="track"><div class="fill" style="width:30.4%"></div></div><div class="num">7</div></div><div class="row"><div class="cn">1850s</div><div class="track"><div class="fill" style="width:100.0%"></div></div><div class="num">23</div></div><div class="row"><div class="cn">1860s</div><div class="track"><div class="fill" style="width:26.1%"></div></div><div class="num">6</div></div><div class="row"><div class="cn">1870s</div><div class="track"><div class="fill" style="width:34.8%"></div></div><div class="num">8</div></div><div class="row"><div class="cn">1880s</div><div class="track"><div class="fill" style="width:8.7%"></div></div><div class="num">2</div></div><div class="row"><div class="cn">1890s</div><div class="track"><div class="fill" style="width:17.4%"></div></div><div class="num">4</div></div><div class="row"><div class="cn">1900s</div><div class="track"><div class="fill" style="width:4.3%"></div></div><div class="num">1</div></div><div class="row"><div class="cn">1910s</div><div class="track"><div class="fill" style="width:43.5%"></div></div><div class="num">10</div></div><div class="row"><div class="cn">1920s</div><div class="track"><div class="fill" style="width:8.7%"></div></div><div class="num">2</div></div><div class="row"><div class="cn">1940s</div><div class="track"><div class="fill" style="width:13.0%"></div></div><div class="num">3</div></div><div class="row"><div class="cn">1970s</div><div class="track"><div class="fill" style="width:4.3%"></div></div><div class="num">1</div></div><div class="row"><div class="cn">1990s</div><div class="track"><div class="fill" style="width:8.7%"></div></div><div class="num">2</div></div></div>
+
+  <h3 class="sh">What the stamp actually says</h3>
+  <p class="sub">The single most useful field for identification, and the one a country-name
+  search fails on. A stamp reading <em>Shqipënia</em> or <em>Suomi</em> is not going to match
+  the word a collector typed. Fifty of the 69 print something other than their English name.</p>
+  <div class="hist decoder"><div class="hrow"><span>Albania</span><span class="ins">SHQIPENIA · SHQIPËNIA</span></div><div class="hrow"><span>Algeria</span><span class="ins">Arabic: al-Jaza&#x27;ir · Arabic: al-Jumhuriyya al-Jaza&#x27;iriyya</span></div><div class="hrow"><span>Argentina</span><span class="ins">CORREOS · CORREOS Y TELEGRAFOS</span></div><div class="hrow"><span>Austria</span><span class="ins">KAIS. KÖN. ÖSTERR. POST · ÖSTERR. POST</span></div><div class="hrow"><span>Bangladesh</span><span class="ins">Bengali বাংলাদেশ</span></div><div class="hrow"><span>Belarus</span><span class="ins">БЕЛАРУСЬ · Пошта Беларусі / Belpochta</span></div><div class="hrow"><span>Belgium</span><span class="ins">POSTES-POSTERIJEN</span></div><div class="hrow"><span>Bosnia and Herzegovina</span><span class="ins">BOSNA I HERCEGOVINA · REPUBLIKA BOSNA I HERCEGOVINA</span></div><div class="hrow"><span>Brazil</span><span class="ins">CORREIO GERAL DO RIO DE JANEIRO · BRASIL</span></div><div class="hrow"><span>Bulgaria</span><span class="ins">ПОЩА / ПОЩА БЪЛГАРИЯ</span></div><div class="hrow"><span>Chile</span><span class="ins">CORREOS · PORTE FRANCO</span></div><div class="hrow"><span>China</span><span class="ins">CHINESE IMPERIAL POST · SHANGHAI L.P.O. / SHANGHAI LOCAL POST</span></div><div class="hrow"><span>Colombia</span><span class="ins">CONFED. GRANADINA CORREOS NACIONALES · EE.UU. DE NUEVA GRANADA</span></div><div class="hrow"><span>Croatia</span><span class="ins">HRVATSKA · REPUBLIKA HRVATSKA</span></div><div class="hrow"><span>Cuba</span><span class="ins">CORREOS · AEREO / CORREO AEREO</span></div><div class="hrow"><span>Denmark</span><span class="ins">DANMARK · K.G.L. POST FRIMAERKE</span></div><div class="hrow"><span>Finland</span><span class="ins">SUOMI · MARKKAA / PENNIA</span></div><div class="hrow"><span>France</span><span class="ins">POSTES</span></div><div class="hrow"><span>Germany</span><span class="ins">Bayern · Preussen / Preußen</span></div><div class="hrow"><span>Ghana</span><span class="ins">POSTAGE / POSTAGE &amp; REVENUE</span></div><div class="hrow"><span>Hungary</span><span class="ins">MAGYAR KIR POSTA · MAGYAR KIRALYI POSTA</span></div><div class="hrow"><span>India</span><span class="ins">SCINDE DISTRICT DAWK</span></div><div class="hrow"><span>Iraq</span><span class="ins">BAGHDAD IN BRITISH OCCUPATION</span></div><div class="hrow"><span>Israel</span><span class="ins">Arabic form ISRAIL on trilingual issues</span></div><div class="hrow"><span>Italy</span><span class="ins">ITALIA · REPUBBLICA ITALIANA</span></div><div class="hrow"><span>Kenya</span><span class="ins">IMPERIAL BRITISH EAST AFRICA COMPANY · BRITISH EAST AFRICA</span></div><div class="hrow"><span>Lithuania</span><span class="ins">LIETUVA · LIETUVOS RESPUBLIKA</span></div><div class="hrow"><span>Malaysia</span><span class="ins">STRAITS SETTLEMENTS POSTAGE · PERSEKUTUAN TANAH MELAYU</span></div><div class="hrow"><span>Mexico</span><span class="ins">MÉXICO · CORREOS</span></div><div class="hrow"><span>Myanmar</span><span class="ins">BURMA / BURMA POSTAGE · UNION OF BURMA</span></div><div class="hrow"><span>Netherlands</span><span class="ins">NEDERLAND · POSTZEGEL</span></div><div class="hrow"><span>New Zealand</span><span class="ins">POSTAGE · POSTAGE &amp; REVENUE</span></div><div class="hrow"><span>Nigeria</span><span class="ins">POSTAGE / POSTAGE &amp; REVENUE</span></div><div class="hrow"><span>Pakistan</span><span class="ins">Urdu پاکستان</span></div><div class="hrow"><span>Peru</span><span class="ins">CORREOS</span></div><div class="hrow"><span>Philippines</span><span class="ins">FILIPINAS ESPAÑOLAS</span></div><div class="hrow"><span>Poland</span><span class="ins">POCZTA POLSKA · POLSKA</span></div><div class="hrow"><span>Portugal</span><span class="ins">CORREIOS E TELEGRAFOS</span></div><div class="hrow"><span>Russia</span><span class="ins">ПОЧТОВАЯ МАРКА · ПОЧТА</span></div><div class="hrow"><span>Slovenia</span><span class="ins">KRALJEVSTVO S.H.S.</span></div><div class="hrow"><span>South Africa</span><span class="ins">SUIDAFRIKA / SUID-AFRIKA · POSTAGE-REVENUE / POSSEEL-INKOMSTE</span></div><div class="hrow"><span>Spain</span><span class="ins">CORREOS · ESPAÑA</span></div><div class="hrow"><span>Sri Lanka</span><span class="ins">CEYLON · CEYLON POSTAGE</span></div><div class="hrow"><span>Switzerland</span><span class="ins">HELVETIA · HELVETIA / CONFOEDERATIO HELVETICA</span></div><div class="hrow"><span>Tanzania</span><span class="ins">DEUTSCH-OSTAFRIKA · TANGANYIKA</span></div><div class="hrow"><span>Thailand</span><span class="ins">SIAM · SIAM POSTAGE</span></div><div class="hrow"><span>Turkey</span><span class="ins">Arabic script: Osmanli Postalari · TURKIYE CUMHURIYETI</span></div><div class="hrow"><span>United Arab Emirates</span><span class="ins">ABU DHABI / أبوظبي · DUBAI / دبي</span></div><div class="hrow"><span>United Kingdom</span><span class="ins">POSTAGE · POSTAGE REVENUE</span></div><div class="hrow"><span>United States</span><span class="ins">U.S. Postage · U.S. Post Office</span></div></div>
+
+  <div class="note trap">
+    <h3>Traps the research caught</h3>
+    <p>The profiles are as valuable for what they refute. Russia's first stamps went on sale
+    <strong>10 December 1857</strong> — the 1858 date in circulation is when use became
+    compulsory, and the 1857 Tiflis 6-kopeck routinely called "the first Russian stamp" is a
+    city local, not a general issue. Whole eras also sit under other names: Finland, Russian
+    Poland, the Russian offices in the Levant and China, and every 1918–23 Civil War regime are
+    catalogued <em>outside</em> Russia, so a country-keyed search silently misses them. Armenia's
+    profile is the only one we rated <em>low confidence</em> — and it says so rather than
+    guessing.</p>
+  </div>
+</section>
+
+<footer>Reusable licences only · <span>confidence 0.4, pending review</span>. The jump past a
+million distinct catalogue records is a licensing decision, not a harvest.</footer></div>
