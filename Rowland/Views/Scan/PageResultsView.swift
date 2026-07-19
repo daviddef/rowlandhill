@@ -290,11 +290,16 @@ private struct DetectedStampCell: View {
                         .lineLimit(1)
                 }
             case .failed(let reason):
-                // Show WHY, not a blanket "Not recognised". A stamp we never managed to look
+                // Show WHY, not a blanket "Not recognised" — a stamp we never managed to look
                 // up is not a stamp we looked up and failed to find, and telling a collector
-                // their Bulgarian definitive is "not recognised" when we never reached the
-                // catalogue is a false statement about our own coverage.
-                Text(reason)
+                // their Bulgarian definitive is "not recognised" is a false claim about our
+                // own coverage.
+                //
+                // But the connectivity reason is the SAME for every tile on the page, and the
+                // header already states it in full. Repeating one truncated sentence 51 times
+                // is noise that buries the stamps. Say it once up there, stay quiet down here.
+                Text(reason == StampClassifier.ClassifierError.backendUnavailable.errorDescription
+                     ? "Not checked" : reason)
                     .font(.caption).foregroundColor(.stampMuted)
                     .lineLimit(2)
             case .pending:
