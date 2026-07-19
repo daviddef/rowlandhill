@@ -364,6 +364,23 @@ final class CatalogueViewModel: ObservableObject {
         errorMessage = nil
         defer { isLoading = false }
 
+        // The bundled catalogue answers first. It holds the whole corpus as text, so browse and
+        // search work with no server, no domain and no connection — which is the difference
+        // between this tab working and this tab apologising. The API is for what the bundle
+        // can't know: valuations, catalogue refs, and anything added since the build.
+        if LocalCatalogue.shared.isAvailable && filterCatalogueNumber.isEmpty {
+            let results = LocalCatalogue.shared.search(
+                query: [query, filterTopic].filter { !$0.isEmpty }.joined(separator: " "),
+                country: filterCountry.isEmpty ? nil : filterCountry,
+                yearFrom: filterYearFrom,
+                yearTo: filterYearTo,
+                page: page
+            )
+            if page == 1 { stamps = results } else { stamps.append(contentsOf: results) }
+            hasMore = results.count >= 40
+            return
+        }
+
         do {
             // If catalogue number is specified, do a direct catalogue lookup
             if !filterCatalogueNumber.isEmpty {

@@ -26,3 +26,5 @@ docs/schema/006_commons_stamps.sql
 
 ## Large regenerable harvest data (scripts + summaries are committed; full JSON is not)
 docs/data/commons-stamp-records.json
+# 31MB generated artefact — rebuild with scripts/export_catalogue.py, don't version it
+Rowland/Resources/catalogue.sqlite
