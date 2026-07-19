@@ -4,6 +4,13 @@
 **Date:** 19 July 2026 · **Purpose:** base-catalogue dossier. Scope, numbering, inscriptions,
 and the legal question of whether we may hold the images at all.
 
+
+> **Two independent passes exist for this country.** Two research agents each wrote a DPRK
+> dossier without seeing the other's. Neither is a subset of the other, so both are kept.
+> This one carries the sanctions and import-legality analysis (HTS 9704, 31 CFR 510.312).
+> The second pass — [`north-korea.md`](north-korea.md) — carries the inscription myth-checks
+> and the 1945 fork modelling. Read both before encoding anything.
+
 ---
 
 ## 1. Headline counts — and why they disagree

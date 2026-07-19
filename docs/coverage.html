@@ -71,6 +71,7 @@ h3.sh{font-family:var(--serif);font-size:17px;margin:38px 0 4px;letter-spacing:.
 .decoder .ins{color:var(--gold-soft);text-align:right;font-size:12.5px;letter-spacing:.01em}
 .note.trap{margin-top:38px}
 .sub strong{color:var(--ink)}
+.via{color:var(--muted);font-size:11.5px;letter-spacing:.02em}
 .sub em{color:var(--gold-soft);font-style:italic}
 </style>
 <div class="wrap">
@@ -83,7 +84,7 @@ h3.sh{font-family:var(--serif);font-size:17px;margin:38px 0 4px;letter-spacing:.
     <div class="tile"><div class="tn">132,351</div><div class="tl">stamp records</div></div>
     <div class="tile"><div class="tn">201</div><div class="tl">of 218 countries</div></div>
     <div class="tile"><div class="tn">105,280</div><div class="tl">dated (79%)</div></div>
-    <div class="tile"><div class="tn">420</div><div class="tl">succession edges</div></div>
+    <div class="tile"><div class="tn">429</div><div class="tl">succession edges</div></div>
   </div>
 </header>
 <section class="note">
@@ -702,9 +703,25 @@ h3.sh{font-family:var(--serif);font-size:17px;margin:38px 0 4px;letter-spacing:.
 <div class="track"><div class="fill" style="width:2.0%"></div></div>
 <div class="num">2</div></div></div></section>
 <section><h2>Not yet held <span class="c">17 countries</span></h2>
-  <p class="sub">Commons has no reusable-licensed images for these — mostly modern issuers whose
-  designs remain in copyright (Hong Kong, Jersey, the Faroes) and recent or very small states.
-  They need a different source, not a deeper crawl.</p>
+  <p class="sub">This heading was overstated, and the research caught it. These have no
+  reusable-licensed images <em>under their own country label</em> — but eight of the seventeen
+  do reach stamps through a predecessor issuer, once the succession graph is wired correctly.
+  Nine edges were missing; adding them moved five of these off zero. What remains is a
+  licensing wall, not a crawling gap.</p>
+  <div class="hist">
+    <div class="hrow"><span>South Sudan <span class="via">via Sudan</span></span><span class="num">22</span></div>
+    <div class="hrow"><span>Micronesia <span class="via">direct</span></span><span class="num">18</span></div>
+    <div class="hrow"><span>Falkland Islands <span class="via">via Dependencies</span></span><span class="num">16</span></div>
+    <div class="hrow"><span>Timor-Leste <span class="via">via Portuguese Timor</span></span><span class="num">16</span></div>
+    <div class="hrow"><span>North Korea <span class="via">direct</span></span><span class="num">13</span></div>
+    <div class="hrow"><span>Tuvalu <span class="via">via Gilbert &amp; Ellice</span></span><span class="num">12</span></div>
+    <div class="hrow"><span>Gabon <span class="via">via French Equatorial Africa</span></span><span class="num">8</span></div>
+    <div class="hrow"><span>Jersey · Guernsey</span><span class="num">1 each</span></div>
+  </div>
+  <p class="sub" style="margin-top:18px">Still genuinely at zero: Aruba, Burkina Faso, Faroe
+  Islands, Hong Kong, Namibia, Norfolk Island, São Tomé and Príncipe. Georgia is the odd one
+  out — it reaches <strong>12,723</strong>, but only because its ancestor walk climbs into the
+  USSR and hands back the entire Soviet corpus. True history, useless search.</p>
   <div class="zeros"><span class="z">Aruba</span><span class="z">Burkina Faso</span><span class="z">Falkland Islands</span><span class="z">Faroe Islands</span><span class="z">Gabon</span><span class="z">Georgia</span><span class="z">Guernsey</span><span class="z">Hong Kong</span><span class="z">Jersey</span><span class="z">Korea (North)</span><span class="z">Micronesia</span><span class="z">Namibia</span><span class="z">Norfolk Island</span><span class="z">Sao Tome and Principe</span><span class="z">South Sudan</span><span class="z">Timor-Leste</span><span class="z">Tuvalu</span></div></section>
 <section><h2>Historical &amp; colonial issuers <span class="c">top 30 of 59</span></h2>
   <p class="sub">Dead countries and colonial administrations, hanging off the succession graph —
@@ -772,6 +789,56 @@ h3.sh{font-family:var(--serif);font-size:17px;margin:38px 0 4px;letter-spacing:.
     profile is the only one we rated <em>low confidence</em> — and it says so rather than
     guessing.</p>
   </div>
+</section>
+
+
+<section><h2>Base catalogue <span class="c">the 17, researched</span></h2>
+  <p class="sub">Every one of the seventeen now has a sourced dossier — counts tied to a named
+  catalogue, issuing periods, inscriptions, forgery and agency risk, and the copyright position
+  on its images. The point of naming the catalogue is that catalogues disagree by ±20%, so a
+  count without one is decoration.</p>
+
+  <div class="note trap">
+    <h3>What the research overturned</h3>
+    <p>Six briefs I wrote were wrong, and the dossiers say so rather than quietly complying.
+    <strong>Gabon</strong> is not a wallpaper issuer — 24 UPU-registered stamps against 63+
+    counterfeit sets is a forgery problem, the opposite diagnosis. <strong>Georgia's</strong>
+    modern stamps are <em>PD-GE-exempt</em>: Georgian law excludes state symbols from
+    copyright, where my skeleton said "in copyright." <strong>Sark</strong> began issuing valid
+    stamps in August 2025; I said it had none. <strong>Hong Kong</strong> issued no stamps
+    1841–62 and the agent refused to invent an issuing period for it. <strong>Tuvalu</strong> is
+    listed by both Scott and SG, contrary to the premise I handed over. And on
+    <strong>North Korea</strong>, Scott has not declined to list DPRK material — it actively
+    revises it.</p>
+  </div>
+
+  <div class="note trap">
+    <h3>The licensing wall, stated plainly</h3>
+    <p>For São Tomé, Timor-Leste, Gabon and Burkina Faso there is <strong>no viable free
+    commercial image pipeline.</strong> The shape of it is almost comic: the institution holding
+    the colonial stamps — Portugal's <em>Fundação Portuguesa das Comunicações</em> — publishes
+    no licence at all, only a privacy policy. The institutions with clean licences hold no
+    stamps. Gallica looks open and isn't: commercial reuse is <em>payante</em> at roughly €65 an
+    image, its free IIIF API is not a free licence, and it now carries an explicit
+    <strong>paid-for-AI clause</strong> covering data mining. Underneath all of that sits a
+    second layer nobody clears by accident — <strong>design copyright, 70 years from the death
+    of the designer</strong>, which a public-domain scan does not touch.</p>
+  </div>
+
+  <div class="note trap">
+    <h3>Three genuine openings</h3>
+    <p><strong>Georgia</strong> — state symbols excluded from copyright by statute.
+    <strong>North Korea before 1976</strong> — a 50-year corporate term covering 1946 to the
+    1974 export pivot, which is precisely the philatelically valuable era; here
+    <em>sanctions, not copyright, are the binding constraint</em>, since stamps sit at HTS 9704,
+    outside the artworks carve-out. <strong>Aruba</strong> — a public-authority exception
+    arguably reaching pre-2005 issues. All three need a lawyer before anyone acts on them.</p>
+  </div>
+
+  <p class="sub" style="margin-top:26px">Not researched, and marked as such rather than left to
+  read as a negative finding: Dutch institutions, non-EU national archives, and the
+  <strong>UPU WNS</strong> — which holds official images of everything issued since 2002 and is
+  potentially the highest-volume route of all. Those strands hit a session limit.</p>
 </section>
 
 <footer>Reusable licences only · <span>confidence 0.4, pending review</span>. The jump past a

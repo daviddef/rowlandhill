@@ -5,6 +5,13 @@ the highest-volume issuers in the world and one of the least trustworthy, and al
 "everyone knows" about it is a half-truth. This dossier tries to separate the documented from
 the folkloric.
 
+
+> **Two independent passes exist for this country.** Two research agents each wrote a DPRK
+> dossier without seeing the other's. Neither is a subset of the other, so both are kept.
+> This one carries the inscription myth-checks ("North Korea" never appears on a DPRK stamp)
+> and the 1945 fork modelling. The first pass — [`korea-north.md`](korea-north.md) — carries
+> the sanctions and import-legality analysis. Read both before encoding anything.
+
 ---
 
 ## 1. Headline counts
