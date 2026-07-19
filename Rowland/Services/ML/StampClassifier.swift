@@ -94,6 +94,9 @@ final class StampClassifier: ObservableObject {
         // concurrent requests would be hostile to the API and to the user's battery.
         // Each await yields, so the UI stays responsive and progress ticks visibly.
         for index in stamps.indices {
+            // Tick before the work, not after: otherwise the label reads "0 of 51" for the
+            // whole of the first stamp and the page looks frozen.
+            onProgress(index, stamps.count)
             do {
                 let result = try await identify(crop: stamps[index].crop)
                 stamps[index].outcome = .identified(result)
@@ -101,11 +104,39 @@ final class StampClassifier: ObservableObject {
             } catch {
                 stamps[index].outcome = .failed(error.localizedDescription)
                 stamps[index].isSelected = false
+
+                // Stop the page on the first unreachable-backend error. Identification is
+                // one network round trip per stamp, so without this the user waits for the
+                // connection to time out once per stamp — 51 stamps × 20s is 17 minutes of
+                // waiting to be told the same thing 51 times.
+                if Self.isBackendUnreachable(error) {
+                    let message = ClassifierError.backendUnavailable.errorDescription ?? ""
+                    for remaining in index..<stamps.count {
+                        stamps[remaining].outcome = .failed(message)
+                        stamps[remaining].isSelected = false
+                    }
+                    onProgress(stamps.count, stamps.count)
+                    return PageScan(sourceImage: upright, stamps: stamps)
+                }
             }
             onProgress(index + 1, stamps.count)
         }
 
         return PageScan(sourceImage: upright, stamps: stamps)
+    }
+
+    /// True for errors that mean "the server isn't answering" rather than "this stamp didn't
+    /// match". Retrying these once per stamp on a page just multiplies the wait.
+    private static func isBackendUnreachable(_ error: Error) -> Bool {
+        guard let urlError = error as? URLError else { return false }
+        switch urlError.code {
+        case .cannotFindHost, .cannotConnectToHost, .dnsLookupFailed,
+             .notConnectedToInternet, .networkConnectionLost, .timedOut,
+             .internationalRoamingOff, .dataNotAllowed, .secureConnectionFailed:
+            return true
+        default:
+            return false
+        }
     }
 
     // MARK: - Core Identification
@@ -232,6 +263,7 @@ final class StampClassifier: ObservableObject {
         case invalidImage
         case noMatchFound
         case noStampsFound
+        case backendUnavailable
 
         var errorDescription: String? {
             switch self {
@@ -240,6 +272,8 @@ final class StampClassifier: ObservableObject {
             case .invalidImage:   return "Could not process this image"
             case .noMatchFound:   return "No matching stamp found"
             case .noStampsFound:  return "No stamps found on this page. Try better lighting, or a straight-on photo with the whole page in frame."
+            case .backendUnavailable:
+                return "Can't reach the stamp catalogue. Check your connection and try again."
             }
         }
     }

@@ -13,13 +13,16 @@ final class StampAPIClient {
 
     init() {
         let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 30
-        config.waitsForConnectivity = true
-        // waitsForConnectivity makes timeoutIntervalForRequest inapplicable while the
-        // session waits for a usable connection — the resource timeout governs instead,
-        // and it defaults to 7 days. Without this, an unreachable API leaves callers
-        // awaiting forever and the UI spinning with no error.
-        config.timeoutIntervalForResource = 60
+        config.timeoutIntervalForRequest = 15
+        // waitsForConnectivity is deliberately OFF. It sounds helpful — wait for the network
+        // instead of failing — but it suppresses fast DNS/connection failures and makes the
+        // task sit until timeoutIntervalForResource expires. That is wrong for this app: a
+        // page scan calls the API once per detected stamp, so a single unreachable-host wait
+        // gets multiplied by the number of stamps on the page. With waitsForConnectivity on
+        // and a 60s resource timeout, a 51-stamp album page took 51 minutes to fail.
+        // Fail fast per request; the page loop stops on the first unreachable error.
+        config.waitsForConnectivity = false
+        config.timeoutIntervalForResource = 20
         config.requestCachePolicy = .returnCacheDataElseLoad
         self.session = URLSession(configuration: config)
     }
