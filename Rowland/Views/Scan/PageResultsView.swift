@@ -22,6 +22,18 @@ struct PageResultsView: View {
     private var unrecognisedCount: Int { allStamps.count - identifiedCount }
     private var selectedCount: Int { allStamps.filter(\.isSelected).count }
 
+    /// True when nothing was identified because we never reached the catalogue. "Unrecognised"
+    /// would claim we searched and came up empty, which is a claim about our coverage we have
+    /// no right to make when the lookup never happened.
+    private var lookupUnavailable: Bool {
+        identifiedCount == 0 && !allStamps.isEmpty && allStamps.allSatisfy {
+            if case .failed(let reason) = $0.outcome {
+                return reason == StampClassifier.ClassifierError.backendUnavailable.errorDescription
+            }
+            return false
+        }
+    }
+
     var body: some View {
         ZStack(alignment: .bottom) {
             ScrollView {
@@ -30,6 +42,7 @@ struct PageResultsView: View {
                         identified: identifiedCount,
                         unrecognised: unrecognisedCount,
                         selected: selectedCount,
+                        lookupUnavailable: lookupUnavailable,
                         onSelectAll: { viewModel.setAllSelected(true) },
                         onSelectNone: { viewModel.setAllSelected(false) }
                     )
@@ -101,31 +114,47 @@ private struct SummaryHeader: View {
     let identified: Int
     let unrecognised: Int
     let selected: Int
+    let lookupUnavailable: Bool
     let onSelectAll: () -> Void
     let onSelectNone: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 8) {
-                Label("\(identified) identified", systemImage: "checkmark.circle.fill")
+            if lookupUnavailable {
+                // Nothing was looked up, so report the detection — which did work — and be
+                // explicit that identification never ran. Anything else overstates a failure
+                // as a coverage gap.
+                Label("\(unrecognised) stamps found, none checked",
+                      systemImage: "exclamationmark.triangle.fill")
                     .foregroundColor(.stampGold)
-                if unrecognised > 0 {
-                    Text("·").foregroundColor(.stampMuted)
-                    Text("\(unrecognised) unrecognised").foregroundColor(.stampMuted)
+                    .font(.subheadline.weight(.medium))
+
+                Text("The catalogue couldn't be reached, so these haven't been identified yet. "
+                     + "Your stamps were detected fine — try again when you're back online.")
+                    .font(.footnote)
+                    .foregroundColor(.stampMuted)
+            } else {
+                HStack(spacing: 8) {
+                    Label("\(identified) identified", systemImage: "checkmark.circle.fill")
+                        .foregroundColor(.stampGold)
+                    if unrecognised > 0 {
+                        Text("·").foregroundColor(.stampMuted)
+                        Text("\(unrecognised) unrecognised").foregroundColor(.stampMuted)
+                    }
                 }
-            }
-            .font(.subheadline.weight(.medium))
+                .font(.subheadline.weight(.medium))
 
-            Text("Check each match before adding. Tap a stamp to see its full details.")
-                .font(.footnote)
-                .foregroundColor(.stampMuted)
+                Text("Check each match before adding. Tap a stamp to see its full details.")
+                    .font(.footnote)
+                    .foregroundColor(.stampMuted)
 
-            HStack(spacing: 12) {
-                Button("Select All", action: onSelectAll)
-                Button("Select None", action: onSelectNone)
+                HStack(spacing: 12) {
+                    Button("Select All", action: onSelectAll)
+                    Button("Select None", action: onSelectNone)
+                }
+                .font(.footnote.weight(.medium))
+                .foregroundColor(.stampGold)
             }
-            .font(.footnote.weight(.medium))
-            .foregroundColor(.stampGold)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(14)
@@ -260,9 +289,14 @@ private struct DetectedStampCell: View {
                         .foregroundColor(.stampMuted)
                         .lineLimit(1)
                 }
-            case .failed:
-                Text("Not recognised")
+            case .failed(let reason):
+                // Show WHY, not a blanket "Not recognised". A stamp we never managed to look
+                // up is not a stamp we looked up and failed to find, and telling a collector
+                // their Bulgarian definitive is "not recognised" when we never reached the
+                // catalogue is a false statement about our own coverage.
+                Text(reason)
                     .font(.caption).foregroundColor(.stampMuted)
+                    .lineLimit(2)
             case .pending:
                 Text("…").font(.caption).foregroundColor(.stampMuted)
             }
