@@ -393,8 +393,19 @@ final class CatalogueViewModel: ObservableObject {
             // Superseded by a newer query — not a failure worth showing.
         } catch {
             // A swallowed error is indistinguishable from "no results", which is how a
-            // failed request used to render as an empty grid forever. Say what happened.
-            errorMessage = error.localizedDescription
+            // failed request used to render as an empty grid forever. Say what happened —
+            // but in the user's terms. URLError's own text ("A server with the specified
+            // hostname could not be found") describes our infrastructure, not their problem.
+            if let urlError = error as? URLError {
+                switch urlError.code {
+                case .notConnectedToInternet, .networkConnectionLost:
+                    errorMessage = "You're offline. Check your connection and try again."
+                default:
+                    errorMessage = "Can't reach the catalogue right now. Try again in a moment."
+                }
+            } else {
+                errorMessage = error.localizedDescription
+            }
             hasMore = false
         }
     }
