@@ -2,12 +2,22 @@ import Foundation
 
 // MARK: - Rowland API Client
 //
-// Base URL: https://api.rowlandhill.app/v1
-// Auth: Bearer JWT (obtained via /auth/apple)
+// Base URL: Supabase PostgREST (see baseURL below) — no custom domain required.
+// Auth: Supabase anon key on every call; a user JWT supersedes it once sign-in exists.
 // All endpoints return JSON matching the Stamp model in Models/Stamp.swift
 
 final class StampAPIClient {
-    private let baseURL = URL(string: "https://api.rowlandhill.app/v1")!
+    // Supabase-hosted Postgres + PostgREST. No custom domain: the project subdomain is a real
+    // HTTPS endpoint, so buying rowlandhill.app is a branding decision, not a blocker. To move
+    // later, change these two lines — the server presents our own shape via RPC (009_api_surface),
+    // so nothing else in this client is Supabase-specific.
+    private let baseURL = URL(string: "https://kajatggdwogcvvpofkil.supabase.co/rest/v1")!
+
+    /// Supabase anon key. Publishable by design — it identifies the project, and row-level
+    /// security is what actually protects the data (see 009_api_surface.sql, which enables RLS
+    /// on every table and exposes only the read-only RPCs). This is NOT a secret; the service
+    /// role key, which IS, must never appear in the app.
+    private static let anonKey = "SUPABASE_ANON_KEY_PLACEHOLDER"
     private let session: URLSession
     private var authToken: String? = nil
 
@@ -36,7 +46,7 @@ final class StampAPIClient {
     /// GET /v1/stamps/{stampID}
     /// Fetch full stamp detail by StampID (e.g., "SID-GB-1840-0001")
     func fetchStamp(id stampID: String) async throws -> Stamp {
-        try await get("/stamps/\(stampID)")
+        try await rpc("get_stamp", ["p_stamp_id": stampID])
     }
 
     /// GET /v1/stamps/by-catalogue/{catalogue}/{number}
@@ -57,17 +67,11 @@ final class StampAPIClient {
         page: Int = 1,
         perPage: Int = 40
     ) async throws -> SearchResponse {
-        var params: [String: String] = [
-            "q": query,
-            "page": String(page),
-            "per_page": String(perPage),
-        ]
-        if let c = country  { params["country"] = c }
-        if let y = yearFrom { params["year_from"] = String(y) }
-        if let y = yearTo   { params["year_to"] = String(y) }
-        if let t = topic    { params["topic"] = t }
-
-        return try await get("/search", params: params)
+        return try await rpc("search_stamps", [
+            "q": query, "country": country ?? "", "year_from": yearFrom as Any? ?? NSNull(),
+            "year_to": yearTo as Any? ?? NSNull(), "topic": topic ?? "",
+            "page": page, "per_page": perPage,
+        ].compactMapValues { $0 })
     }
 
     /// POST /v1/stamps/search-by-embedding
@@ -193,9 +197,21 @@ final class StampAPIClient {
     }
 
     private func addAuthHeader(to request: inout URLRequest) {
-        if let token = authToken {
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
+        // PostgREST needs the project key on every call. A signed-in user's JWT supersedes the
+        // anon key for Authorization, but apikey is always required.
+        request.setValue(Self.anonKey, forHTTPHeaderField: "apikey")
+        request.setValue("Bearer \(authToken ?? Self.anonKey)", forHTTPHeaderField: "Authorization")
+    }
+
+    /// Call a Postgres function. The RPCs in 009_api_surface.sql return exactly the JSON the
+    /// models below already decode, so routing through them needs no change to Stamp/SearchResponse.
+    private func rpc<T: Decodable>(_ fn: String, _ args: [String: Any]) async throws -> T {
+        var request = URLRequest(url: baseURL.appendingPathComponent("rpc/\(fn)"))
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: args)
+        addAuthHeader(to: &request)
+        return try await perform(request)
     }
 
     private func perform<T: Decodable>(_ request: URLRequest) async throws -> T {
