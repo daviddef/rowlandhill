@@ -1,4 +1,10 @@
 # Rowland iOS — Project Handover
+
+> ⚠️ **SUPERSEDED — this is the July 2026 research/architecture handover, kept for history.**
+> It predates the Supabase migration, the harvester fix, the corpus growth to 148,448 stamps,
+> and TestFlight builds 1–6. **Read [`HANDOFF-2026-07-19.md`](HANDOFF-2026-07-19.md) instead**,
+> then `CLAUDE.md`.
+
 **Date:** July 2026  
 **From:** Research & Architecture phase (Claude, Cowork)  
 **To:** Implementation phase (Claude Code or developer)  
