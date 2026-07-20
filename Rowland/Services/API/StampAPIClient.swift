@@ -17,7 +17,7 @@ final class StampAPIClient {
     /// security is what actually protects the data (see 009_api_surface.sql, which enables RLS
     /// on every table and exposes only the read-only RPCs). This is NOT a secret; the service
     /// role key, which IS, must never appear in the app.
-    private static let anonKey = "SUPABASE_ANON_KEY_PLACEHOLDER"
+    private static let anonKey = "sb_publishable_XOHQ7c743yZRfeUf1QoFJw_4HHpnlCK"
     private let session: URLSession
     private var authToken: String? = nil
 

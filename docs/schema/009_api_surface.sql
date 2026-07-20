@@ -144,4 +144,15 @@ BEGIN
   END LOOP;
 END $$;
 
+-- SECURITY DEFINER: the RPCs run as owner so anon never needs SELECT on the tables. With RLS
+-- on and no anon policy, a direct table read is denied while the RPC still works — verified
+-- both ways against the live endpoint. Safe here because all three are read-only, take typed
+-- parameters and build no dynamic SQL; search_path is pinned so a hostile schema on the
+-- caller's path cannot shadow what they resolve.
+ALTER FUNCTION public.search_stamps(text,text,int,int,text,int,int) SECURITY DEFINER SET search_path = public, pg_temp;
+ALTER FUNCTION public.get_stamp(text) SECURITY DEFINER SET search_path = public, pg_temp;
+ALTER FUNCTION public.list_countries() SECURITY DEFINER SET search_path = public, pg_temp;
+ALTER FUNCTION public.stamp_json(public.stamps) SECURITY DEFINER SET search_path = public, pg_temp;
+ALTER FUNCTION public.get_issuer_lineage_by_issuer(int) SECURITY DEFINER SET search_path = public, pg_temp;
+
 COMMIT;
